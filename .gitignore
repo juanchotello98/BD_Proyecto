@@ -33,3 +33,5 @@ nbdist/
 .nb-gradle/
 
 # End of https://www.gitignore.io/api/netbeans
+/JavaApplication2/nbproject/private/
+/Proyecto_BD/nbproject/private/
