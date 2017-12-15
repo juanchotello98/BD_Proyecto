@@ -10,19 +10,20 @@ package Logica;
  * @author Admin
  */
 public class Enfermera extends Empleado{
-    public int identificacion;
+
+    
     public String tiempoExperiencia;
 
-    public Enfermera(int identificacion) {
+    public Enfermera(String identificacion) {
         super(identificacion);
     }
 
-    public void setIdentificacion(int identificacion){
+    public void setIdentificacion(String identificacion){
         this.identificacion=identificacion;
     }
     
     @Override
-    public int getIdentificacion(){
+    public String getIdentificacion(){
         return identificacion;
     }
     
