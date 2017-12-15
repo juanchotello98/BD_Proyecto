@@ -4,37 +4,30 @@
  * and open the template in the editor.
  */
 package AccesoDatos;
-
-import Logica.Camas;
+import Logica.Paciente;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Kevin
- */
-public class DaoCama {
+public class DaoPaciente {
     
     FachadaBD fachada;
-
-    public DaoCama() {
+    
+    public DaoPaciente() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+     public int Insert_paciente(Paciente paciente){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO paciente"
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + paciente.getIdentificacion()+"', '"
+                + paciente.getActividadEconomica()+"', '"
+                + paciente.getNumeroSeguroSocial()+"', "
+                + paciente.getFechaNacimiento()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,14 +47,15 @@ public class DaoCama {
         return -1;
     }
     
-     public int Update_camas(Camas camas){
+     public int Update_paciente(Paciente paciente){
+         
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"', "
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+        sql_select="UPDATE paciente SET "
+                + "identificacion = '"+paciente.getIdentificacion()+"',"
+                + "actividad_economica = '"+paciente.getActividadEconomica()+"', "
+                + "numero_seguro_social = '"+paciente.getNumeroSeguroSocial()+"', "
+                + "fecha_nacimiento = '"+paciente.getFechaNacimiento()+"', ";
         
          try{
           
@@ -76,5 +70,4 @@ public class DaoCama {
          return -1;
          
     }
-   
 }

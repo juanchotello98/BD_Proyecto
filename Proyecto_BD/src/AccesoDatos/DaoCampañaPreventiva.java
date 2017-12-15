@@ -5,36 +5,31 @@
  */
 package AccesoDatos;
 
-import Logica.Camas;
+import Logica.CampañaPreventiva;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Kevin
- */
-public class DaoCama {
+public class DaoCampañaPreventiva {
     
     FachadaBD fachada;
 
-    public DaoCama() {
+    public DaoCampañaPreventiva() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+    public int Insert_campaña(CampañaPreventiva campañaPreventiva){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO CampanaPreventiva"
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + campañaPreventiva.getCodigo()+"', '"
+                + campañaPreventiva.getNombre()+"', '"
+                + campañaPreventiva.getObjetivo()+"', "
+                + campañaPreventiva.getFecha()+"', "
+                + campañaPreventiva.getIdMedico()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -53,15 +48,17 @@ public class DaoCama {
         }
         return -1;
     }
-    
-     public int Update_camas(Camas camas){
+
+
+public int Update_campaña(CampañaPreventiva campañaPreventiva){
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"', "
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+        sql_select="UPDATE CampanaPreventiva SET "
+                + "codigo = '"+campañaPreventiva.getCodigo()+"',"
+                + "nombre = '"+campañaPreventiva.getNombre()+"', "
+                + "objetivo = '"+campañaPreventiva.getObjetivo()+"', "
+                + "fecha = '"+campañaPreventiva.getFecha()+"', "
+                + "id_medico = '"+campañaPreventiva.getIdMedico()+"'; ";
         
          try{
           
@@ -75,6 +72,6 @@ public class DaoCama {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
-    }
-   
+}
+
 }

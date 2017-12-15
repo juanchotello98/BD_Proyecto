@@ -10,14 +10,12 @@ package Logica;
  * @author Admin
  */
 public class Enfermera extends Empleado{
-
     
     public String tiempoExperiencia;
 
     public Enfermera(String identificacion) {
         super(identificacion);
     }
-
     public void setIdentificacion(String identificacion){
         this.identificacion=identificacion;
     }
@@ -26,12 +24,3 @@ public class Enfermera extends Empleado{
     public String getIdentificacion(){
         return identificacion;
     }
-    
-    public void setTiempoExperiencia(String tiempoExperiencia){
-        this.tiempoExperiencia=tiempoExperiencia;
-    }
-    
-    public String getTiempoExperiencia(){
-        return tiempoExperiencia;
-    }
-}

@@ -55,7 +55,7 @@ public class DaoCausas {
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE camas SET "
-                + "codigo = '"+causas.getCodigo()+"',"
+                + "codigo = '"+causas.getCodigo()+"', "
                 + "nombre = '"+causas.getNombre()+"', "
                 + "descripcion = '"+causas.getDescripcion()+"' ";
         
