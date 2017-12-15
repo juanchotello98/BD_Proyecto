@@ -27,9 +27,8 @@ public class DaoAgenda {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO agenda"
+        sql_guardar="INSERT INTO agenda (dia, mes, fecha, horario, estado, id_medico)"
                 + "VALUES ('"
-                + agenda.getId_secuencia()+"', '"
                 + agenda.getDia()+"', '"
                 + agenda.getMes()+"', "
                 + agenda.getFecha()+"', "
@@ -55,7 +54,7 @@ public class DaoAgenda {
         return -1;
     }
     
-     public int Update_area(Agenda agenda){
+     public int Update_agenda(Agenda agenda){
          
         String sql_select;
         int numFilas=0;
