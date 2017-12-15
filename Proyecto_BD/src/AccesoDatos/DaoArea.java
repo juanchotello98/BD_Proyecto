@@ -31,7 +31,7 @@ public class DaoArea {
                 + "VALUES ('"
                 + area.getCodigoArea()+"', '"
                 + area.getNombre()+"', '"
-                + area.getDescripcion()+"', "
+                + area.getDescripcion()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -58,7 +58,7 @@ public class DaoArea {
         sql_select="UPDATE area SET "
                 + "codigo_area = '"+area.getCodigoArea()+"',"
                 + "nombre = '"+area.getNombre()+"', "
-                + "descripcion = '"+area.getDescripcion()+"', ";
+                + "descripcion = '"+area.getDescripcion()+"' ";
         
          try{
           

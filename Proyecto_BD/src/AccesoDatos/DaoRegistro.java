@@ -5,31 +5,35 @@
  */
 package AccesoDatos;
 
-import Logica.CampañaPreventiva;
+import Logica.EnfermeraHabilidades;
+import Logica.Registro;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoCampañaPreventiva {
-    
+/**
+ *
+ * @author Kevin
+ */
+public class DaoRegistro {
     FachadaBD fachada;
-
-    public DaoCampañaPreventiva() {
+    
+    public DaoRegistro() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_campaña(CampañaPreventiva campañaPreventiva){
+    public int Insert_registro(Registro registro){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO CampanaPreventiva"
+        sql_guardar="INSERT INTO registro"
                 + "VALUES ('"
-                + campañaPreventiva.getCodigo()+"', '"
-                + campañaPreventiva.getNombre()+"', '"
-                + campañaPreventiva.getObjetivo()+"', "
-                + campañaPreventiva.getFecha()+"', "
-                + campañaPreventiva.getIdMedico()+"' "
+                + registro.getIdMedico()+"', '"
+                + registro.getIdHistoria()+"', '"
+                + registro.getIdCausa()+"', '"
+                + registro.getFecha()+"', '"
+                + registro.getDescripcion()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -48,17 +52,18 @@ public class DaoCampañaPreventiva {
         }
         return -1;
     }
-
-
-public int Update_campaña(CampañaPreventiva campañaPreventiva){
+    
+     public int Update_registro(Registro registro){
+         
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE CampanaPreventiva SET "
-                + "codigo = '"+campañaPreventiva.getCodigo()+"',"
-                + "nombre = '"+campañaPreventiva.getNombre()+"', "
-                + "objetivo = '"+campañaPreventiva.getObjetivo()+"', "
-                + "fecha = '"+campañaPreventiva.getFecha()+"', "
-                + "id_medico = '"+campañaPreventiva.getIdMedico()+"' ";
+       
+        sql_select="UPDATE registro SET "
+                + "id_medico = '"+registro.getIdMedico()+"', "
+                + "id_historia = '"+registro.getIdHistoria()+"', "
+                + "id_causa = '"+registro.getIdCausa()+"', "
+                + "id_fecha = '"+registro.getFecha()+"', "
+                + "descripcion = '"+registro.getDescripcion()+"' ";
         
          try{
           
@@ -72,6 +77,7 @@ public int Update_campaña(CampañaPreventiva campañaPreventiva){
          catch(Exception e){ System.out.println(e); }
          return -1;
          
-}
-
+    }
+    
+    
 }
