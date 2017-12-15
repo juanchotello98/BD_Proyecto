@@ -59,8 +59,9 @@ public class DaoEmpleado {
          
         String sql_select;
         int numFilas=0;
+       
         sql_select="UPDATE empleado SET "
-                + "identificacion = '"+empleado.getIdentificacion()+"',"
+                + "identificacion = '"+empleado.getIdentificacion()+"', "
                 + "salario = '"+empleado.getSalario()+"', "
                 + "cargo = '"+empleado.getCargo()+"', "
                 + "email = '"+empleado.getEmail()+"', "

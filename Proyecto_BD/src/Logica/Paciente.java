@@ -12,10 +12,10 @@ package Logica;
 public class Paciente extends Persona {
     
     private String actividadEconomica;
-    private int numeroSeguroSocial;
+    private String numeroSeguroSocial;
     private String fechaNacimiento;
     
-    public Paciente(int identificacion, String actividadEconomica, int numeroSeguroSocial, 
+    public Paciente(String identificacion, String actividadEconomica, String numeroSeguroSocial, 
             String fechaNacimiento){
         super(identificacion);
         this.actividadEconomica=actividadEconomica;
@@ -39,11 +39,11 @@ public class Paciente extends Persona {
         return fechaNacimiento;
     }
     
-    public void setNumeroSeguroSocial (int numeroSeguroSocial){
+    public void setNumeroSeguroSocial (String numeroSeguroSocial){
         this.numeroSeguroSocial=numeroSeguroSocial;
     }
     
-    public int getNumeroSeguroSocial(){
+    public String getNumeroSeguroSocial(){
         return numeroSeguroSocial;
     }
 }
