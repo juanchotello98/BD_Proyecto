@@ -22,16 +22,6 @@ public class Empleado extends Persona {
     }
     
 
-    public Empleado(String identificacion, String salario, String cargo, String email, String codigoJefe,
-            String codigoArea){
-        super(identificacion);
-        this.salario=salario;
-        this.cargo=cargo;
-        this.email=email;
-        this.codigoJefe=codigoJefe;
-        this.codigoArea=codigoArea;
-    }
-	
     public void setSalario (String salario){
         this.salario=salario;
     }

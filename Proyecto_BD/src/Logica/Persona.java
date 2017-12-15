@@ -18,12 +18,6 @@ public class Persona {
     public Persona(String identificacion){
         this.identificacion=identificacion;
     }
-    public Persona(String identificacion, String nombre, String direccion, String telefono){
-    this.identificacion=identificacion;
-    this.nombre=nombre;
-    this.direccion=direccion;
-    this.telefono=telefono;
-    }
     
     public void setIDentificacion (String identificacion){
         this.identificacion=identificacion;
