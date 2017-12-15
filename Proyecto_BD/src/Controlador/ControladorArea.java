@@ -7,6 +7,7 @@ package Controlador;
 
 import Logica.Area;
 import AccesoDatos.DaoArea;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author Juan David
@@ -55,6 +56,12 @@ public class ControladorArea {
         System.out.println("Se actualizo un registro de area");
         
         return resultado;
+        
+    }
+    
+    public void Select_nombrearea(DefaultComboBoxModel modelo){
+        
+        daoArea.Select_nombrearea(modelo);
         
     }
 }

@@ -21,9 +21,9 @@ public class FachadaBD {
     ResultSet tabla;
 
     public FachadaBD() {
-        url="jdbc:postgresql://localhost:5433/losy";
+        url="jdbc:postgresql://localhost:5432/bd";
         usuario = "postgres";
-        password = "3271586+";
+        password = "1234";
     }
 
     public Connection conectar() {

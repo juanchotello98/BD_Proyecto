@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoEmpleado;
 import Logica.Empleado;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -59,6 +60,18 @@ public class ControladorEmpleado {
         System.out.println("Se actualizo un registro de empleado");
         
         return resultado;
+        
+    }
+    
+    public void Select_empleado(DefaultTableModel model){
+        
+        daoEmpleado.Select_empleado(model);
+        
+    }
+    
+    public void Select_empleadoareas(DefaultTableModel model,String area){
+        
+        daoEmpleado.Select_empleadoareas(model,area);
         
     }
     

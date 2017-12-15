@@ -9,8 +9,10 @@ import Logica.Causas;
 import Logica.Empleado;
 import Logica.Enfermera;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -80,6 +82,56 @@ public class DaoEmpleado {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
+    }
+     
+     public void Select_empleado(DefaultTableModel model){
+        String sql_select;
+        sql_select="SELECT nombre,cargo FROM empleado "
+                  +"INNER JOIN persona ON persona.identificacion=empleado.identificacion ";
+       
+         try{
+            Connection con= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = con.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+		Object[] fila = new Object[2];
+		for (int i = 0; i < 2; i++)
+                    fila[i] = tabla.getObject(i + 1);
+		    model.addRow(fila);
+            }
+            tabla.close();
+            sentencia.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+    }
+     
+    public void Select_empleadoareas(DefaultTableModel model,String area){
+        String sql_select;
+        sql_select="SELECT persona.nombre,cargo FROM empleado "
+                  +"INNER JOIN persona ON persona.identificacion=empleado.identificacion "
+                  +"INNER JOIN area ON area.codigo_area=empleado.codigo_area "
+                  +"WHERE area.nombre = '"+area+"'";
+       
+         try{
+            Connection con= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = con.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+		Object[] fila = new Object[2];
+		for (int i = 0; i < 2; i++)
+                    fila[i] = tabla.getObject(i + 1);
+		    model.addRow(fila);
+            }
+            tabla.close();
+            sentencia.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
     }
     
 }
