@@ -5,33 +5,31 @@
  */
 package AccesoDatos;
 
-
-import Logica.Causas;
+import Logica.CampañaPreventiva;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- *
- * @author Kevin
- */
-public class DaoCausas {
+public class DaoCampañaPreventiva {
+    
     FachadaBD fachada;
 
-    public DaoCausas() {
+    public DaoCampañaPreventiva() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_causas(Causas causas){
+    public int Insert_campaña(CampañaPreventiva campañaPreventiva){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO Causas"
+        sql_guardar="INSERT INTO CampañaPreventiva"
                 + "VALUES ('"
-                + causas.getCodigo()+"', '"
-                + causas.getNombre()+"', '"
-                + causas.getDescripcion()+"', "
+                + campañaPreventiva.getCodigo()+"', '"
+                + campañaPreventiva.getNombre()+"', '"
+                + campañaPreventiva.getObjetivo()+"', "
+                + campañaPreventiva.getFecha()+"', "
+                + campañaPreventiva.getIdMedico()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -50,8 +48,9 @@ public class DaoCausas {
         }
         return -1;
     }
-    
-     public int Update_causas(Causas causas){
+
+
+public int Update_campaña(CampañaPreventiva campañaPreventiva){
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE camas SET "
@@ -71,5 +70,6 @@ public class DaoCausas {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
-    }
+}
+
 }
