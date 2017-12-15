@@ -9,21 +9,16 @@ package Logica;
  *
  * @author Admin
  */
-public class Medico {
-    private int identificacion;
+public class Medico extends Empleado {
+    
     private String especialidad;
-    private int numeroLicencia;
+    private String numeroLicencia;
     private String universidad;
-    
-    public Medico(){}
-    
-    public void setIdentificacion(int identificacion){
-        this.identificacion=identificacion;
+
+    public Medico(String identificacion) {
+        super(identificacion);
     }
     
-    public int getIdentificacion(){
-        return identificacion;
-    }
     
     public void setEspecialidad(String especialidad){
         this.especialidad=especialidad;
@@ -33,11 +28,11 @@ public class Medico {
         return especialidad;
     }
     
-    public void setNumeroLicencia(int numeroLicencia){
+    public void setNumeroLicencia(String numeroLicencia){
         this.numeroLicencia=numeroLicencia;
     }
     
-    public int getNumeroLicencia(){
+    public String getNumeroLicencia(){
         return numeroLicencia;
     }
     

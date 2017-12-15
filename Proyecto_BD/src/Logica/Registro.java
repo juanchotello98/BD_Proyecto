@@ -10,35 +10,35 @@ package Logica;
  * @author Admin
  */
 public class Registro {
-    private int idMedico;
-    private int idHistoria;
-    private int idCausa;
+    private String idMedico;
+    private String idHistoria;
+    private String idCausa;
     private String fecha;
     private String descripcion;
     
     public Registro(){}
     
-    public void setIdMedico(int idMedico){
+    public void setIdMedico(String idMedico){
         this.idMedico=idMedico;
     }
     
-    public int getIdMedico(){
+    public String getIdMedico(){
         return idMedico;
     }
     
-    public void setIdHistoria(int idHistoria){
+    public void setIdHistoria(String idHistoria){
         this.idHistoria=idHistoria;
     }
     
-    public int getIdHistoria(){
+    public String getIdHistoria(){
         return idHistoria;
     }   
     
-    public void setIdCausa(int idCausa){
+    public void setIdCausa(String idCausa){
         this.idCausa=idCausa;
     }
     
-    public int getIdCausa(){
+    public String getIdCausa(){
         return idCausa;
     }
     
