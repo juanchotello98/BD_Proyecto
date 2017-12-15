@@ -16,12 +16,12 @@ public class Enfermera extends Empleado{
     public Enfermera(String identificacion) {
         super(identificacion);
     }
-
-    public void setTiempoExperiencia(String tiempoExperiencia){
-        this.tiempoExperiencia=tiempoExperiencia;
+    public void setIdentificacion(String identificacion){
+        this.identificacion=identificacion;
     }
     
-    public String getTiempoExperiencia(){
-        return tiempoExperiencia;
+    @Override
+    public String getIdentificacion(){
+        return identificacion;
     }
 }

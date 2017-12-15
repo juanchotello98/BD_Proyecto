@@ -17,7 +17,9 @@ public class Empleado extends Persona {
     private String codigoJefe;
     private String codigoArea;
     
-    public Empleado(String identificacion){super(identificacion);}
+    public Empleado(String identificacion){
+        super(identificacion);
+    }
     
 
     public Empleado(String identificacion, String salario, String cargo, String email, String codigoJefe,
