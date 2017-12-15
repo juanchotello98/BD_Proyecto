@@ -33,7 +33,7 @@ public class ControladorPersona {
         int resultado = daoPersona.Insert_persona(persona);
         
         
-        System.out.println("Se inserto un registro a cita");
+        System.out.println("Se inserto un registro a persona");
         
         return resultado;
         
