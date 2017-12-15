@@ -5,33 +5,31 @@
  */
 package AccesoDatos;
 
-import Logica.Area;
+import Logica.CampañaPreventiva;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoArea {
+public class DaoCampañaPreventiva {
     
     FachadaBD fachada;
-    
-    public DaoArea() {
+
+    public DaoCampañaPreventiva() {
         fachada = new FachadaBD();
     }
     
-    
-    
-    
-    
-    public int Insert_area(Area area){
+    public int Insert_campaña(CampañaPreventiva campañaPreventiva){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO empleado"
+        sql_guardar="INSERT INTO CampanaPreventiva"
                 + "VALUES ('"
-                + area.getCodigoArea()+"', '"
-                + area.getNombre()+"', '"
-                + area.getDescripcion()+"', "
+                + campañaPreventiva.getCodigo()+"', '"
+                + campañaPreventiva.getNombre()+"', '"
+                + campañaPreventiva.getObjetivo()+"', "
+                + campañaPreventiva.getFecha()+"', "
+                + campañaPreventiva.getIdMedico()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -50,15 +48,17 @@ public class DaoArea {
         }
         return -1;
     }
-    
-     public int Update_area(Area area){
-         
+
+
+public int Update_campaña(CampañaPreventiva campañaPreventiva){
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE area SET "
-                + "codigo_area = '"+area.getCodigoArea()+"',"
-                + "nombre = '"+area.getNombre()+"', "
-                + "descripcion = '"+area.getDescripcion()+"', ";
+        sql_select="UPDATE CampanaPreventiva SET "
+                + "codigo = '"+campañaPreventiva.getCodigo()+"',"
+                + "nombre = '"+campañaPreventiva.getNombre()+"', "
+                + "objetivo = '"+campañaPreventiva.getObjetivo()+"', "
+                + "fecha = '"+campañaPreventiva.getFecha()+"', "
+                + "id_medico = '"+campañaPreventiva.getIdMedico()+"'; ";
         
          try{
           
@@ -72,5 +72,6 @@ public class DaoArea {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
-    }
+}
+
 }
