@@ -24,6 +24,6 @@ public class EnfermeraHabilidades extends Enfermera {
 
     public void setHabilidad(String habilidad) {
         this.habilidad = habilidad;
-    }
+    } 
   
 }
