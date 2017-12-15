@@ -6,35 +6,32 @@
 package AccesoDatos;
 
 import Logica.Camas;
+import Logica.Causas;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Kevin
  */
-public class DaoCama {
-    
+public class DaoCausas {
     FachadaBD fachada;
 
-    public DaoCama() {
+    public DaoCausas() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+    public int Insert_causas(Causas causas){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO Causas"
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + causas.getCodigo()+"', '"
+                + causas.getNombre()+"', '"
+                + causas.getDescripcion()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,14 +51,13 @@ public class DaoCama {
         return -1;
     }
     
-     public int Update_camas(Camas camas){
+     public int Update_causas(Causas causas){
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"',"
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+                + "codigo = '"+causas.getCodigo()+"',"
+                + "nombre = '"+causas.getNombre()+"', "
+                + "descripcion = '"+causas.getDescripcion()+"' ";
         
          try{
           
@@ -76,5 +72,4 @@ public class DaoCama {
          return -1;
          
     }
-   
 }

@@ -19,6 +19,7 @@ public class Empleado extends Persona {
     
     public Empleado(String identificacion){super(identificacion);}
     
+
     public Empleado(String identificacion, String salario, String cargo, String email, String codigoJefe,
             String codigoArea){
         super(identificacion);

@@ -5,36 +5,37 @@
  */
 package AccesoDatos;
 
-import Logica.Camas;
+import Logica.Causas;
+import Logica.Empleado;
+import Logica.Enfermera;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Kevin
  */
-public class DaoCama {
-    
+public class DaoEmpleado {
     FachadaBD fachada;
-
-    public DaoCama() {
+    
+    public DaoEmpleado() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+     public int Insert_empleado(Empleado empleado){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO empleado"
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + empleado.getIdentificacion()+"', '"
+                + empleado.getSalario()+"', '"
+                + empleado.getCargo()+"', "
+                + empleado.getEmail()+"', "
+                + empleado.getCodigoJefe()+"', "
+                + empleado.getCodigoArea()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,14 +55,17 @@ public class DaoCama {
         return -1;
     }
     
-     public int Update_camas(Camas camas){
+     public int Update_empleado(Empleado empleado){
+         
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"',"
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+                + "identificacion = '"+empleado.getIdentificacion()+"',"
+                + "salario = '"+empleado.getSalario()+"', "
+                + "cargo = '"+empleado.getCargo()+"', "
+                + "email = '"+empleado.getEmail()+"', "
+                + "codigo_jefe = '"+empleado.getCodigoJefe()+"', "
+                + "codigo_area = '"+empleado.getCodigoArea()+"' ";
         
          try{
           
@@ -76,5 +80,5 @@ public class DaoCama {
          return -1;
          
     }
-   
+    
 }
