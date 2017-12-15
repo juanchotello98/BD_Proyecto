@@ -10,7 +10,7 @@ package Logica;
  * @author Admin
  */
 public class Area {
-    private int codigoArea;
+    private String codigoArea;
     private String nombre;
     private String descripcion;
     
@@ -18,11 +18,11 @@ public class Area {
     public Area(){}
 
 
-    public void setCodigoArea (int codigoArea){
+    public void setCodigoArea (String codigoArea){
         this.codigoArea=codigoArea;
     }
     
-    public int getCodigoArea(){
+    public String getCodigoArea(){
         return codigoArea;
     }
     

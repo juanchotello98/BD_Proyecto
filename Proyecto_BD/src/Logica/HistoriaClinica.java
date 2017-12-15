@@ -10,17 +10,17 @@ package Logica;
  * @author Admin
  */
 public class HistoriaClinica {
-    private int numeroHistoria;
+    private String numeroHistoria;
     private String fechaApertura;
-    private int idPaciente;
+    private String idPaciente;
     
     public HistoriaClinica(){}
     
-    public void setNumeroHistoria (int numeroHistoria){
+    public void setNumeroHistoria (String numeroHistoria){
         this.numeroHistoria=numeroHistoria;
     }
     
-    public int getNumeroHistoria(){
+    public String getNumeroHistoria(){
         return numeroHistoria;
     }
     
@@ -32,11 +32,11 @@ public class HistoriaClinica {
         return fechaApertura;
     }
     
-     public void setIdPaciente (int idPaciente){
+     public void setIdPaciente (String idPaciente){
         this.idPaciente=idPaciente;
     }
     
-    public int getIdPaciente(){
+    public String getIdPaciente(){
         return idPaciente;
     }   
     

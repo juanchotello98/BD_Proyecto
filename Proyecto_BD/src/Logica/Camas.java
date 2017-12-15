@@ -10,19 +10,19 @@ package Logica;
  * @author Admin
  */
 public class Camas {
-    private int numeroCama;
+    private String numeroCama;
     private String estado;
     private String descripcion;
-    private int codigoArea;
+    private String codigoArea;
     
     public Camas(){}
 
 
-    public void setNumeroCama (int numeroCama){
+    public void setNumeroCama (String numeroCama){
         this.numeroCama=numeroCama;
     }
     
-    public int getNumeroCama(){
+    public String getNumeroCama(){
         return numeroCama;
     }
     
@@ -42,11 +42,11 @@ public class Camas {
         return descripcion;
     }
     
-     public void setCodigoArea (int codigoArea){
+     public void setCodigoArea (String codigoArea){
         this.codigoArea=codigoArea;
     }
     
-    public int getCodigoArea(){
+    public String getCodigoArea(){
         return codigoArea;
     }
 }

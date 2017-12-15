@@ -11,16 +11,16 @@ package Logica;
  */
 public class Empleado extends Persona {
 
-    private int salario;
+    private String salario;
     private String cargo;
     private String email;
-    private int codigoJefe;
-    private int codigoArea;
+    private String codigoJefe;
+    private String codigoArea;
     
-    public Empleado(int identificacion){super(identificacion);}
+    public Empleado(String identificacion){super(identificacion);}
     
-    public Empleado(int identificacion, int salario, String cargo, String email, int codigoJefe,
-            int codigoArea){
+    public Empleado(String identificacion, String salario, String cargo, String email, String codigoJefe,
+            String codigoArea){
         super(identificacion);
         this.salario=salario;
         this.cargo=cargo;
@@ -29,11 +29,11 @@ public class Empleado extends Persona {
         this.codigoArea=codigoArea;
     }
 	
-    public void setSalario (int salario){
+    public void setSalario (String salario){
         this.salario=salario;
     }
     
-    public int getSalario(){
+    public String getSalario(){
         return salario;
     }
     
@@ -53,19 +53,19 @@ public class Empleado extends Persona {
         return email;
     }
     
-    public void setCodigoJefe (int codigoJefe){
+    public void setCodigoJefe (String codigoJefe){
         this.codigoJefe=codigoJefe;
     }
     
-    public int getCodigoJefe(){
+    public String getCodigoJefe(){
         return codigoJefe;
     }
     
-    public void setCodigoArea (int codigoArea){
+    public void setCodigoArea ( String codigoArea){
         this.codigoArea=codigoArea;
     }
     
-    public int getCodigoArea(){
+    public String getCodigoArea(){
         return codigoArea;
     }
 }

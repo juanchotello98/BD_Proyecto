@@ -10,26 +10,26 @@ package Logica;
  * @author Admin
  */
 public class Persona {
-    public int identificacion;
+    public String identificacion;
     private String nombre;
     private String direccion;
-    private int telefono;
+    private String telefono;
     
-    public Persona(int identificacion){
+    public Persona(String identificacion){
         this.identificacion=identificacion;
     }
-    public Persona(int identificacion, String nombre, String direccion, int telefono){
+    public Persona(String identificacion, String nombre, String direccion, String telefono){
     this.identificacion=identificacion;
     this.nombre=nombre;
     this.direccion=direccion;
     this.telefono=telefono;
     }
     
-    public void setIDentificacion (int identificacion){
+    public void setIDentificacion (String identificacion){
         this.identificacion=identificacion;
     }
     
-    public int getIdentificacion(){
+    public String getIdentificacion(){
         return identificacion;
     }
     
@@ -49,11 +49,11 @@ public class Persona {
         return direccion;
     }
     
-    public void setTelefono (int telefono){
+    public void setTelefono (String telefono){
         this.telefono=telefono;
     }
     
-    public int getTelefono(){
+    public String getTelefono(){
         return telefono;
     }
 }
