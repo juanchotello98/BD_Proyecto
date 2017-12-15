@@ -5,33 +5,32 @@
  */
 package AccesoDatos;
 
-import Logica.Area;
+import Logica.FormulaMedicamento;
+import Logica.Registro;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoArea {
-    
+/**
+ *
+ * @author Kevin
+ */
+public class DaoFormulaMedicamento {
     FachadaBD fachada;
-    
-    public DaoArea() {
+    public DaoFormulaMedicamento() {
         fachada = new FachadaBD();
     }
     
-    
-    
-    
-    
-    public int Insert_area(Area area){
+     public int Insert_formulamedicamento(FormulaMedicamento formulamedicamento){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO empleado"
+        sql_guardar="INSERT INTO formula_medicamento"
                 + "VALUES ('"
-                + area.getCodigoArea()+"', '"
-                + area.getNombre()+"', '"
-                + area.getDescripcion()+"' "
+                + formulamedicamento.getId_formula()+"', '"
+                + formulamedicamento.getCodigo_medicamento()+"', '"
+                + formulamedicamento.getCantidad()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -51,14 +50,15 @@ public class DaoArea {
         return -1;
     }
     
-     public int Update_area(Area area){
+     public int Update_formulamedicamento(FormulaMedicamento formulamedicamento){
          
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE area SET "
-                + "codigo_area = '"+area.getCodigoArea()+"', "
-                + "nombre = '"+area.getNombre()+"', "
-                + "descripcion = '"+area.getDescripcion()+"' ";
+       
+        sql_select="UPDATE formula_medicamento SET "
+                + "id_formula = '"+formulamedicamento.getId_formula()+"', "
+                + "codigo_medicamento = '"+formulamedicamento.getCodigo_medicamento()+"', "
+                + "cantidad = '"+formulamedicamento.getCantidad()+"' ";
         
          try{
           
@@ -73,4 +73,5 @@ public class DaoArea {
          return -1;
          
     }
+    
 }

@@ -5,33 +5,37 @@
  */
 package AccesoDatos;
 
+import Logica.Agenda;
 import Logica.Area;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoArea {
-    
+/**
+ *
+ * @author Kevin
+ */
+public class DaoAgenda {
     FachadaBD fachada;
     
-    public DaoArea() {
+    public DaoAgenda() {
         fachada = new FachadaBD();
     }
     
-    
-    
-    
-    
-    public int Insert_area(Area area){
+    public int Insert_agenda(Agenda agenda){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO empleado"
+        sql_guardar="INSERT INTO agenda"
                 + "VALUES ('"
-                + area.getCodigoArea()+"', '"
-                + area.getNombre()+"', '"
-                + area.getDescripcion()+"' "
+                + agenda.getId_secuencia()+"', '"
+                + agenda.getDia()+"', '"
+                + agenda.getMes()+"', "
+                + agenda.getFecha()+"', "
+                + agenda.getHorario()+"', "
+                + agenda.getEstado()+"', "
+                + agenda.getId_medico()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -51,14 +55,18 @@ public class DaoArea {
         return -1;
     }
     
-     public int Update_area(Area area){
+     public int Update_area(Agenda agenda){
          
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE area SET "
-                + "codigo_area = '"+area.getCodigoArea()+"', "
-                + "nombre = '"+area.getNombre()+"', "
-                + "descripcion = '"+area.getDescripcion()+"' ";
+        sql_select="UPDATE agenda SET "
+                + "id_secuencia = '"+agenda.getId_secuencia()+"', "
+                + "dia = '"+agenda.getDia()+"', "
+                + "mes = '"+agenda.getMes()+"', "
+                + "fecha = '"+agenda.getFecha()+"', "
+                + "horario = '"+agenda.getHorario()+"', "
+                + "estado = '"+agenda.getEstado()+"', "
+                + "id_medico = '"+agenda.getId_medico()+"' ";
         
          try{
           
@@ -73,4 +81,5 @@ public class DaoArea {
          return -1;
          
     }
+    
 }
