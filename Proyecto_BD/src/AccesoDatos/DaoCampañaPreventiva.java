@@ -23,7 +23,7 @@ public class DaoCampañaPreventiva {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO CampañaPreventiva"
+        sql_guardar="INSERT INTO CampanaPreventiva"
                 + "VALUES ('"
                 + campañaPreventiva.getCodigo()+"', '"
                 + campañaPreventiva.getNombre()+"', '"
@@ -53,10 +53,12 @@ public class DaoCampañaPreventiva {
 public int Update_campaña(CampañaPreventiva campañaPreventiva){
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE camas SET "
-                + "codigo = '"+causas.getCodigo()+"',"
-                + "nombre = '"+causas.getNombre()+"', "
-                + "descripcion = '"+causas.getDescripcion()+"' ";
+        sql_select="UPDATE CampanaPreventiva SET "
+                + "codigo = '"+campañaPreventiva.getCodigo()+"',"
+                + "nombre = '"+campañaPreventiva.getNombre()+"', "
+                + "objetivo = '"+campañaPreventiva.getObjetivo()+"', "
+                + "fecha = '"+campañaPreventiva.getFecha()+"', "
+                + "id_medico = '"+campañaPreventiva.getIdMedico()+"'; ";
         
          try{
           
