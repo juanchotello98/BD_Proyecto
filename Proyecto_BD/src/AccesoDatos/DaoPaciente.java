@@ -4,34 +4,30 @@
  * and open the template in the editor.
  */
 package AccesoDatos;
-
-import Logica.Area;
+import Logica.Paciente;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoArea {
+public class DaoPaciente {
     
     FachadaBD fachada;
     
-    public DaoArea() {
+    public DaoPaciente() {
         fachada = new FachadaBD();
     }
     
-    
-    
-    
-    
-    public int Insert_area(Area area){
+     public int Insert_paciente(Paciente paciente){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO empleado"
+        sql_guardar="INSERT INTO paciente"
                 + "VALUES ('"
-                + area.getCodigoArea()+"', '"
-                + area.getNombre()+"', '"
-                + area.getDescripcion()+"', "
+                + paciente.getIdentificacion()+"', '"
+                + paciente.getActividadEconomica()+"', '"
+                + paciente.getNumeroSeguroSocial()+"', "
+                + paciente.getFechaNacimiento()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -51,14 +47,15 @@ public class DaoArea {
         return -1;
     }
     
-     public int Update_area(Area area){
+     public int Update_paciente(Paciente paciente){
          
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE area SET "
-                + "codigo_area = '"+area.getCodigoArea()+"',"
-                + "nombre = '"+area.getNombre()+"', "
-                + "descripcion = '"+area.getDescripcion()+"', ";
+        sql_select="UPDATE paciente SET "
+                + "identificacion = '"+paciente.getIdentificacion()+"',"
+                + "actividad_economica = '"+paciente.getActividadEconomica()+"', "
+                + "numero_seguro_social = '"+paciente.getNumeroSeguroSocial()+"', "
+                + "fecha_nacimiento = '"+paciente.getFechaNacimiento()+"', ";
         
          try{
           
