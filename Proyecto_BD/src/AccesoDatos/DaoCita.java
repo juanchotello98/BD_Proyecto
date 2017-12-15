@@ -6,35 +6,35 @@
 package AccesoDatos;
 
 import Logica.Camas;
+import Logica.Cita;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Kevin
  */
-public class DaoCama {
-    
+public class DaoCita {
     FachadaBD fachada;
 
-    public DaoCama() {
+    public DaoCita() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+    public int Insert_cita(Cita cita){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO cita "
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + cita.getIdPaciente()+"', '"
+                + cita.getIdMedico()+"', '"
+                + cita.getHora()+"', '"
+                + cita.getFecha()+"', '"
+                + cita.getEstado()+"', '"
+                + cita.getEstado()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,14 +54,16 @@ public class DaoCama {
         return -1;
     }
     
-     public int Update_camas(Camas camas){
+     public int Update_cita(Cita cita){
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"', "
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+        sql_select="UPDATE cita SET "
+                + "id_paciente = '"+cita.getIdPaciente()+"', "
+                + "id_medico = '"+cita.getIdMedico()+"', "
+                + "hora = '"+cita.getHora()+"', "
+                + "fecha = '"+cita.getFecha()+"', "
+                + "estado = '"+cita.getEstado()+"', "
+                + "valor_consulta = '"+cita.getValorConsulta()+"' ";
         
          try{
           
@@ -76,5 +78,4 @@ public class DaoCama {
          return -1;
          
     }
-   
 }

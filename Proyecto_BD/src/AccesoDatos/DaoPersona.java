@@ -6,35 +6,33 @@
 package AccesoDatos;
 
 import Logica.Camas;
+import Logica.Persona;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Kevin
  */
-public class DaoCama {
-    
+public class DaoPersona {
     FachadaBD fachada;
 
-    public DaoCama() {
+    public DaoPersona() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_camas(Camas camas){
+    public int Insert_persona(Persona persona){
         
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO usuario "
+        sql_guardar="INSERT INTO persona "
                 + "VALUES ('"
-                + camas.getNumeroCama()+"', '"
-                + camas.getEstado()+"', '"
-                + camas.getDescripcion()+"', '"
-                + camas.getCodigoArea()+"' "
+                + persona.getIdentificacion()+"', '"
+                + persona.getNombre()+"', '"
+                + persona.getDireccion()+"', '"
+                + persona.getTelefono()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,14 +52,14 @@ public class DaoCama {
         return -1;
     }
     
-     public int Update_camas(Camas camas){
+     public int Update_camas(Persona persona){
         String sql_select;
         int numFilas=0;
-        sql_select="UPDATE camas SET "
-                + "numero_cama = '"+camas.getNumeroCama()+"', "
-                + "estado = '"+camas.getEstado()+"', "
-                + "descripcion = '"+camas.getDescripcion()+"', "
-                + "codigo_area = '"+camas.getCodigoArea()+"' ";
+        sql_select="UPDATE persona SET "
+                + "identificacion = '"+persona.getIdentificacion()+"', "
+                + "nombre = '"+persona.getNombre()+"', "
+                + "direccion = '"+persona.getDireccion()+"', "
+                + "telefono = '"+persona.getTelefono()+"' ";
         
          try{
           
@@ -76,5 +74,5 @@ public class DaoCama {
          return -1;
          
     }
-   
+    
 }
