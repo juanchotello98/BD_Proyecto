@@ -35,7 +35,7 @@ public class DaoEmpleado {
                 + empleado.getCargo()+"', "
                 + empleado.getEmail()+"', "
                 + empleado.getCodigoJefe()+"', "
-                + empleado.getCodigoArea()+"', "
+                + empleado.getCodigoArea()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();

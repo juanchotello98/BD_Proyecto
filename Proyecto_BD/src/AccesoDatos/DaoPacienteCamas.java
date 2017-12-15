@@ -57,7 +57,7 @@ public class DaoPacienteCamas {
                 + "id_paciente = '"+pacienteCamas.getId_paciente()+"', "
                 + "numero_cama = '"+pacienteCamas.getNumero_cama()+"', "
                 + "fecha_ingreso = '"+pacienteCamas.getFecha_ingreso()+"', "
-                + "fecha_salida = '"+pacienteCamas.getFecha_salida()+"', ";
+                + "fecha_salida = '"+pacienteCamas.getFecha_salida()+"' ";
         
          try{
           

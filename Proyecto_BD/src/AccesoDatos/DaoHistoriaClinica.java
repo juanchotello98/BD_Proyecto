@@ -26,7 +26,7 @@ public class DaoHistoriaClinica {
                 + "VALUES ('"
                 + historiaClinica.getNumeroHistoria()+"', '"
                 + historiaClinica.getFechaApertura()+"', '"
-                + historiaClinica.getIdPaciente()+"', "
+                + historiaClinica.getIdPaciente()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -54,7 +54,7 @@ public class DaoHistoriaClinica {
         sql_select="UPDATE HistoriaClinica SET "
                 + "numero_historia = '"+historiaClinica.getNumeroHistoria()+"', "
                 + "fecha_apertura = '"+historiaClinica.getFechaApertura()+"', "
-                + "id_paciente = '"+historiaClinica.getIdPaciente()+"', ";
+                + "id_paciente = '"+historiaClinica.getIdPaciente()+"' ";
         
          try{
           

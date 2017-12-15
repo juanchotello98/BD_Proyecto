@@ -24,3 +24,4 @@ public class Enfermera extends Empleado{
     public String getIdentificacion(){
         return identificacion;
     }
+}

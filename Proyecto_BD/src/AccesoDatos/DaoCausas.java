@@ -31,7 +31,7 @@ public class DaoCausas {
                 + "VALUES ('"
                 + causas.getCodigo()+"', '"
                 + causas.getNombre()+"', '"
-                + causas.getDescripcion()+"', "
+                + causas.getDescripcion()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
