@@ -52,7 +52,7 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
         Areas = new javax.swing.JComboBox<>();
         Actualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        Reestablecer = new javax.swing.JButton();
+        Restablecer = new javax.swing.JButton();
 
         TablaEmpleadoArea.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,10 +81,10 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
 
         jLabel1.setText("Seleccione el Area que desea:");
 
-        Reestablecer.setText("Reestrablecer");
-        Reestablecer.addActionListener(new java.awt.event.ActionListener() {
+        Restablecer.setText("Restablecer");
+        Restablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReestablecerActionPerformed(evt);
+                RestablecerActionPerformed(evt);
             }
         });
 
@@ -104,7 +104,7 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Reestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Restablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -119,7 +119,7 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Actualizar)
-                    .addComponent(Reestablecer))
+                    .addComponent(Restablecer))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -143,7 +143,7 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TablaEmpleadoArea);
     }//GEN-LAST:event_ActualizarActionPerformed
 
-    private void ReestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReestablecerActionPerformed
+    private void RestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestablecerActionPerformed
         DefaultTableModel model;
         model = new DefaultTableModel();
         TablaEmpleadoArea.setModel(model);
@@ -152,13 +152,13 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);
         controlempleado.Select_empleado(model);
         jScrollPane1.setViewportView(TablaEmpleadoArea);
-    }//GEN-LAST:event_ReestablecerActionPerformed
+    }//GEN-LAST:event_RestablecerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizar;
     private javax.swing.JComboBox<String> Areas;
-    private javax.swing.JButton Reestablecer;
+    private javax.swing.JButton Restablecer;
     private javax.swing.JTable TablaEmpleadoArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

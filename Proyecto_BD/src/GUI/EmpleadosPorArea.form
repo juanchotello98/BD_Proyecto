@@ -28,7 +28,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="Actualizar" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Reestablecer" min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="Restablecer" min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -49,7 +49,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Areas" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Reestablecer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Restablecer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -121,12 +121,12 @@
         <Property name="text" type="java.lang.String" value="Seleccione el Area que desea:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Reestablecer">
+    <Component class="javax.swing.JButton" name="Restablecer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reestrablecer"/>
+        <Property name="text" type="java.lang.String" value="Restablecer"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReestablecerActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RestablecerActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
