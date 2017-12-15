@@ -5,7 +5,7 @@
  */
 package AccesoDatos;
 
-
+import Logica.Camas;
 import Logica.Causas;
 import java.sql.Connection;
 import java.sql.SQLException;
