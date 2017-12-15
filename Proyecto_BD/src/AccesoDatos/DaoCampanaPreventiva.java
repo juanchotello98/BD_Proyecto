@@ -5,20 +5,20 @@
  */
 package AccesoDatos;
 
-import Logica.CampañaPreventiva;
+import Logica.CampanaPreventiva;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DaoCampañaPreventiva {
+public class DaoCampanaPreventiva {
     
     FachadaBD fachada;
 
-    public DaoCampañaPreventiva() {
+    public DaoCampanaPreventiva() {
         fachada = new FachadaBD();
     }
     
-    public int Insert_campaña(CampañaPreventiva campañaPreventiva){
+    public int Insert_campaña(CampanaPreventiva campañaPreventiva){
         
         String sql_guardar;
         int numFilas=0;
@@ -50,7 +50,7 @@ public class DaoCampañaPreventiva {
     }
 
 
-public int Update_campaña(CampañaPreventiva campañaPreventiva){
+public int Update_campaña(CampanaPreventiva campañaPreventiva){
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE CampanaPreventiva SET "

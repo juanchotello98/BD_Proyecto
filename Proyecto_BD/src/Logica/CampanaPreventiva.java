@@ -9,14 +9,14 @@ package Logica;
  *
  * @author Admin
  */
-public class CampañaPreventiva {
+public class CampanaPreventiva {
    private String codigo;
    private String nombre;
    private String objetivo;
    private String fecha;
    private String idMedico;
    
-   public CampañaPreventiva(){}
+   public CampanaPreventiva(){}
    
     public void setCodigo(String codigo){
         this.codigo=codigo;
