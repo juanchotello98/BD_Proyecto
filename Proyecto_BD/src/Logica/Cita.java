@@ -10,28 +10,28 @@ package Logica;
  * @author Admin
  */
 public class Cita {
-    private int idPaciente;
-    private int idMedico;
+    private String idPaciente;
+    private String idMedico;
     private String hora;
     private String fecha;
     private String estado;
-    private int valorConsulta;
+    private String valorConsulta;
     
     public Cita(){}
     
-    public void setIdPaciente(int idPaciente){
+    public void setIdPaciente(String idPaciente){
         this.idPaciente=idPaciente;
     }
     
-    public int getIdPaciente(){
+    public String getIdPaciente(){
         return idPaciente;
     }
     
-    public void setIdMedico(int idMedico){
+    public void setIdMedico(String idMedico){
         this.idMedico=idMedico;
     }
     
-    public int getIdMedico(){
+    public String getIdMedico(){
         return idMedico;
     }
     
@@ -59,11 +59,11 @@ public class Cita {
         return estado;
     }
     
-    public void setValorConsulta(int valorConsulta){
+    public void setValorConsulta(String valorConsulta){
         this.valorConsulta=valorConsulta;
     }
     
-    public int getValorConsulta(){
+    public String getValorConsulta(){
         return valorConsulta;
     }
 }
