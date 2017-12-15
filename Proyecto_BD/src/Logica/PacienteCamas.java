@@ -16,13 +16,9 @@ public class PacienteCamas {
     private String fecha_ingreso;
     private String fecha_salida;
     
-    public PacienteCamas(String id_paciente, String numero_cama, String fecha_ingreso, String fecha_salida){
-     
-        this.id_paciente = id_paciente;
-        this.numero_cama = numero_cama;
-        this.fecha_ingreso = fecha_ingreso;
-        this.fecha_salida = fecha_salida;
-        
+   
+    
+    public PacienteCamas(){
     }
 
     public String getId_paciente() {

@@ -15,13 +15,10 @@ public class Paciente extends Persona {
     private String numeroSeguroSocial;
     private String fechaNacimiento;
     
-    public Paciente(String identificacion, String actividadEconomica, String numeroSeguroSocial, 
-            String fechaNacimiento){
+    public Paciente(String identificacion){
         super(identificacion);
-        this.actividadEconomica=actividadEconomica;
-        this.numeroSeguroSocial=numeroSeguroSocial;
-        this.fechaNacimiento=fechaNacimiento;
     }
+    
     
     public void setActividadEconomica(String actividadEconomica){
         this.actividadEconomica=actividadEconomica;
