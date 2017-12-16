@@ -9,20 +9,20 @@ package Logica;
  *
  * @author Admin
  */
-public class CampañaPreventiva {
-   private int codigo;
+public class CampanaPreventiva {
+   private String codigo;
    private String nombre;
    private String objetivo;
    private String fecha;
-   private int idMedico;
+   private String idMedico;
    
-   public CampañaPreventiva(){}
+   public CampanaPreventiva(){}
    
-    public void setCodigo(int codigo){
+    public void setCodigo(String codigo){
         this.codigo=codigo;
     }
     
-    public int getCodigo(){
+    public String getCodigo(){
         return codigo;
     }
     
@@ -50,11 +50,11 @@ public class CampañaPreventiva {
         return fecha;
     }
     
-    public void setIdMedico(int idMedico){
+    public void setIdMedico(String idMedico){
         this.idMedico=idMedico;
     }
     
-    public int getIdMedico(){
+    public String getIdMedico(){
         return idMedico;
     }
 }

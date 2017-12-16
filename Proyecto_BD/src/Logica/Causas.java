@@ -10,18 +10,18 @@ package Logica;
  * @author Admin
  */
 public class Causas {
-    private int codigo;
+    private String codigo;
     private String nombre;
     private String descripcion;
     
     public Causas(){}
     
-    public void setCodigo(int codigo){
+    public void setCodigo(String codigo){
         this.codigo=codigo;
     }
     
     
-    public int getCodigo(){
+    public String getCodigo(){
         return codigo;
     }
     

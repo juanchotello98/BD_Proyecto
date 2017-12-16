@@ -27,7 +27,7 @@ public class DaoPaciente {
                 + paciente.getIdentificacion()+"', '"
                 + paciente.getActividadEconomica()+"', '"
                 + paciente.getNumeroSeguroSocial()+"', "
-                + paciente.getFechaNacimiento()+"', "
+                + paciente.getFechaNacimiento()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -55,7 +55,7 @@ public class DaoPaciente {
                 + "identificacion = '"+paciente.getIdentificacion()+"',"
                 + "actividad_economica = '"+paciente.getActividadEconomica()+"', "
                 + "numero_seguro_social = '"+paciente.getNumeroSeguroSocial()+"', "
-                + "fecha_nacimiento = '"+paciente.getFechaNacimiento()+"', ";
+                + "fecha_nacimiento = '"+paciente.getFechaNacimiento()+"' ";
         
          try{
           
