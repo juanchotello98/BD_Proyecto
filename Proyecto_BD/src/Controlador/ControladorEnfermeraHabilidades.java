@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoEnfermeraHabilidades;
 import Logica.EnfermeraHabilidades;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -48,6 +49,16 @@ public class ControladorEnfermeraHabilidades {
         System.out.println("Se actualizo un registro de enfermera habilidades");
         
         return resultado;
+        
+    }
+    
+    public void Select_habilidades(DefaultComboBoxModel model,String identificacion){
+        daoEnfermeraHabilidades.Select_habilidades(model, identificacion);
+        
+    }
+    
+    public void Delete_habilidades(String identificacion,String habilidad){
+        daoEnfermeraHabilidades.Delete_habilidad(identificacion,habilidad);
         
     }
     

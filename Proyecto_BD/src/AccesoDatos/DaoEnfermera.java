@@ -23,10 +23,10 @@ public class DaoEnfermera {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO enfermera"
+        sql_guardar="INSERT INTO enfermera "
                 + "VALUES ('"
                 + enfermera.getIdentificacion()+"', '"
-                + enfermera.getTiempoExperiencia()+"', '"
+                + enfermera.getTiempoExperiencia()+"', "
                 + ")";
         try{
             Connection con= fachada.getConnetion();

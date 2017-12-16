@@ -18,6 +18,7 @@ public class EnfermeraHabilidades extends Enfermera {
         super(identificacion);
     }
 
+
     public String getHabilidad() {
         return habilidad;
     }

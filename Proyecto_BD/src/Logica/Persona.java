@@ -18,7 +18,7 @@ public class Persona {
     public Persona(String identificacion){
         this.identificacion=identificacion;
     }
-    
+
     public void setIDentificacion (String identificacion){
         this.identificacion=identificacion;
     }

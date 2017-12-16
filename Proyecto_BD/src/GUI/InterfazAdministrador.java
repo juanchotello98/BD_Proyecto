@@ -208,11 +208,11 @@ public class InterfazAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadosActionPerformed
-        EmpleadosPorArea empleadosporarea = new EmpleadosPorArea();
-        empleadosporarea.setSize(600, 450);
-        empleadosporarea.setLocation(0,0);
+        FormEmpleados formempleados = new FormEmpleados();
+        formempleados.setSize(600, 450);
+        formempleados.setLocation(0,0);
         PanelActividades.removeAll();
-        PanelActividades.add(empleadosporarea, null);
+        PanelActividades.add(formempleados, null);
         PanelActividades.revalidate();
         PanelActividades.repaint();
     }//GEN-LAST:event_EmpleadosActionPerformed

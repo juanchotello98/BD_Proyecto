@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoEmpleado;
 import Logica.Empleado;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +25,7 @@ public class ControladorEmpleado {
             String codigo_area){
         
         Empleado empleado = new Empleado(identificacion);
+        empleado.setIDentificacion(identificacion);
         empleado.setSalario(salario);
         empleado.setCargo(cargo);
         empleado.setEmail(email);
@@ -70,4 +72,13 @@ public class ControladorEmpleado {
     public void Select_empleadoarea(DefaultTableModel model,String area){
         daoEmpleado.Select_empleadoarea(model,area);
     }
+    
+    public void Select_empleadocodigojefe(DefaultComboBoxModel model){
+        daoEmpleado.Select_empleadocodigojefe(model);
+    }
+    
+    public String Select_empleadonombrejefe(String identificacion){
+       return daoEmpleado.Select_empleadonombrejefe(identificacion);
+    }
+   
 }
