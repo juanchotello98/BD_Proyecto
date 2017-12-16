@@ -277,7 +277,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                 controlenfermera.Insert_enfermera(identificacion, experiencia);
 
 
-                AgregarHabilidades agregarhabilidades = new AgregarHabilidades(identificacion);
+                AgregarHabilidad agregarhabilidades = new AgregarHabilidad(identificacion);
                 agregarhabilidades.setSize(600, 450);
                 agregarhabilidades.setLocation(0,0);
                 this.removeAll();

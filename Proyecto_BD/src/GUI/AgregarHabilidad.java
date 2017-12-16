@@ -6,7 +6,6 @@
 package GUI;
 
 import Controlador.ControladorEnfermeraHabilidades;
-import Controlador.Validation;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -14,16 +13,15 @@ import javax.swing.JOptionPane;
  *
  * @author Kevin
  */
-public class AgregarHabilidades extends javax.swing.JPanel {
-    private String Identificacion;
+public class AgregarHabilidad extends javax.swing.JPanel {
+private String Identificacion;
     ControladorEnfermeraHabilidades controlhabilidades = new ControladorEnfermeraHabilidades();
-    Validation validar = new Validation();
     /**
-     * Creates new form AgregarHabilidades
+     * Creates new form AgregarHabilidad
      */
-    public AgregarHabilidades(String identificacion) {
+    public AgregarHabilidad(String identificacion) {
         initComponents();
-        this.Identificacion=identificacion;
+         this.Identificacion=identificacion;
         this.setVisible(true);
     }
 
@@ -36,16 +34,16 @@ public class AgregarHabilidades extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ListaHabilidades = new javax.swing.JComboBox<>();
         Habilidad = new javax.swing.JTextField();
         Agregar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JButton();
+        ListaHabilidades = new javax.swing.JComboBox<>();
 
-        Habilidad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                HabilidadKeyTyped(evt);
+        Habilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HabilidadActionPerformed(evt);
             }
         });
 
@@ -56,19 +54,8 @@ public class AgregarHabilidades extends javax.swing.JPanel {
             }
         });
 
-<<<<<<< HEAD
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
-=======
-        Habilidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HabilidadActionPerformed(evt);
-            }
-        });
-
-        Eliminar.setText("Eliminar");
-        Eliminar.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> 416d81fabc9a0cec2e3a27936ab07afb19bf3828
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarActionPerformed(evt);
             }
@@ -89,45 +76,44 @@ public class AgregarHabilidades extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ListaHabilidades, 0, 265, Short.MAX_VALUE)
+                        .addComponent(Habilidad)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ListaHabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Habilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Agregar)
-                            .addComponent(Eliminar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(Guardar)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                    .addComponent(Eliminar)
+                    .addComponent(Agregar))
+                .addGap(28, 28, 28))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(Guardar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Habilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Agregar))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Habilidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Agregar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ListaHabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Eliminar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Guardar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void HabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HabilidadActionPerformed
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
         String habilidad;
@@ -148,6 +134,7 @@ public class AgregarHabilidades extends javax.swing.JPanel {
        this.add(formempleados, null);
        this.revalidate();
        this.repaint();
+        
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -161,22 +148,6 @@ public class AgregarHabilidades extends javax.swing.JPanel {
 
     }//GEN-LAST:event_EliminarActionPerformed
 
-<<<<<<< HEAD
-    private void HabilidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HabilidadKeyTyped
-        if(validar.IsString(evt)){
-            evt.consume();
-        }
-    }//GEN-LAST:event_HabilidadKeyTyped
-
-=======
-    private void HabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabilidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HabilidadActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
->>>>>>> 416d81fabc9a0cec2e3a27936ab07afb19bf3828
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
