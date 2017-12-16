@@ -23,15 +23,15 @@ public class FormPacientes extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/mask.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarPaciente.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/mask.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarPaciente.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/mask.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarPaciente.setIcon(img5);
     }
 
     /**
@@ -43,28 +43,28 @@ public class FormPacientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarPaciente = new javax.swing.JButton();
+        EditarPaciente = new javax.swing.JButton();
+        ListarPaciente = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Paciente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarPaciente.setText("Registrar Paciente");
+        RegistrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarPacienteActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Paciente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarPaciente.setText("Editar Paciente");
+        EditarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarPacienteActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar pacientes");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarPaciente.setText("Listar pacientes");
+        ListarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarPacienteActionPerformed(evt);
             }
         });
 
@@ -73,45 +73,60 @@ public class FormPacientes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(86, 86, 86))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(224, 224, 224)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RegistrarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ListarPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(42, 42, 42)
-                .addComponent(jButton5)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(RegistrarPaciente)
+                .addGap(39, 39, 39)
+                .addComponent(EditarPaciente)
+                .addGap(34, 34, 34)
+                .addComponent(ListarPaciente)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RegistrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPacienteActionPerformed
+        RegistroPaciente registrarpaciente = new RegistroPaciente();
+        registrarpaciente.setSize(600, 450);
+        registrarpaciente.setLocation(0,0);
+        this.removeAll();
+        this.add(registrarpaciente, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_RegistrarPacienteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void EditarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarPacienteActionPerformed
+        EditarPaciente editarpaciente = new EditarPaciente();
+        editarpaciente.setSize(600, 450);
+        editarpaciente.setLocation(0,0);
+        this.removeAll();
+        this.add(editarpaciente, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_EditarPacienteActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void ListarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarPacienteActionPerformed
+        ListarPacientes listapaciente = new ListarPacientes();
+        listapaciente.setSize(600, 450);
+        listapaciente.setLocation(0,0);
+        this.removeAll();
+        this.add(listapaciente, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_ListarPacienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarPaciente;
+    private javax.swing.JButton ListarPaciente;
+    private javax.swing.JButton RegistrarPaciente;
     // End of variables declaration//GEN-END:variables
 }
