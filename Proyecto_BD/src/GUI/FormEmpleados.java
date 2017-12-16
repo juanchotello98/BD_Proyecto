@@ -23,7 +23,7 @@ public class FormEmpleados extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/doctor.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarMedico.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/doctor.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -35,11 +35,11 @@ public class FormEmpleados extends javax.swing.JPanel {
         
         ImageIcon imagen4=new ImageIcon(getClass().getResource("/Images/nurse.png"));
         Icon img4 = new ImageIcon(imagen4.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton4.setIcon(img4);
+        RegistrarEnfermera.setIcon(img4);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/shirt.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        Listar.setIcon(img5);
     }
 
     /**
@@ -51,16 +51,16 @@ public class FormEmpleados extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        RegistrarMedico = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarEnfermera = new javax.swing.JButton();
+        Listar = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Médico");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarMedico.setText("Registrar Médico");
+        RegistrarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarMedicoActionPerformed(evt);
             }
         });
 
@@ -73,12 +73,17 @@ public class FormEmpleados extends javax.swing.JPanel {
 
         jButton3.setText("Editar Enfermera");
 
-        jButton4.setText("Registrar Enfermera");
-
-        jButton5.setText("Listar empleados por area");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarEnfermera.setText("Registrar Enfermera");
+        RegistrarEnfermera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                RegistrarEnfermeraActionPerformed(evt);
+            }
+        });
+
+        Listar.setText("Listar empleados por area");
+        Listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarActionPerformed(evt);
             }
         });
 
@@ -88,17 +93,17 @@ public class FormEmpleados extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RegistrarEnfermera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RegistrarMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
                 .addGap(113, 113, 113)
-                .addComponent(jButton5)
+                .addComponent(Listar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -106,36 +111,52 @@ public class FormEmpleados extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(RegistrarMedico)
                     .addComponent(jButton2))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(RegistrarEnfermera))
                 .addGap(54, 54, 54)
-                .addComponent(jButton5)
+                .addComponent(Listar)
                 .addContainerGap(89, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegistrarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarMedicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RegistrarMedicoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
+        EmpleadosPorArea empleadosporarea = new EmpleadosPorArea();
+        empleadosporarea.setSize(600, 450);
+        empleadosporarea.setLocation(0,0);
+        this.removeAll();
+        this.add(empleadosporarea, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_ListarActionPerformed
+
+    private void RegistrarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEnfermeraActionPerformed
+        RegistroEnfermera registroenfermera = new RegistroEnfermera();
+        registroenfermera.setSize(600, 450);
+        registroenfermera.setLocation(0,0);
+        this.removeAll();
+        this.add(registroenfermera, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_RegistrarEnfermeraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Listar;
+    private javax.swing.JButton RegistrarEnfermera;
+    private javax.swing.JButton RegistrarMedico;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }

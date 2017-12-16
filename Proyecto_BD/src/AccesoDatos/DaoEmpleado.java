@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,13 +32,13 @@ public class DaoEmpleado {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO empleado"
+        sql_guardar="INSERT INTO empleado "
                 + "VALUES ('"
                 + empleado.getIdentificacion()+"', '"
                 + empleado.getSalario()+"', '"
-                + empleado.getCargo()+"', "
-                + empleado.getEmail()+"', "
-                + empleado.getCodigoJefe()+"', "
+                + empleado.getCargo()+"', '"
+                + empleado.getEmail()+"', '"
+                + empleado.getCodigoJefe()+"', '"
                 + empleado.getCodigoArea()+"' "
                 + ")";
         try{
@@ -138,4 +140,48 @@ public class DaoEmpleado {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     }
+    
+    public void Select_empleadocodigojefe(DefaultComboBoxModel modelo){ 
+      String sql_select;
+        sql_select="SELECT identificacion FROM empleado ";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                modelo.addElement(tabla.getString(1));
+            }
+            tabla.close();
+            sentencia.close();
+          
+         }
+         catch(Exception e){ System.out.println(e);}
+    }
+    
+    public String Select_empleadonombrejefe(String identificacion){ 
+      String sql_select,nombre = "";
+        sql_select="SELECT nombre FROM empleado "
+                +  "INNER JOIN persona ON persona.identificacion=empleado.identificacion "
+                +  "WHERE empleado.identificacion = '"+identificacion+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                nombre = tabla.getString(1);
+            }
+            
+            tabla.close();
+            sentencia.close();
+            return nombre;
+          
+         }
+         catch(Exception e){ System.out.println(e);}
+         return nombre;
+    }
+   
 }
