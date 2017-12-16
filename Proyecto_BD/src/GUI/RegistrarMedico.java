@@ -34,8 +34,8 @@ public class RegistrarMedico extends javax.swing.JPanel {
         Jefes = new DefaultComboBoxModel();
         controlarea.Select_nombrearea(Areas);
         controlempleado.Select_empleadocodigojefe(Jefes);
-        this.Areas.setModel(Areas);
-        this.Jefes.setModel(Jefes);
+        this.Area.setModel(Areas);
+        this.Jefe.setModel(Jefes);
         
         jefes = Jefes.getSelectedItem().toString();
         NombreJefe.setText(controlempleado.Select_empleadonombrejefe(jefes));
@@ -68,8 +68,8 @@ public class RegistrarMedico extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         Guardar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        Areas = new javax.swing.JComboBox<>();
-        Jefes = new javax.swing.JComboBox<>();
+        Area = new javax.swing.JComboBox<>();
+        Jefe = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         Especialidad = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -123,20 +123,20 @@ public class RegistrarMedico extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel11.setText("Registrar Medico");
 
-        Areas.addActionListener(new java.awt.event.ActionListener() {
+        Area.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AreasActionPerformed(evt);
+                AreaActionPerformed(evt);
             }
         });
 
-        Jefes.addItemListener(new java.awt.event.ItemListener() {
+        Jefe.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                JefesItemStateChanged(evt);
+                JefeItemStateChanged(evt);
             }
         });
-        Jefes.addActionListener(new java.awt.event.ActionListener() {
+        Jefe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JefesActionPerformed(evt);
+                JefeActionPerformed(evt);
             }
         });
 
@@ -216,9 +216,9 @@ public class RegistrarMedico extends javax.swing.JPanel {
                                         .addComponent(Direccion)
                                         .addComponent(Email))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(Jefes, 0, 263, Short.MAX_VALUE)
+                                        .addComponent(Jefe, 0, 263, Short.MAX_VALUE)
                                         .addComponent(Especialidad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Areas, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Area, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(NumeroLicencia))
                                     .addComponent(Universidad, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,12 +258,12 @@ public class RegistrarMedico extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Jefes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Jefe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Especialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,25 +308,26 @@ public class RegistrarMedico extends javax.swing.JPanel {
                 direccion = Direccion.getText();
                 telefono = Telefono.getText();
                 salario = Salario.getText();
-                areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
+                areas = controlarea.Select_codigoarea(Area.getSelectedItem().toString());
                 especialidad = Especialidad.getText();
                 numerolicencia = NumeroLicencia.getText();
                 universidad = Universidad.getText();
                 
                 controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
                 controlempleado.Insert_empleado(identificacion,salario, "Medico", email,jefes, areas);
-                controlmedico.Insert_medico(identificacion, especialidad, numerolicencia, universidad);
+                JOptionPane.showMessageDialog(null,identificacion);
+                controlmedico.Insert_medico(Identificacion.getText(), especialidad, numerolicencia, universidad);
             }
         }
     }//GEN-LAST:event_GuardarActionPerformed
 
-    private void AreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreasActionPerformed
+    private void AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AreasActionPerformed
+    }//GEN-LAST:event_AreaActionPerformed
 
-    private void JefesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefesActionPerformed
+    private void JefeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JefesActionPerformed
+    }//GEN-LAST:event_JefeActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
        FormEmpleados formempleados = new FormEmpleados();
@@ -338,10 +339,10 @@ public class RegistrarMedico extends javax.swing.JPanel {
        this.repaint();
     }//GEN-LAST:event_AtrasActionPerformed
 
-    private void JefesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JefesItemStateChanged
-       jefes = Jefes.getSelectedItem().toString();
+    private void JefeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JefeItemStateChanged
+       jefes = Jefe.getSelectedItem().toString();
        NombreJefe.setText(controlempleado.Select_empleadonombrejefe(jefes));
-    }//GEN-LAST:event_JefesItemStateChanged
+    }//GEN-LAST:event_JefeItemStateChanged
 
     private void NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreKeyTyped
         if(validar.IsString(evt)){
@@ -385,14 +386,14 @@ public class RegistrarMedico extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Areas;
+    private javax.swing.JComboBox<String> Area;
     private javax.swing.JButton Atras;
     private javax.swing.JTextField Direccion;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Especialidad;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField Identificacion;
-    private javax.swing.JComboBox<String> Jefes;
+    private javax.swing.JComboBox<String> Jefe;
     private javax.swing.JTextField Nombre;
     private javax.swing.JTextField NombreJefe;
     private javax.swing.JTextField NumeroLicencia;

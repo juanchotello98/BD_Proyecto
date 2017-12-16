@@ -60,9 +60,9 @@
                                       <Component id="Email" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="Jefes" pref="263" max="32767" attributes="0"/>
+                                      <Component id="Jefe" pref="263" max="32767" attributes="0"/>
                                       <Component id="Especialidad" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="Areas" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="Area" alignment="1" max="32767" attributes="0"/>
                                       <Component id="NumeroLicencia" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="Universidad" min="-2" pref="263" max="-2" attributes="0"/>
@@ -117,13 +117,13 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Areas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Area" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="Jefes" min="-2" max="-2" attributes="0"/>
+                      <Component id="Jefe" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Especialidad" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -240,28 +240,28 @@
         <Property name="text" type="java.lang.String" value="Registrar Medico"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="Areas">
+    <Component class="javax.swing.JComboBox" name="Area">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AreasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AreaActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="Jefes">
+    <Component class="javax.swing.JComboBox" name="Jefe">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JefesItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JefesActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JefeItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JefeActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

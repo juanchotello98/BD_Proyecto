@@ -259,7 +259,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
            ||Salario.getText().equals("")){
          JOptionPane.showMessageDialog(null,"Se encuentras campos vacios");
         }else{
-            if(controlpersona.Comprobar_identificacion(Identificacion.getText().toString())){
+            if(controlpersona.Comprobar_identificacion(Identificacion.getText())){
                 Identificacion.setText("");
                 JOptionPane.showMessageDialog(null,"La identificacicon ya se encuentra registrada");
             }else{
