@@ -9,12 +9,7 @@ import Controlador.ControladorArea;
 import Controlador.ControladorEmpleado;
 import Controlador.ControladorEnfermera;
 import Controlador.ControladorPersona;
-import Logica.Empleado;
-import Logica.Enfermera;
-import Logica.EnfermeraHabilidades;
-import Logica.Persona;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -254,7 +249,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void JefesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JefesItemStateChanged
-         jefes = Jefes.getSelectedItem().toString();
+       jefes = Jefes.getSelectedItem().toString();
        NombreJefe.setText(controlempleado.Select_empleadonombrejefe(jefes));
     }//GEN-LAST:event_JefesItemStateChanged
 
