@@ -292,7 +292,7 @@ public class RegistrarMedico extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-       String nombre,direccion,identificacion,email,telefono,salario,areas,especialidad,cargo,numerolicencia,universidad;
+       String nombre,direccion,identificacion,email,telefono,salario,areas,especialidad,cargo,numerolicencia,universidad,contraseña;
         
         if(Nombre.getText().equals("")||Identificacion.getText().equals("")||Especialidad.getText().equals("")
            ||Salario.getText().equals("")||NumeroLicencia.getText().equals("")||Universidad.getText().equals("")){
@@ -312,11 +312,14 @@ public class RegistrarMedico extends javax.swing.JPanel {
                 especialidad = Especialidad.getText();
                 numerolicencia = NumeroLicencia.getText();
                 universidad = Universidad.getText();
+                contraseña = Telefono.getText();
                 
                 controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
                 controlempleado.Insert_empleado(identificacion,salario, "Medico", email,jefes, areas);
                 JOptionPane.showMessageDialog(null,identificacion);
                 controlmedico.Insert_medico(Identificacion.getText(), especialidad, numerolicencia, universidad);
+                controlmedico.Insert_cuenta(identificacion, contraseña);
+                
             }
         }
     }//GEN-LAST:event_GuardarActionPerformed

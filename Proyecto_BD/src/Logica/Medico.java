@@ -14,6 +14,15 @@ public class Medico extends Empleado {
     private String especialidad;
     private String numeroLicencia;
     private String universidad;
+    private String contraseña;
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
     
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
