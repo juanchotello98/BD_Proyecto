@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoMedico;
 import Logica.Medico;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ControladorMedico {
     }
     
      public int Insert_medico(String identificacion,String especialidad,String numero_licencia,String universidad){
-        
+
         Medico medico = new Medico(identificacion);
         
         medico.setEspecialidad(especialidad);
@@ -40,19 +41,23 @@ public class ControladorMedico {
     public int Update_medico(String identificacion,String especialidad,String numero_licencia,String universidad){
         
         Medico medico = new Medico(identificacion);
-        
+        medico.setIDentificacion(identificacion);
         medico.setEspecialidad(especialidad);
         medico.setNumeroLicencia(numero_licencia);
         medico.setUniversidad(universidad);
         
         System.out.println("Se actualizara un registro de medico");
         
-        int resultado = daoMedico.Update_medico(medico);
+        int resultado = daoMedico.Update_medico(medico,identificacion);
         
         System.out.println("Se actualizo un registro de medico");
         
         return resultado;
         
+    }
+    
+     public void Select_medico(Medico medico,String identificacion){
+        daoMedico.Select_medico(medico, identificacion);
     }
     
 }

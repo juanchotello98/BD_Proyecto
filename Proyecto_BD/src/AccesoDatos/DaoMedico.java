@@ -7,6 +7,7 @@ package AccesoDatos;
 
 import Logica.Medico;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -48,7 +49,7 @@ public class DaoMedico {
         return -1;
     }
     
-     public int Update_medico(Medico medico){
+     public int Update_medico(Medico medico,String identificacion){
          
         String sql_select;
         int numFilas=0;
@@ -57,7 +58,8 @@ public class DaoMedico {
                 + "identificacion = '"+medico.getIdentificacion()+"', "
                 + "especialidad = '"+medico.getEspecialidad()+"', "
                 + "numero_licencia = '"+medico.getNumeroLicencia()+"', "
-                + "universidad = '"+medico.getUniversidad()+"', ";
+                + "universidad = '"+medico.getUniversidad()+"' "
+                + "WHERE identificacion = '"+identificacion+"' ";
         
          try{
           
@@ -71,5 +73,41 @@ public class DaoMedico {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
+    }
+     
+      public void Select_medico(Medico medico,String identificacion){
+      String sql_select;
+        sql_select="SELECT * FROM empleado "
+                +  "INNER JOIN persona ON persona.identificacion=empleado.identificacion "
+                +  "INNER JOIN medico ON medico.identificacion=empleado.identificacion "
+                +  "WHERE empleado.identificacion = '"+identificacion+"' AND cargo='Medico'" ;// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+               medico.setIdentificacion(tabla.getString(1));
+               medico.setSalario(tabla.getString(2));
+               medico.setEmail(tabla.getString(4));
+               medico.setCodigoJefe(tabla.getString(5));
+               medico.setCodigoArea(tabla.getString(6));
+               medico.setNombre(tabla.getString(8));
+               medico.setDireccion(tabla.getString(9));
+               medico.setTelefono(tabla.getString(10));
+               medico.setEspecialidad(tabla.getString(12));
+               medico.setNumeroLicencia(tabla.getString(13));
+               medico.setUniversidad(tabla.getString(14));
+               
+               
+               
+            }
+            tabla.close();
+            sentencia.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
     }
 }

@@ -14,6 +14,10 @@ public class Medico extends Empleado {
     private String especialidad;
     private String numeroLicencia;
     private String universidad;
+    
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
 
     public Medico(String identificacion) {
         super(identificacion);
