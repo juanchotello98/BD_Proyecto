@@ -8,8 +8,10 @@ package AccesoDatos;
 import Logica.Camas;
 import Logica.Persona;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,14 +54,14 @@ public class DaoPersona {
         return -1;
     }
     
-     public int Update_camas(Persona persona){
+     public int Update_camas(Persona persona,String identificacion){
         String sql_select;
         int numFilas=0;
         sql_select="UPDATE persona SET "
-                + "identificacion = '"+persona.getIdentificacion()+"', "
                 + "nombre = '"+persona.getNombre()+"', "
                 + "direccion = '"+persona.getDireccion()+"', "
-                + "telefono = '"+persona.getTelefono()+"' ";
+                + "telefono = '"+persona.getTelefono()+"' "
+                + "WHERE identificacion = '"+identificacion+"' ";
         
          try{
           
@@ -73,6 +75,38 @@ public class DaoPersona {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
+    }
+     
+    public boolean Select_identificacion(String identificacion){
+        
+        String sql_select,code="";
+        int numFilas=0;
+
+        sql_select="SELECT identificacion FROM persona "
+                +  "WHERE identificacion = '"+identificacion+"' ";
+        try{
+            Connection con= fachada.getConnetion();
+            Statement sentencia = con.createStatement(); 
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            System.out.println("up " + numFilas);
+            
+            while(tabla.next()){
+                code = tabla.getString(1);
+            }
+            if(identificacion.equals(code)){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        return false;
     }
     
 }

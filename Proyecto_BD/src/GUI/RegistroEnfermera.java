@@ -9,7 +9,10 @@ import Controlador.ControladorArea;
 import Controlador.ControladorEmpleado;
 import Controlador.ControladorEnfermera;
 import Controlador.ControladorPersona;
+import Controlador.Validation;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +24,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     ControladorEmpleado controlempleado = new ControladorEmpleado();
     ControladorPersona controlpersona = new ControladorPersona();
     ControladorEnfermera controlenfermera = new ControladorEnfermera();
+    Validation validar = new Validation();
     private String jefes;
     /**
      * Creates new form PerfilEnfermera
@@ -75,13 +79,43 @@ public class RegistroEnfermera extends javax.swing.JPanel {
 
         jLabel1.setText("Nombre:");
 
+        Identificacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                IdentificacionKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Identificacion: ");
+
+        Nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombreKeyTyped(evt);
+            }
+        });
+
+        Telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelefonoKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Telefono : ");
 
         jLabel5.setText("Direccion :");
 
+        Email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                EmailKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Email : ");
+
+        Salario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SalarioKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Salario :");
 
@@ -221,31 +255,38 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         String nombre,direccion,identificacion,email,telefono,salario,areas,experiencia,cargo;
         
-        nombre =Nombre.getText();
-        identificacion = Identificacion.getText();
-        email = Email.getText();
-        direccion = Direccion.getText();
-        telefono = Telefono.getText();
-        salario = Salario.getText();
-        areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
-        experiencia = Experiencia.getText();
+        if(Nombre.getText().equals("")||Identificacion.getText().equals("")||Experiencia.getText().equals("")
+           ||Salario.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Se encuentras campos vacios");
+        }else{
+            if(controlpersona.Comprobar_identificacion(Identificacion.getText().toString())){
+                Identificacion.setText("");
+                JOptionPane.showMessageDialog(null,"La identificacicon ya se encuentra registrada");
+            }else{
+                nombre =Nombre.getText();
+                identificacion = Identificacion.getText();
+                email = Email.getText();
+                direccion = Direccion.getText();
+                telefono = Telefono.getText();
+                salario = Salario.getText();
+                areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
+                experiencia = Experiencia.getText();
+
+                controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
+                controlempleado.Insert_empleado(identificacion,salario, "Enfermera", email,jefes, areas);
+                controlenfermera.Insert_enfermera(identificacion, experiencia);
+
+
+                AgregarHabilidades agregarhabilidades = new AgregarHabilidades(identificacion);
+                agregarhabilidades.setSize(600, 450);
+                agregarhabilidades.setLocation(0,0);
+                this.removeAll();
+                this.add(agregarhabilidades, null);
+                this.revalidate();
+                this.repaint();
+            }
+        }
         
-        controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
-        controlempleado.Insert_empleado(identificacion,salario, "Enfermera", email,jefes, areas);
-        controlenfermera.Insert_enfermera(identificacion, experiencia);
-        
-      
-        
-        Nombre.setText("");
-        Direccion.setText("");
-        Email.setText("");
-        Telefono.setText("");
-        Salario.setText("");
-        Jefes.setSelectedIndex(0);
-        Areas.setSelectedIndex(0);
-        Experiencia.setText("");
-        
-        AgregarHabilidades agregarhabilidades = new AgregarHabilidades(Identificacion.getText());
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void JefesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JefesItemStateChanged
@@ -262,6 +303,40 @@ public class RegistroEnfermera extends javax.swing.JPanel {
        this.revalidate();
        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreKeyTyped
+        if(validar.IsString(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_NombreKeyTyped
+
+    private void IdentificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdentificacionKeyTyped
+        if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_IdentificacionKeyTyped
+
+    private void TelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoKeyTyped
+         if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TelefonoKeyTyped
+
+    private void SalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalarioKeyTyped
+        if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_SalarioKeyTyped
+
+    private void EmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmailKeyTyped
+         if(validar.isEmail(Email.getText())){
+            Email.setToolTipText("");
+            Email.setBackground(Color.white);
+        }else{
+            Email.setToolTipText("Email invalido");
+            Email.setBackground(Color.pink);
+        }
+    }//GEN-LAST:event_EmailKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

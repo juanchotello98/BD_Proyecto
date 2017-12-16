@@ -59,18 +59,18 @@ public class DaoEmpleado {
         return -1;
     }
     
-     public int Update_empleado(Empleado empleado){
+     public int Update_empleado(Empleado empleado,String identificacion){
          
         String sql_select;
         int numFilas=0;
        
         sql_select="UPDATE empleado SET "
-                + "identificacion = '"+empleado.getIdentificacion()+"', "
                 + "salario = '"+empleado.getSalario()+"', "
                 + "cargo = '"+empleado.getCargo()+"', "
                 + "email = '"+empleado.getEmail()+"', "
                 + "codigo_jefe = '"+empleado.getCodigoJefe()+"', "
-                + "codigo_area = '"+empleado.getCodigoArea()+"' ";
+                + "codigo_area = '"+empleado.getCodigoArea()+"' "
+                + "WHERE identificacion = '"+identificacion+"' ";
         
          try{
           
