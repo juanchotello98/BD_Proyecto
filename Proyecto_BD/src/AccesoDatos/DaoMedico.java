@@ -110,4 +110,32 @@ public class DaoMedico {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     }
+      
+      public int Insert_cuenta(Medico medico){
+        
+        String sql_guardar;
+        int numFilas=0;
+
+        sql_guardar="INSERT INTO usuario "
+                + "VALUES ('"
+                + medico.getIdentificacion()+"', '"
+                + medico.getContraseña()+"' "
+                + ")";
+        try{
+            Connection con= fachada.getConnetion();
+            Statement sentencia = con.createStatement();
+            
+            numFilas = sentencia.executeUpdate(sql_guardar);            
+            System.out.println("up " + numFilas);
+            return numFilas;
+            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        return -1;
+    }
 }

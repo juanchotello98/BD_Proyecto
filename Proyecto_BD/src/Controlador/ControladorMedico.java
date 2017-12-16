@@ -59,5 +59,21 @@ public class ControladorMedico {
      public void Select_medico(Medico medico,String identificacion){
         daoMedico.Select_medico(medico, identificacion);
     }
+     
+    public int Insert_cuenta(String identificacion,String contraseña){
+
+        Medico medico = new Medico(identificacion);
+        
+        medico.setContraseña(contraseña);
+        
+        System.out.println("Se insertara un registro a medico");
+        
+        int resultado = daoMedico.Insert_cuenta(medico);
+        
+        System.out.println("Se inserto un registro a medico");
+        
+        return resultado;
+        
+    }
     
 }
