@@ -57,7 +57,7 @@ public class ControladorEmpleado {
         
         System.out.println("Se actualizara un registro de empleado");
         
-        int resultado = daoEmpleado.Update_empleado(empleado);
+        int resultado = daoEmpleado.Update_empleado(empleado,identificacion);
         
         System.out.println("Se actualizo un registro de empleado");
         
