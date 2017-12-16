@@ -23,6 +23,7 @@ public class EditarEnfermera extends javax.swing.JPanel {
     ControladorEnfermera controlenfermera = new ControladorEnfermera();
     ControladorEmpleado controlempleado =  new ControladorEmpleado();
     ControladorPersona controlpersona = new ControladorPersona();
+    ControladorArea controlarea = new ControladorArea();
     ControladorEnfermeraHabilidades controlhabilidades = new ControladorEnfermeraHabilidades();
     
     DefaultComboBoxModel Areas,Jefes;
