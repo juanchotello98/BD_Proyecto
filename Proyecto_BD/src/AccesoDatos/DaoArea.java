@@ -7,8 +7,10 @@ package AccesoDatos;
 
 import Logica.Area;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 
 public class DaoArea {
     
@@ -72,5 +74,23 @@ public class DaoArea {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
+    }
+    public void Select_nombrearea(DefaultComboBoxModel modelo){ 
+      String sql_select;
+        sql_select="SELECT nombre FROM area";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                modelo.addElement(tabla.getString(1));
+            }
+            tabla.close();
+            sentencia.close();
+          
+         }
+         catch(Exception e){ System.out.println(e);}
     }
 }

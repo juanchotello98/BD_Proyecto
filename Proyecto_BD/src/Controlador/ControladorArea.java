@@ -7,6 +7,7 @@ package Controlador;
 
 import Logica.Area;
 import AccesoDatos.DaoArea;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author Juan David
@@ -57,4 +58,9 @@ public class ControladorArea {
         return resultado;
         
     }
+    
+    public void Select_nombrearea(DefaultComboBoxModel model){
+        daoArea.Select_nombrearea(model);
+    }
+
 }

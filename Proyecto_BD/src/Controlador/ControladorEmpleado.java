@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoEmpleado;
 import Logica.Empleado;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -62,4 +63,11 @@ public class ControladorEmpleado {
         
     }
     
+    public void Select_empleado(DefaultTableModel model){
+        daoEmpleado.Select_empleado(model);
+    }
+    
+    public void Select_empleadoarea(DefaultTableModel model,String area){
+        daoEmpleado.Select_empleadoarea(model,area);
+    }
 }
