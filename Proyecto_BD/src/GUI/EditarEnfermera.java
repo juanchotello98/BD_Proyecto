@@ -69,7 +69,7 @@ public class EditarEnfermera extends javax.swing.JPanel {
 
         jLabel7.setText("Salario :");
 
-        jLabel9.setText("Codigo del area que pertenece :");
+        jLabel9.setText("Código del area que pertenece :");
 
         jLabel10.setText("Experiencia Laboral");
 
