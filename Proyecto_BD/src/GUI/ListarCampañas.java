@@ -49,7 +49,7 @@ public class ListarCampañas extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Objetivo", "Fecha", "Medico"
+                "Codigo", "Nombre", "Objetivo", "Fecha", "Medico Encargado"
             }
         ) {
             boolean[] canEdit = new boolean [] {

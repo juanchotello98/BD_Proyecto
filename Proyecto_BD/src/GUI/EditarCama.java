@@ -58,7 +58,7 @@ public class EditarCama extends javax.swing.JPanel {
         });
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel11.setText("Registrar Cama");
+        jLabel11.setText("Editar Cama");
 
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

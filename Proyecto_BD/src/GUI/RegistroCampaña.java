@@ -67,7 +67,7 @@ public class RegistroCampaña extends javax.swing.JPanel {
 
         jLabel6.setText("Fecha:");
 
-        jLabel7.setText("Medico:");
+        jLabel7.setText("Medico Encargado:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
