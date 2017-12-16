@@ -23,12 +23,12 @@ public class DaoMedico {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO medico"
+        sql_guardar="INSERT INTO medico "
                 + "VALUES ('"
                 + medico.getIdentificacion()+"', '"
                 + medico.getEspecialidad()+"', '"
-                + medico.getNumeroLicencia()+"', "
-                + medico.getUniversidad()+"', "
+                + medico.getNumeroLicencia()+"', '"
+                + medico.getUniversidad()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();

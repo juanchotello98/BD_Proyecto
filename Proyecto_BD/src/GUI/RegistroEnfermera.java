@@ -75,7 +75,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
         Jefes = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         NombreJefe = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Atras = new javax.swing.JButton();
 
         jLabel1.setText("Nombre:");
 
@@ -141,10 +141,10 @@ public class RegistroEnfermera extends javax.swing.JPanel {
 
         jLabel12.setText("Jefe :");
 
-        jButton1.setText("Atras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Atras.setText("Atras");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AtrasActionPerformed(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                                     .addComponent(Jefes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Nombre)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 17, Short.MAX_VALUE)
@@ -246,7 +246,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(Atras)
                             .addComponent(Guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -294,7 +294,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
        NombreJefe.setText(controlempleado.Select_empleadonombrejefe(jefes));
     }//GEN-LAST:event_JefesItemStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
        FormEmpleados formempleados = new FormEmpleados();
        formempleados.setSize(600, 450);
        formempleados.setLocation(0,0);
@@ -302,7 +302,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
        this.add(formempleados, null);
        this.revalidate();
        this.repaint();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AtrasActionPerformed
 
     private void NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreKeyTyped
         if(validar.IsString(evt)){
@@ -341,6 +341,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Areas;
+    private javax.swing.JButton Atras;
     private javax.swing.JTextField Direccion;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Experiencia;
@@ -351,7 +352,6 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     private javax.swing.JTextField NombreJefe;
     private javax.swing.JTextField Salario;
     private javax.swing.JTextField Telefono;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

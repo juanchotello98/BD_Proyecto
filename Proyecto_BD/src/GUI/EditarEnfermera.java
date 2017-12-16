@@ -357,13 +357,17 @@ public class EditarEnfermera extends javax.swing.JPanel {
     }//GEN-LAST:event_BusquedaKeyReleased
 
     private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
-        DefaultComboBoxModel model;
+        if(Identificacion.getText().equals("")||!controlpersona.Comprobar_identificacion(Identificacion.getText())){
+            
+        }else{
+            DefaultComboBoxModel model;
         model= new DefaultComboBoxModel();
         String habilidades = JOptionPane.showInputDialog("Ingresa nueva habilidad");
         
         controlhabilidades.Insert_enfermerahabilidades(Identificacion.getText(), habilidades);
         controlhabilidades.Select_habilidades(model,Identificacion.getText());
         this.ListaHabilidades.setModel(model);
+        }
     }//GEN-LAST:event_AgregarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
