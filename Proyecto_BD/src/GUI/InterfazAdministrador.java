@@ -21,6 +21,7 @@ public class InterfazAdministrador extends javax.swing.JFrame {
      */
     public InterfazAdministrador() {
         initComponents();
+        this.setResizable(false);
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/hospital.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(LabelImagen.getWidth(),LabelImagen.getHeight(), Image.SCALE_DEFAULT));
         LabelImagen.setIcon(img1);
