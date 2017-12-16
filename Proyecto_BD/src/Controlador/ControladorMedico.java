@@ -60,17 +60,37 @@ public class ControladorMedico {
         daoMedico.Select_medico(medico, identificacion);
     }
      
+     public boolean Select_contrasena(String identificacion,String contrasenavieja){
+        return daoMedico.Comprobar_cuenta(identificacion, contrasenavieja);
+    }
+     
     public int Insert_cuenta(String identificacion,String contraseña){
 
         Medico medico = new Medico(identificacion);
         
-        medico.setContraseña(contraseña);
+        medico.setContrasena(contraseña);
         
         System.out.println("Se insertara un registro a medico");
         
         int resultado = daoMedico.Insert_cuenta(medico);
         
         System.out.println("Se inserto un registro a medico");
+        
+        return resultado;
+        
+    }
+    
+    public int Update_cuenta(String identificacion,String nuevacontrasena,String ViejaContrasena){
+        
+        Medico medico = new Medico(identificacion);
+        
+        medico.setContrasena(ViejaContrasena);
+        
+        System.out.println("Se actualizara un registro de medico");
+        
+        int resultado = daoMedico.Update_cuenta(medico,identificacion,nuevacontrasena);
+        
+        System.out.println("Se actualizo un registro de medico");
         
         return resultado;
         

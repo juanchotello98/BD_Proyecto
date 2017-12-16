@@ -100,7 +100,7 @@
                           <Group type="102" attributes="0">
                               <Component id="Contraseñaold" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPasswordField1" max="32767" attributes="0"/>
+                              <Component id="contrasenaold" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
                           <Group type="102" attributes="0">
                               <Component id="Contraseñanew" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPasswordField2" max="32767" attributes="0"/>
+                              <Component id="contrasenanew" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -189,9 +189,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Contraseñaold" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="contrasenaold" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Contraseñanew" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPasswordField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="contrasenanew" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="45" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -336,14 +336,14 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a vieja:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="contrasenaold">
     </Component>
     <Component class="javax.swing.JLabel" name="Contrase&#xf1;anew">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a nueva:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField2">
+    <Component class="javax.swing.JPasswordField" name="contrasenanew">
     </Component>
     <Component class="javax.swing.JTextField" name="Busqueda">
       <Events>

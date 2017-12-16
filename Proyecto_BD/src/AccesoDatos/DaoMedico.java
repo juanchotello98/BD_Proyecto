@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 public class DaoMedico {
     
@@ -111,7 +112,7 @@ public class DaoMedico {
          catch(Exception e){ System.out.println(e); }
     }
       
-      public int Insert_cuenta(Medico medico){
+    public int Insert_cuenta(Medico medico){
         
         String sql_guardar;
         int numFilas=0;
@@ -119,7 +120,7 @@ public class DaoMedico {
         sql_guardar="INSERT INTO usuario "
                 + "VALUES ('"
                 + medico.getIdentificacion()+"', '"
-                + medico.getContraseña()+"' "
+                + medico.getContrasena()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -137,5 +138,57 @@ public class DaoMedico {
             System.out.println(e);
         }
         return -1;
+    }
+      
+    public boolean Comprobar_cuenta(String identificacion,String viejo){
+        Medico medico = new Medico(identificacion);
+        String sql_select;
+        int numFilas=0;
+       
+        sql_select="Select contrasena from usuario "
+                + "WHERE identificacion = '"+identificacion+"' ";
+        
+         try{
+          
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+                medico.setContrasena(tabla.getString(1));
+            }
+            if(medico.getContrasena().equals(viejo)){
+                return true;
+            }else{
+                return false;
+            }
+            
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return false;
+         
+    }
+    public int Update_cuenta(Medico medico,String identificacion,String nuevacontrasena){
+         
+        String sql_select;
+        int numFilas=0;
+       
+        sql_select="UPDATE usuario SET "
+                + "contrasena = '"+nuevacontrasena+"' "
+                + "WHERE identificacion = '"+identificacion+"' ";
+        
+         try{
+          
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            numFilas = sentencia.executeUpdate(sql_select);
+            JOptionPane.showMessageDialog(null,"Contraseña invalida"+identificacion+" "+nuevacontrasena);
+            return numFilas;
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return -1;
+         
     }
 }
