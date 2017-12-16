@@ -77,9 +77,9 @@ public class EditarMedico extends javax.swing.JPanel {
         Universidad = new javax.swing.JTextField();
         Atras = new javax.swing.JButton();
         Contraseñaold = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        contrasenaold = new javax.swing.JPasswordField();
         Contraseñanew = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        contrasenanew = new javax.swing.JPasswordField();
         Busqueda = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         NombreJefe = new javax.swing.JTextField();
@@ -227,7 +227,7 @@ public class EditarMedico extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Contraseñaold)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPasswordField1))
+                                .addComponent(contrasenaold))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
@@ -241,7 +241,7 @@ public class EditarMedico extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Contraseñanew)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPasswordField2)))))
+                                .addComponent(contrasenanew)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -296,9 +296,9 @@ public class EditarMedico extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Contraseñaold)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contrasenaold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Contraseñanew)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contrasenanew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Atras)
@@ -313,20 +313,25 @@ public class EditarMedico extends javax.swing.JPanel {
            ||Salario.getText().equals("")||Universidad.getText().equals("")||NumeroLicencia.getText().equals("")){
          JOptionPane.showMessageDialog(null,"Se encuentras campos vacios");
         }else{
-                nombre =Nombre.getText();
-                identificacion = Identificacion.getText();
-                email = Email.getText();
-                direccion = Direccion.getText();
-                telefono = Telefono.getText();
-                salario = Salario.getText();
-                areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
-                especialidad = Especialidad.getText();
-                numerolicencia =NumeroLicencia.getText();
-                universidad =  Universidad.getText();
-                controlpersona.Update_persona(identificacion, nombre, direccion, telefono);
-                controlempleado.Update_empleado(identificacion, salario, "Medico", email,
-                Jefe.getSelectedItem().toString(),controlarea.Select_codigoarea(Area.getSelectedItem().toString()));
-                controlmedico.Update_medico(identificacion, especialidad, numerolicencia, universidad);
+                if(controlmedico.Select_contrasena(Busqueda.getText(), contrasenaold.getText())){
+                    nombre =Nombre.getText();
+                    identificacion = Identificacion.getText();
+                    email = Email.getText();
+                    direccion = Direccion.getText();
+                    telefono = Telefono.getText();
+                    salario = Salario.getText();
+                    areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
+                    especialidad = Especialidad.getText();
+                    numerolicencia =NumeroLicencia.getText();
+                    universidad =  Universidad.getText();
+                    controlpersona.Update_persona(identificacion, nombre, direccion, telefono);
+                    controlempleado.Update_empleado(identificacion, salario, "Medico", email,
+                    Jefe.getSelectedItem().toString(),controlarea.Select_codigoarea(Area.getSelectedItem().toString()));
+                    controlmedico.Update_medico(identificacion, especialidad, numerolicencia, universidad);
+                    controlmedico.Update_cuenta(identificacion, contrasenanew.getText(), contrasenaold.getText());
+                }else{
+                    JOptionPane.showMessageDialog(null,"Contraseña invalida");
+                }
         }
     }//GEN-LAST:event_ModificacrActionPerformed
 
@@ -408,6 +413,8 @@ public class EditarMedico extends javax.swing.JPanel {
     private javax.swing.JTextField Salario;
     private javax.swing.JTextField Telefono;
     private javax.swing.JTextField Universidad;
+    private javax.swing.JPasswordField contrasenanew;
+    private javax.swing.JPasswordField contrasenaold;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -422,7 +429,5 @@ public class EditarMedico extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     // End of variables declaration//GEN-END:variables
 }

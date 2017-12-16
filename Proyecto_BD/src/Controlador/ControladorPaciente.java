@@ -6,6 +6,7 @@
 package Controlador;
 import Logica.Paciente;
 import AccesoDatos.DaoPaciente;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Juan David
@@ -55,6 +56,14 @@ public class ControladorPaciente {
         
         return resultado;
         
+    }
+        
+    public void Select_paciente(Paciente paciente,String identificacion){
+        daoPaciente.Select_paciente(paciente, identificacion);
+    }
+    
+    public void Select_pacientetabla(DefaultTableModel model){
+        daoPaciente.Select_pacientetabla(model);
     }
     
 }

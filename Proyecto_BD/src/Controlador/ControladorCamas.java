@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoCama;
 import Logica.Camas;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -50,7 +51,7 @@ public class ControladorCamas {
         
         System.out.println("Se actualizara un registro de agenda");
         
-        int resultado = daoCama.Update_camas(camas);
+        int resultado = daoCama.Update_camas(camas,numero_cama);
         
         System.out.println("Se actualizo un registro de agenda");
         
@@ -58,5 +59,16 @@ public class ControladorCamas {
         
     }
     
+    public boolean Comprobar_codigo(String id){
+        return daoCama.Comprobar_codigo(id);
+    }
+    
+    public void Select_cama(Camas cama,String id){
+        daoCama.Select_cama(cama, id);
+    }
+    
+    public void Select_tablacamas(DefaultTableModel model){
+        daoCama.Select_tablacamas(model);
+    }
     
 }
