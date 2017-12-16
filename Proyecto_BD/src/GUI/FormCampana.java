@@ -13,24 +13,24 @@ import javax.swing.ImageIcon;
  *
  * @author Leidy
  */
-public class FormCampaña extends javax.swing.JPanel {
+public class FormCampana extends javax.swing.JPanel {
 
     /**
      * Creates new form FormCampaña
      */
-    public FormCampaña() {
+    public FormCampana() {
         initComponents();
          ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/tag.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistroCampana.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/tag.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarCampana.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/tag.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarCampana.setIcon(img5);
     }
 
     /**
@@ -42,28 +42,28 @@ public class FormCampaña extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistroCampana = new javax.swing.JButton();
+        EditarCampana = new javax.swing.JButton();
+        ListarCampana = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Campaña");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistroCampana.setText("Registrar Campaña");
+        RegistroCampana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistroCampanaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Campaña");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarCampana.setText("Editar Campaña");
+        EditarCampana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarCampanaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Campaña");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarCampana.setText("Listar Campaña");
+        ListarCampana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarCampanaActionPerformed(evt);
             }
         });
 
@@ -73,13 +73,13 @@ public class FormCampaña extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addComponent(RegistroCampana)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(EditarCampana)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(jButton5)
+                .addComponent(ListarCampana)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,30 +87,48 @@ public class FormCampaña extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(RegistroCampana)
+                    .addComponent(EditarCampana))
                 .addGap(42, 42, 42)
-                .addComponent(jButton5)
+                .addComponent(ListarCampana)
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RegistroCampanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroCampanaActionPerformed
+       RegistroCampana registrocampana = new RegistroCampana();
+       registrocampana.setSize(600,450);
+       registrocampana.setLocation(0, 0);
+       this.removeAll();
+       this.add(registrocampana,null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_RegistroCampanaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void EditarCampanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarCampanaActionPerformed
+       EditarCampana editarcampana = new EditarCampana();
+       editarcampana.setSize(600,450);
+       editarcampana.setLocation(0, 0);
+       this.removeAll();
+       this.add(editarcampana,null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_EditarCampanaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void ListarCampanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCampanaActionPerformed
+       ListarCampanas listarcampana = new ListarCampanas();
+       listarcampana.setSize(600,450);
+       listarcampana.setLocation(0, 0);
+       this.removeAll();
+       this.add(listarcampana,null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_ListarCampanaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarCampana;
+    private javax.swing.JButton ListarCampana;
+    private javax.swing.JButton RegistroCampana;
     // End of variables declaration//GEN-END:variables
 }

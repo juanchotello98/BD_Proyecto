@@ -102,7 +102,13 @@ public class ListarPacientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       FormPacientes formpacientes = new FormPacientes();
+       formpacientes.setSize(600, 450);
+       formpacientes.setLocation(0,0);
+       this.removeAll();
+       this.add(formpacientes, null);
+       this.revalidate();
+       this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
