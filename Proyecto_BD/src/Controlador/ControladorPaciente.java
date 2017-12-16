@@ -6,6 +6,7 @@
 package Controlador;
 import Logica.Paciente;
 import AccesoDatos.DaoPaciente;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -64,6 +65,10 @@ public class ControladorPaciente {
     
     public void Select_pacientetabla(DefaultTableModel model){
         daoPaciente.Select_pacientetabla(model);
+    }
+    
+    public void Select_idpaciente(DefaultComboBoxModel model){
+        daoPaciente.Select_idpaciente(model);
     }
     
 }
