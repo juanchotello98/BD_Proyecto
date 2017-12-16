@@ -57,7 +57,7 @@ public class EditarEnfermera extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Identificacion: ");
+        jLabel3.setText("Identificación: ");
 
         jTextField2.setEditable(false);
 
