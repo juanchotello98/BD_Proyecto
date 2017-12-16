@@ -8,6 +8,7 @@ package Controlador;
 import Logica.Area;
 import AccesoDatos.DaoArea;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Juan David
@@ -41,17 +42,17 @@ public class ControladorArea {
     }
     
     
-    public int Update_area(String cdigoArea, String nombre, String descripcion){
+    public int Update_area(String codigoArea, String nombre, String descripcion){
         
         Area area = new Area(); 
         
-        area.setCodigoArea(cdigoArea);
+        area.setCodigoArea(codigoArea);
         area.setNombre(nombre);
         area.setDescripcion(descripcion);
         
         System.out.println("Se actualizara un registro de area");
         
-        int resultado = daoArea.Update_area(area);
+        int resultado = daoArea.Update_area(area,codigoArea);
         
         System.out.println("Se actualizo un registro de area");
         
@@ -66,5 +67,17 @@ public class ControladorArea {
     public String Select_codigoarea(String nombre){
         return daoArea.Select_codigoarea(nombre);
     }
+    
+    public boolean Comprobar_codigo(String id){
+        return daoArea.Comprobar_codigo(id);
+    }
+    
+     public void Select_area(Area area,String id){
+        daoArea.Select_area(area, id);
+    }
+     
+    public void Select_areatabla(DefaultTableModel model){
+        daoArea.Select_areatabla(model);
+    } 
 
 }

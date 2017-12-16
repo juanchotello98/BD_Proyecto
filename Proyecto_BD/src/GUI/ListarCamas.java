@@ -5,17 +5,34 @@
  */
 package GUI;
 
+import Controlador.ControladorCamas;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Juan David
  */
 public class ListarCamas extends javax.swing.JPanel {
-
+    DefaultTableModel model;
+    ControladorCamas controlcama = new ControladorCamas();
     /**
      * Creates new form ListarPacientes
      */
     public ListarCamas() {
         initComponents();
+        model = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+        };
+        
+        TablaCamas.setModel(model);
+        model.addColumn("Numero Cama");
+        model.addColumn("Estado");
+        model.addColumn("Descripcion");
+        model.addColumn("Ubicacion");
+        
+        TablaCamas.getTableHeader().setReorderingAllowed(false);
+        controlcama.Select_tablacamas(model);
+        jScrollPane1.setViewportView(TablaCamas);
     }
 
     /**
@@ -29,13 +46,13 @@ public class ListarCamas extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaCamas = new javax.swing.JTable();
         Atras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Listar Camas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCamas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +77,7 @@ public class ListarCamas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaCamas);
 
         Atras.setText("Atras");
         Atras.addActionListener(new java.awt.event.ActionListener() {
@@ -115,8 +132,8 @@ public class ListarCamas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JTable TablaCamas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

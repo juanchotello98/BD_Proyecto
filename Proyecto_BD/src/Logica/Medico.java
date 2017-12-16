@@ -16,11 +16,11 @@ public class Medico extends Empleado {
     private String universidad;
     private String contraseña;
 
-    public String getContraseña() {
+    public String getContrasena() {
         return contraseña;
     }
 
-    public void setContraseña(String contraseña) {
+    public void setContrasena(String contraseña) {
         this.contraseña = contraseña;
     }
     
