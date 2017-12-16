@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoMedico;
 import Logica.Medico;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +95,9 @@ public class ControladorMedico {
         
         return resultado;
         
+    }
+    public void Select_idmedios(DefaultComboBoxModel model){
+        daoMedico.Select_idmedico(model);
     }
     
 }

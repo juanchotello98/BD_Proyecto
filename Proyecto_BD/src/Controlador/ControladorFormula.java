@@ -21,13 +21,14 @@ public class ControladorFormula {
         
     }
     
-    public int Insert_formula(String id_formula, String id_medico, String id_paciente){
+    public int Insert_formula(String id_formula, String id_medico, String id_paciente,String fecha){
         
         Formula formula = new Formula(); 
         
         formula.setId_formula(id_formula);
         formula.setId_medico(id_medico);
         formula.setId_paciente(id_paciente);
+        formula.setFecha(fecha);
         
         
         System.out.println("Se insertara un registro de formula");
