@@ -224,7 +224,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        String nombre,direccion,identificacion,email,telefono,salario,areas,experiencia;
+        String nombre,direccion,identificacion,email,telefono,salario,areas,experiencia,cargo;
         
         nombre =Nombre.getText();
         identificacion = Identificacion.getText();
@@ -236,7 +236,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
         experiencia = Experiencia.getText();
         
         controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
-        controlempleado.Insert_empleado(identificacion, salario, areas, email,jefes, areas);
+        controlempleado.Insert_empleado(identificacion,salario, "Enfermera", email,jefes, areas);
         controlenfermera.Insert_enfermera(identificacion, experiencia);
         
       

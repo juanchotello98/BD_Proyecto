@@ -31,6 +31,7 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
         };
         Areas = new DefaultComboBoxModel();
         TablaEmpleadoArea.setModel(model);
+        model.addColumn("Identificacion");
         model.addColumn("Nombre");
         model.addColumn("Cargo");
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);
@@ -195,7 +196,13 @@ public class EmpleadosPorArea extends javax.swing.JPanel {
     }//GEN-LAST:event_RestablecerActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       FormEmpleados formempleados = new FormEmpleados();
+       formempleados.setSize(600, 450);
+       formempleados.setLocation(0,0);
+       this.removeAll();
+       this.add(formempleados, null);
+       this.revalidate();
+       this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -87,7 +87,7 @@ public class DaoEmpleado {
     }
     public void Select_empleado(DefaultTableModel model){
       String sql_select;
-        sql_select="SELECT nombre,cargo FROM empleado "
+        sql_select="SELECT empleado.identificacion,nombre,cargo FROM empleado "
                 +  "INNER JOIN persona ON persona.identificacion=empleado.identificacion";// Where nombre_equipo LIKE '" + indi + "%'";
        
          try{
@@ -98,9 +98,9 @@ public class DaoEmpleado {
             
             while(tabla.next()){
                 //obtener los datos y almacenar las filas
-		Object[] fila = new Object[2];
+		Object[] fila = new Object[3];
 		//llenar cada columna con lo datos almacenados
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 3; i++)
                     fila[i] = tabla.getObject(i + 1);
 		//cargar los datos en filas a la tabla modelo
 		    model.addRow(fila);
