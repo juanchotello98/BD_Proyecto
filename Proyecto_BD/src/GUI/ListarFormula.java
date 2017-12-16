@@ -9,12 +9,12 @@ package GUI;
  *
  * @author Juan David
  */
-public class ListarCamas extends javax.swing.JPanel {
+public class ListarFormula extends javax.swing.JPanel {
 
     /**
      * Creates new form ListarPacientes
      */
-    public ListarCamas() {
+    public ListarFormula() {
         initComponents();
     }
 
@@ -33,7 +33,7 @@ public class ListarCamas extends javax.swing.JPanel {
         Atras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Listar Camas");
+        jLabel1.setText("Listar Formulas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -49,7 +49,7 @@ public class ListarCamas extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Numero Cama", "Estado", "Descripción", "Codigo Area"
+                "Identificacion Formula", "Identificacion Medico", "Identificacion Paciente", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -102,14 +102,13 @@ public class ListarCamas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-        // TODO add your handling code here:
-      FormCamas formcamas = new FormCamas();
-      formcamas.setSize(600, 450);
-      formcamas.setLocation(0, 0);
-      this.removeAll();
-      this.add(formcamas,null);
-      this.revalidate();
-      this.repaint();
+       FormFormula formformula = new FormFormula();
+       formformula.setSize(600, 450);
+       formformula.setLocation(0,0);
+       this.removeAll();
+       this.add(formformula, null);
+       this.revalidate();
+       this.repaint();
     }//GEN-LAST:event_AtrasActionPerformed
 
 

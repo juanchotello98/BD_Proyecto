@@ -23,15 +23,15 @@ public class FormFormula extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarFormula.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarFormula.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarFormula.setIcon(img5);
     }
 
     /**
@@ -43,28 +43,28 @@ public class FormFormula extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarFormula = new javax.swing.JButton();
+        EditarFormula = new javax.swing.JButton();
+        ListarFormula = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Formula");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarFormula.setText("Registrar Formula");
+        RegistrarFormula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarFormulaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Formula");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarFormula.setText("Editar Formula");
+        EditarFormula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarFormulaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Formula");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarFormula.setText("Listar Formula");
+        ListarFormula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarFormulaActionPerformed(evt);
             }
         });
 
@@ -74,13 +74,13 @@ public class FormFormula extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addComponent(RegistrarFormula)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(EditarFormula)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(jButton5)
+                .addComponent(ListarFormula)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,30 +88,51 @@ public class FormFormula extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(RegistrarFormula)
+                    .addComponent(EditarFormula))
                 .addGap(42, 42, 42)
-                .addComponent(jButton5)
+                .addComponent(ListarFormula)
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegistrarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarFormulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+       RegistroFormula registroformula = new RegistroFormula();
+       registroformula.setSize(600, 450);
+       registroformula.setLocation(0, 0);
+       this.removeAll();
+       this.add(registroformula, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_RegistrarFormulaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void EditarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarFormulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+       EditarFormula editarformula = new EditarFormula();
+       editarformula.setSize(600, 450);
+       editarformula.setLocation(0, 0);
+       this.removeAll();
+       this.add(editarformula, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_EditarFormulaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ListarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarFormulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+       ListarFormula listarformula = new ListarFormula();
+       listarformula.setSize(600, 450);
+       listarformula.setLocation(0, 0);
+       this.removeAll();
+       this.add(listarformula, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_ListarFormulaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarFormula;
+    private javax.swing.JButton ListarFormula;
+    private javax.swing.JButton RegistrarFormula;
     // End of variables declaration//GEN-END:variables
 }
