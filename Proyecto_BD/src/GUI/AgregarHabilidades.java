@@ -56,8 +56,19 @@ public class AgregarHabilidades extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< HEAD
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
+=======
+        Habilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HabilidadActionPerformed(evt);
+            }
+        });
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> 416d81fabc9a0cec2e3a27936ab07afb19bf3828
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarActionPerformed(evt);
             }
@@ -150,12 +161,22 @@ public class AgregarHabilidades extends javax.swing.JPanel {
 
     }//GEN-LAST:event_EliminarActionPerformed
 
+<<<<<<< HEAD
     private void HabilidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HabilidadKeyTyped
         if(validar.IsString(evt)){
             evt.consume();
         }
     }//GEN-LAST:event_HabilidadKeyTyped
 
+=======
+    private void HabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HabilidadActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+>>>>>>> 416d81fabc9a0cec2e3a27936ab07afb19bf3828
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
