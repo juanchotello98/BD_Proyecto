@@ -97,15 +97,37 @@ public class FormCitas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistroCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroCitaActionPerformed
-      
+        RegistroCita registrocita = new RegistroCita();
+        registrocita.setSize(600,450);
+        registrocita.setLocation(0,0);
+        this.removeAll();
+        this.add(registrocita,null);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_RegistroCitaActionPerformed
 
     private void EditarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarCitaActionPerformed
         // TODO add your handling code here:
+        EditarCita editarCita = new EditarCita();
+        editarCita.setSize(600,450);
+        editarCita.setLocation(0,0);
+        this.removeAll();
+        this.add(editarCita,null);
+        this.revalidate();
+        this.repaint();
+        
     }//GEN-LAST:event_EditarCitaActionPerformed
 
     private void ListarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCitaActionPerformed
         // TODO add your handling code here:
+        ListarCitas listarcita = new ListarCitas();
+        listarcita.setSize(600,450);
+        listarcita.setLocation(0,0);
+        this.removeAll();
+        this.add(listarcita,null);
+        this.revalidate();
+        this.repaint();
+        
     }//GEN-LAST:event_ListarCitaActionPerformed
 
 

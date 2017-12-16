@@ -78,7 +78,7 @@ public class FormArea extends javax.swing.JPanel {
                     .addComponent(RegistrarArea, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                     .addComponent(EditarArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ListarArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -50,6 +50,12 @@ public class AgregarHabilidades extends javax.swing.JFrame {
             }
         });
 
+        Habilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HabilidadActionPerformed(evt);
+            }
+        });
+
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +139,10 @@ public class AgregarHabilidades extends javax.swing.JFrame {
         this.ListaHabilidades.setModel(model);
         
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void HabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HabilidadActionPerformed
 
     /**
      * @param args the command line arguments

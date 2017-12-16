@@ -140,7 +140,7 @@ public class RegistrarCama extends javax.swing.JPanel {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-        FormCamas formcamas = new FormCamas();
+      FormCamas formcamas = new FormCamas();
       formcamas.setSize(600, 450);
       formcamas.setLocation(0, 0);
       this.removeAll();

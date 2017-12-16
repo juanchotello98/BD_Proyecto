@@ -23,15 +23,15 @@ public class FormAgenda extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarAgenda.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarAgenda.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarAgenda.setIcon(img5);
     }
 
     /**
@@ -43,28 +43,28 @@ public class FormAgenda extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarAgenda = new javax.swing.JButton();
+        EditarAgenda = new javax.swing.JButton();
+        ListarAgenda = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Agenda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarAgenda.setText("Registrar Agenda");
+        RegistrarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarAgendaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Agenda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarAgenda.setText("Editar Agenda");
+        EditarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarAgendaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Agenda");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarAgenda.setText("Listar Agenda");
+        ListarAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarAgendaActionPerformed(evt);
             }
         });
 
@@ -74,13 +74,13 @@ public class FormAgenda extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1)
+                .addComponent(RegistrarAgenda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(EditarAgenda)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(jButton5)
+                .addComponent(ListarAgenda)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,30 +88,44 @@ public class FormAgenda extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(RegistrarAgenda)
+                    .addComponent(EditarAgenda))
                 .addGap(42, 42, 42)
-                .addComponent(jButton5)
+                .addComponent(ListarAgenda)
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegistrarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarAgendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+       RegistroAgenda registroagenda = new RegistroAgenda();
+       registroagenda.setSize(600, 450);
+       registroagenda.setLocation(0, 0);
+       this.removeAll();
+       this.add(registroagenda, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_RegistrarAgendaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void EditarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarAgendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_EditarAgendaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ListarAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarAgendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+       ListarAgenda listaragenda = new ListarAgenda();
+       listaragenda.setSize(600, 450);
+       listaragenda.setLocation(0, 0);
+       this.removeAll();
+       this.add(listaragenda, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_ListarAgendaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarAgenda;
+    private javax.swing.JButton ListarAgenda;
+    private javax.swing.JButton RegistrarAgenda;
     // End of variables declaration//GEN-END:variables
 }
