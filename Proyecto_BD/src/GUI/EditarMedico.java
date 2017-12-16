@@ -76,6 +76,7 @@ public class EditarMedico extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         Universidad = new javax.swing.JTextField();
         Atras = new javax.swing.JButton();
+		
         Contraseñaold = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         Contraseñanew = new javax.swing.JLabel();
@@ -83,6 +84,7 @@ public class EditarMedico extends javax.swing.JPanel {
         Busqueda = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         NombreJefe = new javax.swing.JTextField();
+
 
         jLabel1.setText("Nombre:");
 
@@ -137,6 +139,9 @@ public class EditarMedico extends javax.swing.JPanel {
             }
         });
 
+
+
+
         Contraseñaold.setText("Contraseña vieja:");
 
         Contraseñanew.setText("Contraseña nueva:");
@@ -151,6 +156,7 @@ public class EditarMedico extends javax.swing.JPanel {
 
         NombreJefe.setEditable(false);
 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,6 +169,7 @@ public class EditarMedico extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addGap(55, 55, 55))
                     .addGroup(layout.createSequentialGroup()
+
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -302,12 +309,15 @@ public class EditarMedico extends javax.swing.JPanel {
                     .addComponent(Contraseñanew)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
+
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Atras)
                     .addComponent(Modificacr))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
+
                 .addContainerGap(35, Short.MAX_VALUE))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -353,6 +363,7 @@ public class EditarMedico extends javax.swing.JPanel {
        this.repaint();
     }//GEN-LAST:event_AtrasActionPerformed
 
+
     private void BusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BusquedaKeyReleased
        Medico medico = new Medico(Busqueda.getText());
        DefaultComboBoxModel model;
@@ -389,9 +400,11 @@ public class EditarMedico extends javax.swing.JPanel {
     }//GEN-LAST:event_BusquedaKeyReleased
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Area;
     private javax.swing.JButton Atras;
+
     private javax.swing.JTextField Busqueda;
     private javax.swing.JLabel Contraseñanew;
     private javax.swing.JLabel Contraseñaold;
@@ -407,6 +420,7 @@ public class EditarMedico extends javax.swing.JPanel {
     private javax.swing.JTextField Salario;
     private javax.swing.JTextField Telefono;
     private javax.swing.JTextField Universidad;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -421,7 +435,9 @@ public class EditarMedico extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
+
     // End of variables declaration//GEN-END:variables
 }
