@@ -93,4 +93,25 @@ public class DaoArea {
          }
          catch(Exception e){ System.out.println(e);}
     }
+    
+    public String Select_codigoarea(String nombre){ 
+      String sql_select,codigo="";
+        sql_select="SELECT codigo_area FROM area "
+                +  "WHERE nombre = '"+nombre+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                codigo = tabla.getString(1);
+            }
+            tabla.close();
+            sentencia.close();
+            return codigo;
+         }
+         catch(Exception e){ System.out.println(e);}
+         return codigo;
+    }
 }

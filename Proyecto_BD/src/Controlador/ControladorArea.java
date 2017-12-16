@@ -62,5 +62,9 @@ public class ControladorArea {
     public void Select_nombrearea(DefaultComboBoxModel model){
         daoArea.Select_nombrearea(model);
     }
+    
+    public String Select_codigoarea(String nombre){
+        return daoArea.Select_codigoarea(nombre);
+    }
 
 }

@@ -20,7 +20,6 @@ public class Empleado extends Persona {
     public Empleado(String identificacion){
         super(identificacion);
     }
-    
 
     public void setSalario (String salario){
         this.salario=salario;
