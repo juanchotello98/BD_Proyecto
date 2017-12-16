@@ -116,6 +116,13 @@ public class FormCamas extends javax.swing.JPanel {
 
     private void ListarCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCamaActionPerformed
         
+        ListarCamas listarcamas = new ListarCamas();
+        listarcamas.setSize(600,450);
+        listarcamas.setLocation(0,0);
+        this.removeAll();
+        this.add(listarcamas,null);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_ListarCamaActionPerformed
 
 
