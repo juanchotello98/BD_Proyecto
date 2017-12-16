@@ -13,22 +13,23 @@ import javax.swing.ImageIcon;
  *
  * @author Leidy
  */
-public class FormCampaña extends javax.swing.JPanel {
+public class FormAgenda extends javax.swing.JPanel {
 
     /**
-     * Creates new form FormCampaña
+     * Creates new form FormArea
      */
-    public FormCampaña() {
+    public FormAgenda() {
         initComponents();
-         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/tag.png"));
+        
+        ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
         jButton1.setIcon(img1);
         
-        ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/tag.png"));
+        ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
         jButton2.setIcon(img2);
         
-        ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/tag.png"));
+        ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/smartphone.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
         jButton5.setIcon(img5);
     }
@@ -46,21 +47,21 @@ public class FormCampaña extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Campaña");
+        jButton1.setText("Registrar Agenda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Campaña");
+        jButton2.setText("Editar Agenda");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Campaña");
+        jButton5.setText("Listar Agenda");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -74,7 +75,7 @@ public class FormCampaña extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()

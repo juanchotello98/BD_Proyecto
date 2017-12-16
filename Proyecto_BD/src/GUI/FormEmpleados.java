@@ -27,11 +27,11 @@ public class FormEmpleados extends javax.swing.JPanel {
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/doctor.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarMedico.setIcon(img2);
         
         ImageIcon imagen3=new ImageIcon(getClass().getResource("/Images/nurse.png"));
         Icon img3 = new ImageIcon(imagen3.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton3.setIcon(img3);
+        EditarEnfermera.setIcon(img3);
         
         ImageIcon imagen4=new ImageIcon(getClass().getResource("/Images/nurse.png"));
         Icon img4 = new ImageIcon(imagen4.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -52,8 +52,8 @@ public class FormEmpleados extends javax.swing.JPanel {
     private void initComponents() {
 
         RegistrarMedico = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        EditarMedico = new javax.swing.JButton();
+        EditarEnfermera = new javax.swing.JButton();
         RegistrarEnfermera = new javax.swing.JButton();
         Listar = new javax.swing.JButton();
 
@@ -64,14 +64,19 @@ public class FormEmpleados extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Editar Médico");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarMedico.setText("Editar Médico");
+        EditarMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarMedicoActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Editar Enfermera");
+        EditarEnfermera.setText("Editar Enfermera");
+        EditarEnfermera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarEnfermeraActionPerformed(evt);
+            }
+        });
 
         RegistrarEnfermera.setText("Registrar Enfermera");
         RegistrarEnfermera.addActionListener(new java.awt.event.ActionListener() {
@@ -98,8 +103,8 @@ public class FormEmpleados extends javax.swing.JPanel {
                     .addComponent(RegistrarMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(EditarEnfermera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditarMedico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
                 .addGap(113, 113, 113)
@@ -112,10 +117,10 @@ public class FormEmpleados extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarMedico)
-                    .addComponent(jButton2))
+                    .addComponent(EditarMedico))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(EditarEnfermera)
                     .addComponent(RegistrarEnfermera))
                 .addGap(54, 54, 54)
                 .addComponent(Listar)
@@ -124,12 +129,25 @@ public class FormEmpleados extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistrarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarMedicoActionPerformed
-        // TODO add your handling code here:
+        RegistrarMedico registrarmedico = new RegistrarMedico();
+        registrarmedico.setSize(600, 450);
+        registrarmedico.setLocation(0,0);
+        this.removeAll();
+        this.add(registrarmedico, null);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_RegistrarMedicoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void EditarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarMedicoActionPerformed
+        EditarMedico editarmedico = new EditarMedico();
+        editarmedico.setSize(600, 450);
+        editarmedico.setLocation(0,0);
+        this.removeAll();
+        this.add(editarmedico, null);
+        this.revalidate();
+        this.repaint();
+        
+    }//GEN-LAST:event_EditarMedicoActionPerformed
 
     private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
         EmpleadosPorArea empleadosporarea = new EmpleadosPorArea();
@@ -151,12 +169,22 @@ public class FormEmpleados extends javax.swing.JPanel {
         this.repaint();
     }//GEN-LAST:event_RegistrarEnfermeraActionPerformed
 
+    private void EditarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEnfermeraActionPerformed
+        EditarEnfermera editarenfermera = new EditarEnfermera();
+        editarenfermera.setSize(600, 450);
+        editarenfermera.setLocation(0,0);
+        this.removeAll();
+        this.add(editarenfermera, null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_EditarEnfermeraActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton EditarEnfermera;
+    private javax.swing.JButton EditarMedico;
     private javax.swing.JButton Listar;
     private javax.swing.JButton RegistrarEnfermera;
     private javax.swing.JButton RegistrarMedico;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

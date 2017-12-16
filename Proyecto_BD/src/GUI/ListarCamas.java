@@ -9,12 +9,12 @@ package GUI;
  *
  * @author Juan David
  */
-public class ListarPacientes extends javax.swing.JPanel {
+public class ListarCamas extends javax.swing.JPanel {
 
     /**
      * Creates new form ListarPacientes
      */
-    public ListarPacientes() {
+    public ListarCamas() {
         initComponents();
     }
 
@@ -33,27 +33,27 @@ public class ListarPacientes extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Listar Pacientes");
+        jLabel1.setText("Listar Camas");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Identificacin ", "Nombre", "Direccion", "Telefono", "Actividad Econimica", "Numero Seguro Social", "Fecha de nacimiento"
+                "Numero Cama", "Estado", "Descripción", "Codigo Area"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -102,13 +102,7 @@ public class ListarPacientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       FormPacientes formpacientes = new FormPacientes();
-       formpacientes.setSize(600, 450);
-       formpacientes.setLocation(0,0);
-       this.removeAll();
-       this.add(formpacientes, null);
-       this.revalidate();
-       this.repaint();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

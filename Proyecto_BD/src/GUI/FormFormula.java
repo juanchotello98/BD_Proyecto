@@ -13,25 +13,25 @@ import javax.swing.ImageIcon;
  *
  * @author Leidy
  */
-public class FormCitas extends javax.swing.JPanel {
+public class FormFormula extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelCitas
+     * Creates new form FormArea
      */
-    public FormCitas() {
+    public FormFormula() {
         initComponents();
         
-        ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/hospital-2.png"));
+        ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        RegistroCita.setIcon(img1);
+        jButton1.setIcon(img1);
         
-        ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/hospital-2.png"));
+        ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        EditarCita.setIcon(img2);
+        jButton2.setIcon(img2);
         
-        ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/hospital-2.png"));
+        ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/prescription.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        ListarCita.setIcon(img5);
+        jButton5.setIcon(img5);
     }
 
     /**
@@ -43,28 +43,28 @@ public class FormCitas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        RegistroCita = new javax.swing.JButton();
-        EditarCita = new javax.swing.JButton();
-        ListarCita = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
-        RegistroCita.setText("Registrar Cita");
-        RegistroCita.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Registrar Formula");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroCitaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        EditarCita.setText("Editar Cita");
-        EditarCita.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Editar Formula");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarCitaActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
-        ListarCita.setText("Listar Citas");
-        ListarCita.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setText("Listar Formula");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarCitaActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -74,13 +74,13 @@ public class FormCitas extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(RegistroCita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(EditarCita)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jButton2)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
                 .addGap(134, 134, 134)
-                .addComponent(ListarCita)
+                .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,30 +88,30 @@ public class FormCitas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistroCita)
-                    .addComponent(EditarCita))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(42, 42, 42)
-                .addComponent(ListarCita)
+                .addComponent(jButton5)
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RegistroCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroCitaActionPerformed
-      
-    }//GEN-LAST:event_RegistroCitaActionPerformed
-
-    private void EditarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarCitaActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EditarCitaActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void ListarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCitaActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ListarCitaActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EditarCita;
-    private javax.swing.JButton ListarCita;
-    private javax.swing.JButton RegistroCita;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }

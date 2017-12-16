@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -26,7 +27,7 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/medicine-2.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img2);
+        Perfil.setIcon(img2);
         
         ImageIcon imagen3=new ImageIcon(getClass().getResource("/Images/id-card.png"));
         Icon img3 = new ImageIcon(imagen3.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -34,23 +35,23 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         
         ImageIcon imagen4=new ImageIcon(getClass().getResource("/Images/mask.png"));
         Icon img4 = new ImageIcon(imagen4.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton3.setIcon(img4);
+        Paciente.setIcon(img4);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/placeholder.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton4.setIcon(img5);
+        Area.setIcon(img5);
         
         ImageIcon imagen6=new ImageIcon(getClass().getResource("/Images/hospital-bed.png"));
         Icon img6 = new ImageIcon(imagen6.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img6);
+        Camas.setIcon(img6);
         
         ImageIcon imagen7=new ImageIcon(getClass().getResource("/Images/tag.png"));
         Icon img7 = new ImageIcon(imagen7.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton6.setIcon(img7);
+        Campaña.setIcon(img7);
         
         ImageIcon imagen8=new ImageIcon(getClass().getResource("/Images/hospital-2.png"));
         Icon img8 = new ImageIcon(imagen8.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton7.setIcon(img8);
+        Citas.setIcon(img8);
     }
 
     /**
@@ -65,13 +66,13 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         PanelActividades = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        Perfil = new javax.swing.JButton();
         Empleados = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        Paciente = new javax.swing.JButton();
+        Area = new javax.swing.JButton();
+        Camas = new javax.swing.JButton();
+        Campaña = new javax.swing.JButton();
+        Citas = new javax.swing.JButton();
         LabelImagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -96,7 +97,12 @@ public class InterfazAdministrador extends javax.swing.JFrame {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Mi perfil");
+        Perfil.setText("Mi perfil");
+        Perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PerfilActionPerformed(evt);
+            }
+        });
 
         Empleados.setText("Empleados");
         Empleados.addActionListener(new java.awt.event.ActionListener() {
@@ -105,15 +111,40 @@ public class InterfazAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Pacientes");
+        Paciente.setText("Pacientes");
+        Paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PacienteActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Areas");
+        Area.setText("Areas");
+        Area.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AreaActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Camas");
+        Camas.setText("Camas");
+        Camas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CamasActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Campañas");
+        Campaña.setText("Campañas");
+        Campaña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampañaActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Citas");
+        Citas.setText("Citas");
+        Citas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CitasActionPerformed(evt);
+            }
+        });
 
         LabelImagen.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         LabelImagen.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,13 +165,13 @@ public class InterfazAdministrador extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Campaña, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(Citas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Camas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Area, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Paciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Empleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(Perfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(LabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -158,19 +189,19 @@ public class InterfazAdministrador extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(jButton1)
+                        .addComponent(Perfil)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Empleados)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(Paciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(Area)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
+                        .addComponent(Camas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)
+                        .addComponent(Campaña)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7))
+                        .addComponent(Citas))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel1)
@@ -217,6 +248,61 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         PanelActividades.repaint();
     }//GEN-LAST:event_EmpleadosActionPerformed
 
+    private void PacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PacienteActionPerformed
+       FormPacientes formpacientes = new FormPacientes();
+        formpacientes.setSize(600, 450);
+        formpacientes.setLocation(0,0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formpacientes, null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+    }//GEN-LAST:event_PacienteActionPerformed
+
+    private void PerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerfilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PerfilActionPerformed
+
+    private void AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaActionPerformed
+        FormArea formareas = new FormArea();
+        formareas.setSize(600, 450);
+        formareas.setLocation(0, 0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formareas, null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+        
+    }//GEN-LAST:event_AreaActionPerformed
+
+    private void CamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CamasActionPerformed
+        FormCamas formacamas = new FormCamas();
+        formacamas.setSize(600, 450);
+        formacamas.setLocation(0, 0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formacamas, null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+    }//GEN-LAST:event_CamasActionPerformed
+
+    private void CampañaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampañaActionPerformed
+        FormCampana formcampana = new FormCampana();
+        formcampana.setSize(600, 450);
+        formcampana.setLocation(0, 0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formcampana, null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+    }//GEN-LAST:event_CampañaActionPerformed
+
+    private void CitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitasActionPerformed
+        FormCitas formcitas = new FormCitas();
+        formcitas.setSize(600, 450);
+        formcitas.setLocation(0, 0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formcitas, null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+    }//GEN-LAST:event_CitasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -254,15 +340,15 @@ public class InterfazAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Area;
+    private javax.swing.JButton Camas;
+    private javax.swing.JButton Campaña;
+    private javax.swing.JButton Citas;
     private javax.swing.JButton Empleados;
     private javax.swing.JLabel LabelImagen;
+    private javax.swing.JButton Paciente;
     private javax.swing.JPanel PanelActividades;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton Perfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
