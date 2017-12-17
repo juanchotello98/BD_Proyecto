@@ -39,7 +39,6 @@
                               <Component id="Direccion" alignment="0" pref="117" max="32767" attributes="0"/>
                               <Component id="Telefono" alignment="0" pref="117" max="32767" attributes="0"/>
                               <Component id="SeguroSocial" alignment="0" pref="117" max="32767" attributes="0"/>
-                              <Component id="fechas" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -98,19 +97,14 @@
                   <Component id="SeguroSocial" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel9" min="-2" pref="14" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Guardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="Atras" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="fechas" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel9" min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Guardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Atras" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -189,8 +183,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AtrasActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="fechas">
     </Component>
   </SubComponents>
 </Form>
