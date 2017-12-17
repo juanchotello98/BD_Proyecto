@@ -5,6 +5,7 @@
  */
 package Principal;
 
+import GUI.InterfazAdministrador;
 import GUI.InterfazLogin;
 
 /**
@@ -15,5 +16,8 @@ public class Main {
     public static void main(String args[]) {
         InterfazLogin login = new InterfazLogin();
         login.setVisible(true);
+        
+        //InterfazAdministrador gui = new InterfazAdministrador();
+        //gui.setVisible(true);
     }
 }

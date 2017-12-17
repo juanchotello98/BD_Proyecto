@@ -60,7 +60,7 @@ public class ControladorPaciente {
     }
         
     public void Select_paciente(Paciente paciente,String identificacion){
-        daoPaciente.Select_paciente(paciente, identificacion);
+        daoPaciente.Select_paciente(paciente,identificacion);
     }
     
     public void Select_pacientetabla(DefaultTableModel model){
