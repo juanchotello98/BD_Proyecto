@@ -76,6 +76,7 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         Citas = new javax.swing.JButton();
         LabelImagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        Informes = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -157,6 +158,13 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ClinicalSystem");
 
+        Informes.setText("Informes");
+        Informes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InformesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,7 +186,10 @@ public class InterfazAdministrador extends javax.swing.JFrame {
                         .addComponent(LabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93)
+                        .addComponent(Informes))
                     .addComponent(PanelActividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -205,7 +216,9 @@ public class InterfazAdministrador extends javax.swing.JFrame {
                         .addComponent(Citas))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(Informes))
                         .addGap(18, 18, 18)
                         .addComponent(PanelActividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -304,6 +317,16 @@ public class InterfazAdministrador extends javax.swing.JFrame {
         PanelActividades.repaint();
     }//GEN-LAST:event_CitasActionPerformed
 
+    private void InformesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformesActionPerformed
+        FormReportes formreportes = new FormReportes();
+        formreportes.setSize(600, 450);
+        formreportes.setLocation(0, 0);
+        PanelActividades.removeAll();
+        PanelActividades.add(formreportes,null);
+        PanelActividades.revalidate();
+        PanelActividades.repaint();
+    }//GEN-LAST:event_InformesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,6 +336,7 @@ public class InterfazAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton Campaña;
     private javax.swing.JButton Citas;
     private javax.swing.JButton Empleados;
+    private javax.swing.JButton Informes;
     private javax.swing.JLabel LabelImagen;
     private javax.swing.JButton Paciente;
     private javax.swing.JPanel PanelActividades;
