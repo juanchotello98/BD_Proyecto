@@ -5,17 +5,34 @@
  */
 package GUI;
 
+import javax.swing.table.DefaultTableModel;
+import Controlador.ControladorMedicamento;
+
 /**
  *
  * @author Juan David
  */
 public class ListarMedicamento extends javax.swing.JPanel {
-
+    
+    DefaultTableModel model;
+    ControladorMedicamento cotrolMedicamento = new ControladorMedicamento();
     /**
      * Creates new form ListarPacientes
      */
+    
     public ListarMedicamento() {
         initComponents();
+        model = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+        };
+        TablaMedicamento.setModel(model);
+        model.addColumn("Codigo");
+        model.addColumn("Nombre");
+        model.addColumn("Costo");
+        model.addColumn("Descripcion");
+        TablaMedicamento.getTableHeader().setReorderingAllowed(false);
+        cotrolMedicamento.Select_medicamentoTabla(model);
+        jScrollPane1.setViewportView(TablaMedicamento);
     }
 
     /**
@@ -29,13 +46,13 @@ public class ListarMedicamento extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaMedicamento = new javax.swing.JTable();
         Atras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Listar Medicamento");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaMedicamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +77,7 @@ public class ListarMedicamento extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaMedicamento);
 
         Atras.setText("Atras");
         Atras.addActionListener(new java.awt.event.ActionListener() {
@@ -114,8 +131,8 @@ public class ListarMedicamento extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JTable TablaMedicamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
