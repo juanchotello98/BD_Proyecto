@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 public class DaoFormula {
     FachadaBD fachada;
@@ -55,10 +56,9 @@ public class DaoFormula {
         int numFilas=0;
        
         sql_select="UPDATE formula SET "
-                + "id_formula = '"+formula.getId_formula()+"', "
                 + "id_medico = '"+formula.getId_medico()+"', "
-                + "id_paciente = '"+formula.getId_paciente()+"', "
-                + "fecha = '"+formula.getFecha()+"', ";
+                + "id_paciente = '"+formula.getId_paciente()+"' "
+                + "WHERE id_formula = '"+formula.getId_formula()+"' ";
         
          try{
           
@@ -120,4 +120,29 @@ public class DaoFormula {
          }
          catch(Exception e){ System.out.println(e);}
       }
+    
+    public void Select_formulatabla(DefaultTableModel model){
+      String sql_select;
+        sql_select="SELECT * FROM formula";
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            while(tabla.next()){
+                //obtener los datos y almacenar las filas
+		Object[] fila = new Object[4];
+		//llenar cada columna con lo datos almacenados
+		for (int i = 0; i < 4; i++)
+                    fila[i] = tabla.getObject(i + 1);
+		//cargar los datos en filas a la tabla modelo
+		    model.addRow(fila);
+            }
+            tabla.close();
+            sentencia.close();
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+    }
 }

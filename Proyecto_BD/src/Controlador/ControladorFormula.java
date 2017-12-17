@@ -6,6 +6,7 @@
 package Controlador;
 import Logica.Formula;
 import AccesoDatos.DaoFormula;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -66,6 +67,11 @@ public class ControladorFormula {
     
     public void Select_formula(Formula formula,String id){
         daoFormula.Select_cama(formula, id);
+    }
+    
+    public void Select_formulatabla(DefaultTableModel model){
+        daoFormula.Select_formulatabla(model);
+        
     }
     
 }
