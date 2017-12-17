@@ -1,6 +1,6 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+    * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package GUI;
@@ -9,7 +9,10 @@ import Controlador.ControladorArea;
 import Controlador.ControladorEmpleado;
 import Controlador.ControladorEnfermera;
 import Controlador.ControladorPersona;
+import Controlador.Validation;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +24,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     ControladorEmpleado controlempleado = new ControladorEmpleado();
     ControladorPersona controlpersona = new ControladorPersona();
     ControladorEnfermera controlenfermera = new ControladorEnfermera();
+    Validation validar = new Validation();
     private String jefes;
     /**
      * Creates new form PerfilEnfermera
@@ -71,17 +75,47 @@ public class RegistroEnfermera extends javax.swing.JPanel {
         Jefes = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         NombreJefe = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Atras = new javax.swing.JButton();
 
         jLabel1.setText("Nombre:");
 
+        Identificacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                IdentificacionKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Identificacion: ");
+
+        Nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NombreKeyTyped(evt);
+            }
+        });
+
+        Telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TelefonoKeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Telefono : ");
 
         jLabel5.setText("Direccion :");
 
+        Email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                EmailKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Email : ");
+
+        Salario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SalarioKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Salario :");
 
@@ -89,7 +123,6 @@ public class RegistroEnfermera extends javax.swing.JPanel {
 
         jLabel10.setText("Experiencia Laboral");
 
-        Guardar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,9 +141,10 @@ public class RegistroEnfermera extends javax.swing.JPanel {
 
         jLabel12.setText("Jefe :");
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Atras.setText("Atras");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AtrasActionPerformed(evt);
             }
         });
 
@@ -122,7 +156,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -146,10 +180,11 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                                     .addComponent(Areas, javax.swing.GroupLayout.Alignment.LEADING, 0, 228, Short.MAX_VALUE)
                                     .addComponent(Jefes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Nombre)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 17, Short.MAX_VALUE)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,19 +193,15 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
+                        .addGap(42, 191, Short.MAX_VALUE)))
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -207,45 +238,55 @@ public class RegistroEnfermera extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(Experiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addGap(62, 62, 62))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Atras)
+                            .addComponent(Guardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         String nombre,direccion,identificacion,email,telefono,salario,areas,experiencia,cargo;
         
-        nombre =Nombre.getText();
-        identificacion = Identificacion.getText();
-        email = Email.getText();
-        direccion = Direccion.getText();
-        telefono = Telefono.getText();
-        salario = Salario.getText();
-        areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
-        experiencia = Experiencia.getText();
+        if(Nombre.getText().equals("")||Identificacion.getText().equals("")||Experiencia.getText().equals("")
+           ||Salario.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Se encuentras campos vacios");
+        }else{
+            if(controlpersona.Comprobar_identificacion(Identificacion.getText())){
+                Identificacion.setText("");
+                JOptionPane.showMessageDialog(null,"La identificacicon ya se encuentra registrada");
+            }else{
+                nombre =Nombre.getText();
+                identificacion = Identificacion.getText();
+                email = Email.getText();
+                direccion = Direccion.getText();
+                telefono = Telefono.getText();
+                salario = Salario.getText();
+                areas = controlarea.Select_codigoarea(Areas.getSelectedItem().toString());
+                experiencia = Experiencia.getText();
+
+                controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
+                controlempleado.Insert_empleado(identificacion,salario, "Enfermera", email,jefes, areas);
+                controlenfermera.Insert_enfermera(identificacion, experiencia);
+
+
+                AgregarHabilidad agregarhabilidades = new AgregarHabilidad(identificacion);
+                agregarhabilidades.setSize(600, 450);
+                agregarhabilidades.setLocation(0,0);
+                this.removeAll();
+                this.add(agregarhabilidades, null);
+                this.revalidate();
+                this.repaint();
+            }
+        }
         
-        controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
-        controlempleado.Insert_empleado(identificacion,salario, "Enfermera", email,jefes, areas);
-        controlenfermera.Insert_enfermera(identificacion, experiencia);
-        
-      
-        
-        Nombre.setText("");
-        Direccion.setText("");
-        Email.setText("");
-        Telefono.setText("");
-        Salario.setText("");
-        Jefes.setSelectedIndex(0);
-        Areas.setSelectedIndex(0);
-        Experiencia.setText("");
-        
-        AgregarHabilidades agregarhabilidades = new AgregarHabilidades(Identificacion.getText());
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void JefesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JefesItemStateChanged
@@ -253,7 +294,7 @@ public class RegistroEnfermera extends javax.swing.JPanel {
        NombreJefe.setText(controlempleado.Select_empleadonombrejefe(jefes));
     }//GEN-LAST:event_JefesItemStateChanged
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
        FormEmpleados formempleados = new FormEmpleados();
        formempleados.setSize(600, 450);
        formempleados.setLocation(0,0);
@@ -261,11 +302,46 @@ public class RegistroEnfermera extends javax.swing.JPanel {
        this.add(formempleados, null);
        this.revalidate();
        this.repaint();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AtrasActionPerformed
+
+    private void NombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NombreKeyTyped
+        if(validar.IsString(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_NombreKeyTyped
+
+    private void IdentificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdentificacionKeyTyped
+        if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_IdentificacionKeyTyped
+
+    private void TelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TelefonoKeyTyped
+         if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TelefonoKeyTyped
+
+    private void SalarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SalarioKeyTyped
+        if(validar.IsInteger(evt)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_SalarioKeyTyped
+
+    private void EmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmailKeyTyped
+         if(validar.isEmail(Email.getText())){
+            Email.setToolTipText("");
+            Email.setBackground(Color.white);
+        }else{
+            Email.setToolTipText("Email invalido");
+            Email.setBackground(Color.pink);
+        }
+    }//GEN-LAST:event_EmailKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Areas;
+    private javax.swing.JButton Atras;
     private javax.swing.JTextField Direccion;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Experiencia;
@@ -276,7 +352,6 @@ public class RegistroEnfermera extends javax.swing.JPanel {
     private javax.swing.JTextField NombreJefe;
     private javax.swing.JTextField Salario;
     private javax.swing.JTextField Telefono;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

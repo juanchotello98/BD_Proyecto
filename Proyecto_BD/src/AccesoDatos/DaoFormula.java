@@ -23,12 +23,12 @@ public class DaoFormula {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO formula"
+        sql_guardar="INSERT INTO formula "
                 + "VALUES ('"
                 + formula.getId_formula()+"', '"
                 + formula.getId_medico()+"', '"
-                + formula.getId_paciente()+"', "
-                + formula.getFecha()+"', "
+                + formula.getId_paciente()+"', '"
+                + formula.getFecha()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();

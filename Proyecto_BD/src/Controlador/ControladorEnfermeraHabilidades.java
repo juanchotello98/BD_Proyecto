@@ -8,6 +8,7 @@ package Controlador;
 import AccesoDatos.DaoEnfermeraHabilidades;
 import Logica.EnfermeraHabilidades;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,9 @@ public class ControladorEnfermeraHabilidades {
         
         EnfermeraHabilidades enfermerahabilidades = new EnfermeraHabilidades(identificacion);
         
+        
+        
+        enfermerahabilidades.setIdentificacion(identificacion);
         enfermerahabilidades.setHabilidad(habilidad);
         
         System.out.println("Se insertara un registro a enfermera habilidades");

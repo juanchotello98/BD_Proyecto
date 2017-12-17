@@ -23,15 +23,15 @@ public class FormCamas extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/hospital-bed.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarCama.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/hospital-bed.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarCama.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/hospital-bed.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarCama.setIcon(img5);
 
     }
 
@@ -44,28 +44,28 @@ public class FormCamas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarCama = new javax.swing.JButton();
+        EditarCama = new javax.swing.JButton();
+        ListarCama = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Cama");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarCama.setText("Registrar Cama");
+        RegistrarCama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarCamaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Cama");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarCama.setText("Editar Cama");
+        EditarCama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarCamaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Camas");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarCama.setText("Listar Camas");
+        ListarCama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarCamaActionPerformed(evt);
             }
         });
 
@@ -73,46 +73,62 @@ public class FormCamas extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(86, 86, 86))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(239, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RegistrarCama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditarCama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ListarCama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(254, 254, 254))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addGap(62, 62, 62)
+                .addComponent(RegistrarCama)
                 .addGap(42, 42, 42)
-                .addComponent(jButton5)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(EditarCama)
+                .addGap(42, 42, 42)
+                .addComponent(ListarCama)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RegistrarCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarCamaActionPerformed
+        RegistrarCama registrarcama = new RegistrarCama();
+        registrarcama.setSize(600,450);
+        registrarcama.setLocation(0,0);
+        this.removeAll();
+        this.add(registrarcama,null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_RegistrarCamaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void EditarCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarCamaActionPerformed
+        EditarCama editarcama = new EditarCama();
+        editarcama.setSize(600,450);
+        editarcama.setLocation(0,0);
+        this.removeAll();
+        this.add(editarcama,null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_EditarCamaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void ListarCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCamaActionPerformed
+        
+        ListarCamas listarcamas = new ListarCamas();
+        listarcamas.setSize(600,450);
+        listarcamas.setLocation(0,0);
+        this.removeAll();
+        this.add(listarcamas,null);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_ListarCamaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarCama;
+    private javax.swing.JButton ListarCama;
+    private javax.swing.JButton RegistrarCama;
     // End of variables declaration//GEN-END:variables
 }

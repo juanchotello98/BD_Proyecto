@@ -23,15 +23,15 @@ public class FormArea extends javax.swing.JPanel {
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/placeholder.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton1.setIcon(img1);
+        RegistrarArea.setIcon(img1);
         
         ImageIcon imagen2=new ImageIcon(getClass().getResource("/Images/placeholder.png"));
         Icon img2 = new ImageIcon(imagen2.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton2.setIcon(img2);
+        EditarArea.setIcon(img2);
         
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/placeholder.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
-        jButton5.setIcon(img5);
+        ListarArea.setIcon(img5);
     }
 
     /**
@@ -43,28 +43,28 @@ public class FormArea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        RegistrarArea = new javax.swing.JButton();
+        EditarArea = new javax.swing.JButton();
+        ListarArea = new javax.swing.JButton();
 
-        jButton1.setText("Registrar Area");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegistrarArea.setText("Registrar Area");
+        RegistrarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegistrarAreaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Editar Area");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        EditarArea.setText("Editar Area");
+        EditarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EditarAreaActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Listar Areas");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ListarArea.setText("Listar Areas");
+        ListarArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ListarAreaActionPerformed(evt);
             }
         });
 
@@ -73,45 +73,60 @@ public class FormArea extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(86, 86, 86))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(224, 224, 224)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(RegistrarArea, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(EditarArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ListarArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(42, 42, 42)
-                .addComponent(jButton5)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(RegistrarArea)
+                .addGap(39, 39, 39)
+                .addComponent(EditarArea)
+                .addGap(34, 34, 34)
+                .addComponent(ListarArea)
+                .addGap(96, 96, 96))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RegistrarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarAreaActionPerformed
+       RegistroArea registroarea = new RegistroArea();
+       registroarea.setSize(600, 450);
+       registroarea.setLocation(0, 0);
+       this.removeAll();
+       this.add(registroarea, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_RegistrarAreaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void EditarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarAreaActionPerformed
+       EditarArea editararea = new EditarArea();
+       editararea.setSize(600, 450);
+       editararea.setLocation(0, 0);
+       this.removeAll();
+       this.add(editararea, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_EditarAreaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void ListarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarAreaActionPerformed
+       ListarAreas listarararea = new ListarAreas();
+       listarararea.setSize(600, 450);
+       listarararea.setLocation(0, 0);
+       this.removeAll();
+       this.add(listarararea, null);
+       this.revalidate();
+       this.repaint();
+    }//GEN-LAST:event_ListarAreaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton EditarArea;
+    private javax.swing.JButton ListarArea;
+    private javax.swing.JButton RegistrarArea;
     // End of variables declaration//GEN-END:variables
 }

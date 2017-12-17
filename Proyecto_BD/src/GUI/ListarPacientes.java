@@ -5,17 +5,37 @@
  */
 package GUI;
 
+import Controlador.ControladorPaciente;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Juan David
  */
 public class ListarPacientes extends javax.swing.JPanel {
-
+    DefaultTableModel model;
+    ControladorPaciente controlpaciente = new ControladorPaciente();
     /**
      * Creates new form ListarPacientes
      */
     public ListarPacientes() {
         initComponents();
+        model = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+        };
+        
+        TablaPaciente.setModel(model);
+        model.addColumn("Identificacion");
+        model.addColumn("Nombre");
+        model.addColumn("Direccion");
+        model.addColumn("Telefono");
+        model.addColumn("Actividad Economica");
+        model.addColumn("Numero Seguro Social");
+        model.addColumn("Fecha de Nacimiento)");
+        
+        TablaPaciente.getTableHeader().setReorderingAllowed(false);
+        controlpaciente.Select_pacientetabla(model);
+        jScrollPane1.setViewportView(TablaPaciente);
     }
 
     /**
@@ -29,13 +49,13 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaPaciente = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Listar Pacientes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -53,14 +73,14 @@ public class ListarPacientes extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaPaciente);
 
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,14 +122,20 @@ public class ListarPacientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       FormPacientes formpacientes = new FormPacientes();
+       formpacientes.setSize(600, 450);
+       formpacientes.setLocation(0,0);
+       this.removeAll();
+       this.add(formpacientes, null);
+       this.revalidate();
+       this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaPaciente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

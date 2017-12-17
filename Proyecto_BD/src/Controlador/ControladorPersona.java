@@ -50,11 +50,17 @@ public class ControladorPersona {
         
         System.out.println("Se actualizara un registro de persona");
         
-        int resultado = daoPersona.Update_camas(persona);
+        int resultado = daoPersona.Update_camas(persona,identificacion);
         
         System.out.println("Se actualizo un registro de persona");
         
         return resultado;
+        
+    }
+    
+    public boolean Comprobar_identificacion(String identificacion){
+        
+        return daoPersona.Select_identificacion(identificacion);
         
     }
     

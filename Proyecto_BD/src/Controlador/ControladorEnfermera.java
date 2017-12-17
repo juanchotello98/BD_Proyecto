@@ -43,12 +43,16 @@ public class ControladorEnfermera {
         
         System.out.println("Se actualizara un registro de enfermera");
         
-        int resultado = daoEnfermera.Update_enfermera(enfermera);
+        int resultado = daoEnfermera.Update_enfermera(enfermera,identificacion);
         
         System.out.println("Se actualizo un registro de enfermera");
         
         return resultado;
         
+    }
+    
+    public void Select_enfermera(Enfermera enfermera,String identificacion){
+        daoEnfermera.Select_enfemera(enfermera, identificacion);
     }
     
 }
