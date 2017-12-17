@@ -12,6 +12,7 @@ import Controlador.ControladorPersona;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -148,13 +149,33 @@ public class RegistroFormula extends javax.swing.JPanel {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
      String formula,idPaciente,idMedico;
-     fechacale = Fecha.getDate();
-     formula=IdFormula.getText();
-     idPaciente=Pacientes.getSelectedItem().toString();
-     idMedico=Medicos.getSelectedItem().toString();
-     String  fecha=formato.format(fechacale);
-     
-     controlformula.Insert_formula(formula, idMedico, idPaciente,fecha);
+     try{
+      if(IdFormula.getText().equals("")){
+          JOptionPane.showMessageDialog(this,"Ingresa id formula");
+      }else{
+              if(controlformula.Comprobar_id(IdFormula.getText())){
+                  JOptionPane.showMessageDialog(this,"Ingresa id ya existente");
+              }else{
+                    fechacale = Fecha.getDate();
+                    formula=IdFormula.getText();
+                    idPaciente=Pacientes.getSelectedItem().toString();
+                    idMedico=Medicos.getSelectedItem().toString();
+                    String  fecha=formato.format(fechacale);
+
+                    controlformula.Insert_formula(formula, idMedico, idPaciente,fecha);
+                    
+                    FormFormula formformula = new FormFormula();
+                    formformula.setSize(600, 450);
+                    formformula.setLocation(0, 0);
+                    this.removeAll();
+                    this.add(formformula,null);
+                    this.revalidate();
+                    this.repaint();
+              }
+      }
+     }catch(java.lang.NullPointerException e)
+     {JOptionPane.showMessageDialog(this, "escoge una fecha!", "Error!", JOptionPane.ERROR_MESSAGE);}
+    
      
       
     }//GEN-LAST:event_GuardarActionPerformed

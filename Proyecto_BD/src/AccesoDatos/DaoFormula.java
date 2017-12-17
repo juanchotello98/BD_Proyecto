@@ -8,6 +8,7 @@ package AccesoDatos;
 
 import Logica.Formula;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -72,4 +73,51 @@ public class DaoFormula {
          return -1;
          
     }
+     
+      public boolean Comprobar_id(String id){ 
+      String sql_select,codigo="";
+        sql_select="SELECT id_formula FROM formula "
+                +  "WHERE id_formula = '"+id+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                codigo = tabla.getString(1);
+            }
+            if(codigo.equals(id)){
+                tabla.close();
+                sentencia.close();
+                return true;
+            }else{
+                tabla.close();
+                sentencia.close();
+                return false;
+            }
+         }
+         catch(Exception e){ System.out.println(e);}
+         return false;
+    }
+      
+    public void Select_cama(Formula formula,String id){ 
+      String sql_select;
+        sql_select="SELECT * FROM formula "
+                +  "WHERE id_formula = '"+id+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                formula.setId_formula(tabla.getString(1));
+                formula.setId_medico(tabla.getString(2));
+                formula.setId_paciente(tabla.getString(3));
+                formula.setFecha(tabla.getString(4));
+            }
+         }
+         catch(Exception e){ System.out.println(e);}
+      }
 }

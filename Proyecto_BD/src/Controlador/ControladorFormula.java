@@ -59,5 +59,13 @@ public class ControladorFormula {
         return resultado;
         
     }
+        
+    public boolean Comprobar_id(String id){
+        return daoFormula.Comprobar_id(id);
+    }
+    
+    public void Select_formula(Formula formula,String id){
+        daoFormula.Select_cama(formula, id);
+    }
     
 }
