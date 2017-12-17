@@ -10,7 +10,7 @@ import Logica.Cita;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.sql.ResultSet;
 /**
  *
  * @author Kevin
@@ -34,7 +34,7 @@ public class DaoCita {
                 + cita.getHora()+"', '"
                 + cita.getFecha()+"', '"
                 + cita.getEstado()+"', '"
-                + cita.getEstado()+"' "
+                + cita.getValorConsulta()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -78,4 +78,40 @@ public class DaoCita {
          return -1;
          
     }
+     
+     public boolean Coprobar_Cita(String idPaciente, String idMedico, String hora, String fecha){
+        
+        String sql_select,idpaciente="", idmedico="", Hora="", Fecha="";
+        int numFilas=0;
+
+        sql_select="SELECT id_paciente, id_medico, hora, fecha FROM cita"
+                +  "WHERE id_paciente = '"+idPaciente+" ' " 
+                +  "AND id_medico = ' " + idMedico + "'" 
+                +  "AND hora = '" + hora + "'" 
+                +  "AND fecha = '" + fecha + "' ";
+        try{
+            Connection con= fachada.getConnetion();
+            Statement sentencia = con.createStatement(); 
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            System.out.println("up " + numFilas);
+            
+            while(tabla.next()){
+                idpaciente = tabla.getString(1);
+                idmedico = tabla.getString(2);
+                Hora = tabla.getString(3);
+                Fecha = tabla.getString(4);
+            }
+            return idPaciente.equals(idpaciente) && idMedico.equals(idmedico) && hora.equals(Hora) && fecha.equals(Fecha);
+            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        return false;
+    }
+     
+     
 }
