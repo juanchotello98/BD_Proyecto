@@ -5,17 +5,35 @@
  */
 package GUI;
 
+import Controlador.ControladorCampanaPreventiva;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Juan David
  */
 public class ListarCampanas extends javax.swing.JPanel {
-
+    ControladorCampanaPreventiva controlcampana = new ControladorCampanaPreventiva();
+    DefaultTableModel model;
     /**
      * Creates new form ListarPacientes
      */
     public ListarCampanas() {
         initComponents();
+        model = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+        };
+        
+        TablaCampana.setModel(model);
+        model.addColumn("Codigo");
+        model.addColumn("Nombre");
+        model.addColumn("Objetivo");
+        model.addColumn("Fecha");
+        model.addColumn("Medico Encargado");
+        
+        TablaCampana.getTableHeader().setReorderingAllowed(false);
+        controlcampana.Select_tablacampana(model);
+        jScrollPane1.setViewportView(TablaCampana);
     }
 
     /**
@@ -29,13 +47,13 @@ public class ListarCampanas extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaCampana = new javax.swing.JTable();
         Atras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Listar Campañas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaCampana.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -60,7 +78,7 @@ public class ListarCampanas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaCampana);
 
         Atras.setText("Atras");
         Atras.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +120,7 @@ public class ListarCampanas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-        FormCampana formcampana = new FormCampana();
+       FormCampana formcampana = new FormCampana();
        formcampana.setSize(600,450);
        formcampana.setLocation(0,0);
        this.removeAll();
@@ -114,8 +132,8 @@ public class ListarCampanas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JTable TablaCampana;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
