@@ -59,6 +59,7 @@ public class RegistroFormula extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         Medicos = new javax.swing.JComboBox<>();
         Pacientes = new javax.swing.JComboBox<>();
+        Fecha = new com.toedter.calendar.JDateChooser();
 
         jLabel1.setText("Identificacion Formula :");
 
@@ -107,7 +108,8 @@ public class RegistroFormula extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Pacientes, 0, 123, Short.MAX_VALUE)
                             .addComponent(Medicos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IdFormula))))
+                            .addComponent(IdFormula)
+                            .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap())
@@ -130,13 +132,16 @@ public class RegistroFormula extends javax.swing.JPanel {
                     .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Guardar)
-                    .addComponent(Atras))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(100, 100, 100)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Guardar)
+                            .addComponent(Atras))
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2))
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -167,6 +172,7 @@ public class RegistroFormula extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField IdFormula;
     private javax.swing.JComboBox<String> Medicos;
