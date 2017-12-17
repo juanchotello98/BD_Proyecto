@@ -61,4 +61,10 @@ public class ControladorCita {
         return resultado;
         
     }
+    
+    public boolean  comprobar_cita(String idPaciente, String idMedico, String hora, String fecha){
+        
+         return daoCita.Coprobar_Cita(idPaciente, idMedico, hora, fecha);
+        
+    }
 }
