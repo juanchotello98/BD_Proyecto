@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoCampanaPreventiva;
 import Logica.CampanaPreventiva;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -52,12 +53,22 @@ public class ControladorCampanaPreventiva {
         
         System.out.println("Se actualizara un campaña preventiva");
         
-        int resultado = daoCampanaPreventiva.Insert_campaña(campanapreventiva);
+        int resultado = daoCampanaPreventiva.Update_campaña(campanapreventiva, codigo);
         
         System.out.println("Se actualizo un campaña preventiva");
         
         return resultado;
         
     }
+    public boolean Select_codigoCampa(String id){
+        return daoCampanaPreventiva.Select_codigoCampa(id);
+    }
     
+    public void Select_Campa(CampanaPreventiva campana, String id){
+        daoCampanaPreventiva.Select_Campa(campana,id);
+    }
+    
+    public void Select_tablacampana(DefaultTableModel modelo){
+        daoCampanaPreventiva.Select_tablacampana(modelo);
+    }
 }

@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoMedicamento;
 import Logica.Medicamento;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,9 +39,9 @@ public class ControladorMedicamento {
         
     }
     
-    public int Update_medicamento(String codigo,String nombre,String costo,String descripcion){
+    public int Update_medicamento(String codigo, String nombre, String costo,String descripcion){
         
-        Medicamento medicamento = new Medicamento();
+       Medicamento medicamento = new Medicamento();
         
        medicamento.setCodigo(codigo);
        medicamento.setNombre(nombre);
@@ -49,12 +50,26 @@ public class ControladorMedicamento {
         
         System.out.println("Se actualizara un registro de medicamento");
         
-        int resultado = daoMedicamento.Update_medicamento(medicamento);
+        int resultado = daoMedicamento.Update_medicamento(medicamento, codigo);
         
         System.out.println("Se actualizo un registro de medicamento");
         
         return resultado;
         
+    }
+    
+    public boolean comprobar_medicamento(String codigo_medicamento){
+        
+        return daoMedicamento.Comprobar_Medicamento(codigo_medicamento);
+    }
+    
+    public void select_medicamento(Medicamento medicamento, String codigo){
+        
+        daoMedicamento.Select_medicamento(medicamento, codigo);
+    }
+    
+    public void Select_medicamentoTabla(DefaultTableModel model){
+        daoMedicamento.Select_medicamentoTabla(model);
     }
     
 }

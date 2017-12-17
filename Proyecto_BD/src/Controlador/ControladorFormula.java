@@ -6,6 +6,7 @@
 package Controlador;
 import Logica.Formula;
 import AccesoDatos.DaoFormula;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -57,6 +58,19 @@ public class ControladorFormula {
         System.out.println("Se actualizo un registro de formula");
         
         return resultado;
+        
+    }
+        
+    public boolean Comprobar_id(String id){
+        return daoFormula.Comprobar_id(id);
+    }
+    
+    public void Select_formula(Formula formula,String id){
+        daoFormula.Select_cama(formula, id);
+    }
+    
+    public void Select_formulatabla(DefaultTableModel model){
+        daoFormula.Select_formulatabla(model);
         
     }
     

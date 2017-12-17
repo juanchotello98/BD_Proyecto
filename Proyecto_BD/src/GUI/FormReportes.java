@@ -101,7 +101,7 @@ public class FormReportes extends javax.swing.JPanel {
 
     private void ReporteEmpleadosAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteEmpleadosAreaActionPerformed
        JasperReport jr = null;
-        String archivo="\\src\\Informes\\EmpleadosPorArea.jasper";
+        String archivo="C:\\Users\\Kevin\\Documents\\GitHub\\BD_Proyecto\\Proyecto_BD\\src\\Informes\\EmpleadosPorArea.jasper";
         try {
             Map parametro = new HashMap();
 
