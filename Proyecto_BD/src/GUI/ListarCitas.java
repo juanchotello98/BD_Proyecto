@@ -5,18 +5,38 @@
  */
 package GUI;
 
+import Controlador.ControladorCita;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Juan David
  */
 public class ListarCitas extends javax.swing.JPanel {
-
+    DefaultTableModel model;
+    ControladorCita controlcita = new ControladorCita();
     /**
      * Creates new form ListarPacientes
      */
     public ListarCitas() {
         initComponents();
+        model = new DefaultTableModel(){
+            public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+        };
+        
+        Tablacita.setModel(model);
+        model.addColumn("Id Paciente");
+        model.addColumn("id Medico");
+        model.addColumn("Hora");
+        model.addColumn("Fecha");
+        model.addColumn("Medico Encargado");
+        model.addColumn("Valor Consulta");
+        
+        Tablacita.getTableHeader().setReorderingAllowed(false);
+        controlcita.Select_tablacita(model);
+        jScrollPane1.setViewportView(Tablacita);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,13 +49,13 @@ public class ListarCitas extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tablacita = new javax.swing.JTable();
         Atras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Listar Citas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tablacita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -60,7 +80,7 @@ public class ListarCitas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tablacita);
 
         Atras.setText("Atras");
         Atras.addActionListener(new java.awt.event.ActionListener() {
@@ -114,8 +134,8 @@ public class ListarCitas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JTable Tablacita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

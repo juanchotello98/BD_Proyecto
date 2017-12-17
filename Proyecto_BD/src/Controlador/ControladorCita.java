@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoCita;
 import Logica.Cita;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,7 +42,7 @@ public class ControladorCita {
     }
     
     public int Update_cita(String Idpaciente,String Idmedico,String hora,String fecha,String estado,
-            String valor_consulta){
+            String valor_consulta,String id){
         
         Cita cita = new Cita();
         
@@ -54,7 +55,7 @@ public class ControladorCita {
         
         System.out.println("Se actualizara un registro de cita");
         
-        int resultado = daoCita.Update_cita(cita);
+        int resultado = daoCita.Update_cita(cita,id);
         
         System.out.println("Se actualizo un registro de cita");
         
@@ -65,6 +66,18 @@ public class ControladorCita {
     public boolean  comprobar_cita(String idPaciente, String idMedico, String hora, String fecha){
         
          return daoCita.Coprobar_Cita(idPaciente, idMedico, hora, fecha);
+        
+    }
+    
+    public void  Select_cita(Cita cita,String id){
+        
+        daoCita.Select_cita(cita, id); 
+        
+    }
+    
+     public void  Select_tablacita(DefaultTableModel modelo){
+        
+        daoCita.Select_tablacita(modelo); 
         
     }
 }
