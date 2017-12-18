@@ -7,10 +7,13 @@ package GUI;
 
 import AccesoDatos.DaoArea;
 import AccesoDatos.DaoMedico;
+import AccesoDatos.DaoPaciente;
 import AccesoDatos.FachadaBD;
 import Controlador.ControladorArea;
 import Controlador.ControladorMedico;
+import Controlador.ControladorPaciente;
 import Logica.Medico;
+import Logica.Paciente;
 import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,8 +37,10 @@ public class FormReportes extends javax.swing.JPanel {
 
     ControladorArea controlarea = new ControladorArea();
     ControladorMedico controlMedico = new ControladorMedico();
+    ControladorPaciente controlPaciente = new ControladorPaciente();
     DaoMedico daoMedico = new DaoMedico();
     DaoArea daoArea= new DaoArea();
+    DaoPaciente daoPaciente = new DaoPaciente();
     FachadaBD fachada;
     
     public FormReportes() {
@@ -52,7 +57,10 @@ public class FormReportes extends javax.swing.JPanel {
         controlMedico.Select_idmedios(Medicos);
         this.Medicos.setModel(Medicos);
 
-        
+        DefaultComboBoxModel Pacientes; 
+        Pacientes = new DefaultComboBoxModel();
+        controlPaciente.Select_idpaciente(Pacientes);
+        this.Pacientes.setModel(Pacientes);
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/clinic-history.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -79,6 +87,9 @@ public class FormReportes extends javax.swing.JPanel {
         AgendaPorMes = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CitasAtendidasMes = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        Pacientes = new javax.swing.JComboBox<>();
+        HistoriaClinica = new javax.swing.JButton();
 
         ReporteEmpleadosArea.setText("Listar empleados por area");
         ReporteEmpleadosArea.addActionListener(new java.awt.event.ActionListener() {
@@ -128,62 +139,105 @@ public class FormReportes extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setText("Paciente:");
+
+        Pacientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PacientesActionPerformed(evt);
+            }
+        });
+
+        HistoriaClinica.setText("Mostrar historia clínica");
+        HistoriaClinica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HistoriaClinicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
+                            .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(95, 95, 95)
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(179, 179, 179)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AgendaPorMes))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AgendaPorMes)
-                            .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CitasAtendidasMes))))
-                .addContainerGap(217, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(CitasAtendidasMes))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(HistoriaClinica)))))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ReporteEmpleadosArea)
-                    .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel3)
+                    .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReporteEmpleadosArea))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AgendaPorMes))
-                .addGap(40, 40, 40)
-                .addComponent(CitasAtendidasMes)
-                .addContainerGap(88, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgendaPorMes)
+                    .addComponent(CitasAtendidasMes))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HistoriaClinica))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void HistoriaClinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriaClinicaActionPerformed
+               JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\HistoriaClinica.jasper";
+        try {
+            Map parametro = new HashMap();
+            parametro.put("id_paciente", Pacientes.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, parametro, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Historia clinica del paciente");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }        
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_HistoriaClinicaActionPerformed
 
     private void ReporteEmpleadosAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteEmpleadosAreaActionPerformed
        JasperReport jr = null;
@@ -250,17 +304,24 @@ public class FormReportes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_MesesActionPerformed
 
+    private void PacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PacientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PacientesActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgendaPorMes;
     private javax.swing.JComboBox<String> Areas;
     private javax.swing.JButton CitasAtendidasMes;
+    private javax.swing.JButton HistoriaClinica;
     private javax.swing.JComboBox<String> Medicos;
     private javax.swing.JComboBox<String> Meses;
+    private javax.swing.JComboBox<String> Pacientes;
     private javax.swing.JButton ReporteEmpleadosArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
