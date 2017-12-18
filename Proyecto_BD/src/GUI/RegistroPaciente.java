@@ -5,10 +5,13 @@
  */
 package GUI;
 
+import Controlador.ControladorHistoriaClinica;
 import Controlador.ControladorPaciente;
 import Controlador.ControladorPersona;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +21,14 @@ import javax.swing.JOptionPane;
 public class RegistroPaciente extends javax.swing.JPanel {
      ControladorPersona controlpersona = new ControladorPersona();
      ControladorPaciente controlpaciente = new ControladorPaciente();
+     ControladorHistoriaClinica controlhistoria = new ControladorHistoriaClinica();
      Date fechacale;
      SimpleDateFormat formato = new SimpleDateFormat("d/MM/yyyy");
+     Calendar calendario = new GregorianCalendar();
+     int dia = calendario.get(Calendar.DATE);
+     int mes = calendario.get(Calendar.MONTH)+1;
+     int año = calendario.get(Calendar.YEAR);
+     String fechaapertura = año+"-"+mes+"-"+dia;
     /**
      * Creates new form PerfilEnfermera
      */
@@ -187,6 +196,7 @@ public class RegistroPaciente extends javax.swing.JPanel {
 
                 controlpersona.Insert_persona(identificacion, nombre, direccion, telefono);
                 controlpaciente.Insert_paciente(identificacion, actividad, seguro, fecha);
+                controlhistoria.Insert_historiaClinica(fechaapertura, identificacion);
                 
                 FormPacientes formpaciente = new FormPacientes();
                 formpaciente.setSize(600, 450);

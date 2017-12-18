@@ -22,9 +22,8 @@ public class DaoHistoriaClinica {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO HistoriaClinica"
-                + "VALUES ('"
-                + historiaClinica.getNumeroHistoria()+"', '"
+        sql_guardar="INSERT INTO HistoriaClinica "
+                + "VALUES ( nextval('historia_seq'), '"
                 + historiaClinica.getFechaApertura()+"', '"
                 + historiaClinica.getIdPaciente()+"' "
                 + ")";
