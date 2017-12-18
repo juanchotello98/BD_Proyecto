@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controlador.ControladorAgenda;
 import Controlador.ControladorCita;
 import Controlador.ControladorMedico;
 import Controlador.ControladorPaciente;
@@ -22,7 +23,7 @@ public class RegistroCita extends javax.swing.JPanel {
     /**
      * Creates new form PerfilEnfermera
      */
-    
+    ControladorAgenda controlagenda = new ControladorAgenda();
     ControladorPaciente controlPaciente = new ControladorPaciente();
     ControladorMedico controlMedico = new ControladorMedico();
     ControladorCita controlCita = new ControladorCita();
@@ -54,7 +55,6 @@ public class RegistroCita extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        hora = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         valorConsulta = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -66,6 +66,8 @@ public class RegistroCita extends javax.swing.JPanel {
         idMedico = new javax.swing.JComboBox<>();
         estado = new javax.swing.JComboBox<>();
         calendario = new com.toedter.calendar.JDateChooser();
+        Consultar = new javax.swing.JButton();
+        Horario = new javax.swing.JComboBox<>();
 
         jLabel1.setText("Identificacion Paciente :");
 
@@ -102,6 +104,15 @@ public class RegistroCita extends javax.swing.JPanel {
 
         estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nueva", "Asistida", "No Asistida", "Cancelada" }));
 
+        Consultar.setText("Consultar");
+        Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarActionPerformed(evt);
+            }
+        });
+
+        Horario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00:00", "8:30:00", "9:00:00", "9:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00", "20:00:00", "20:30:00", "21:00:00", "21:30:00" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,27 +124,30 @@ public class RegistroCita extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(valorConsulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(hora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(idPaciente, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idMedico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(estado, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Atras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Guardar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addComponent(Consultar))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(valorConsulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                            .addComponent(idPaciente, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idMedico, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(estado, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Horario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(30, 30, 30))
@@ -151,11 +165,12 @@ public class RegistroCita extends javax.swing.JPanel {
                             .addComponent(idPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(idMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Consultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Horario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,22 +199,40 @@ public class RegistroCita extends javax.swing.JPanel {
         String idpaciente = idPaciente.getSelectedItem().toString();
         String idmedico = idMedico.getSelectedItem().toString();
         String Estado= estado.getSelectedItem().toString();
-        Hora=hora.getText();
+        Hora = Horario.getSelectedItem().toString();
+        String dia,mes;
         
         try{
             fechacale = calendario.getDate();
             Fecha = formato.format(fechacale);
-            if(hora.getText().equals("") || valorConsulta.getText().equals("")){
+            if(valorConsulta.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Se encuentras campos vacios");   
         }else{
             if (controlCita.comprobar_cita(idpaciente, idmedico, Hora, Fecha)){
                 System.out.println(controlCita.comprobar_cita(idpaciente, idmedico, Hora, Fecha));
                 JOptionPane.showMessageDialog(null,"La Cita ya se encuentra registrada");
             }else{
-                Hora = hora.getText();
-                ValorConsulta = valorConsulta.getText();
-                System.out.println(ValorConsulta);
-                controlCita.Insert_cita(idpaciente, idmedico, Hora, Fecha, Estado, ValorConsulta);
+                    if(Fecha.substring(5,6).equals("0")){
+                       mes = Fecha.substring(6, 7);
+                    }else{
+                       mes = Fecha.substring(5, 7);
+                    }
+
+                    if(Fecha.substring(8,9).equals("0")){
+                       dia = Fecha.substring(9, 10);
+
+                    }else{
+                       dia = Fecha.substring(8, 10);
+                    }
+                if(controlagenda.comprobarfecha(idmedico,mes,dia,Hora)){
+                    JOptionPane.showMessageDialog(null,"Este  horario y fecha ya estan ocupados");
+                }else{
+                    ValorConsulta = valorConsulta.getText();
+                    System.out.println(ValorConsulta);
+
+                    controlCita.Insert_cita(idpaciente, idmedico, Hora, Fecha, Estado, ValorConsulta);
+                    controlagenda.Update_agendaestado("Ocupado",idmedico,mes,dia,Hora);
+                }
             }
         }
         }catch(java.lang.NullPointerException e){JOptionPane.showMessageDialog(this, "escoge una fecha!", "Error!", JOptionPane.ERROR_MESSAGE);}
@@ -216,13 +249,19 @@ public class RegistroCita extends javax.swing.JPanel {
        this.repaint();
     }//GEN-LAST:event_AtrasActionPerformed
 
+    private void ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarActionPerformed
+       AgendaMedico agendamedico = new AgendaMedico(idMedico.getSelectedItem().toString());
+       agendamedico.setVisible(true);
+    }//GEN-LAST:event_ConsultarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JButton Consultar;
     private javax.swing.JButton Guardar;
+    private javax.swing.JComboBox<String> Horario;
     private com.toedter.calendar.JDateChooser calendario;
     private javax.swing.JComboBox<String> estado;
-    private javax.swing.JTextField hora;
     private javax.swing.JComboBox<String> idMedico;
     private javax.swing.JComboBox<String> idPaciente;
     private javax.swing.JLabel jLabel1;

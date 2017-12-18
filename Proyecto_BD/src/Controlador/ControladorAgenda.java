@@ -7,6 +7,8 @@ package Controlador;
 
 import AccesoDatos.DaoAgenda;
 import Logica.Agenda;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Juan David
@@ -93,7 +95,20 @@ public class ControladorAgenda {
         
     }
     
+    public void Select_agenda(DefaultTableModel model,String id){
+        daoAgenda.Select_agenda(model,id);
+    }
     
+    public void Update_agendaestado(String estado,String id,String mes,String dia,String hora){
+       daoAgenda.Update_agendaestado(estado,id,mes,dia,hora);
+    }
     
+    public boolean comprobarfecha(String id,String mes,String dia,String hora){
+       return daoAgenda.Comprobarfecha(id,mes,dia,hora);
+    }
+    
+    public void Select_mesagenda(DefaultTableModel model,String id,String mes){
+        daoAgenda.Select_mesesagenda(model,id,mes);
+    }
     
 }

@@ -37,7 +37,7 @@ public class PacientesPorCampaña extends javax.swing.JPanel {
         model.addColumn("Nombre");
         model.addColumn("Cargo");
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);
-        controladorPacienteCampana.Select_paciente(model);
+        //controladorPacienteCampana.Select_paciente(model);
         this.Campanas.setModel(Areas);
         jScrollPane1.setViewportView(TablaEmpleadoArea);
     }
@@ -187,7 +187,7 @@ public class PacientesPorCampaña extends javax.swing.JPanel {
         model.addColumn("Nombre");
         model.addColumn("Cargo");
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);
-        controlempleado. Select_empleadoarea(model,Campanas.getSelectedItem().toString());
+        //controlempleado. Select_empleadoarea(model,Campanas.getSelectedItem().toString());
         jScrollPane1.setViewportView(TablaEmpleadoArea);
     }//GEN-LAST:event_ActualizarActionPerformed
 
@@ -201,7 +201,7 @@ public class PacientesPorCampaña extends javax.swing.JPanel {
         model.addColumn("Nombre");
         model.addColumn("Cargo");
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);
-        controlempleado.Select_empleado(model);
+        //controlempleado.Select_empleado(model);
         jScrollPane1.setViewportView(TablaEmpleadoArea);
     }//GEN-LAST:event_RestablecerActionPerformed
 
