@@ -6,8 +6,11 @@
 package GUI;
 
 import AccesoDatos.DaoArea;
+import AccesoDatos.DaoMedico;
 import AccesoDatos.FachadaBD;
 import Controlador.ControladorArea;
+import Controlador.ControladorMedico;
+import Logica.Medico;
 import java.awt.Image;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,6 +33,8 @@ import net.sf.jasperreports.view.JasperViewer;
 public class FormReportes extends javax.swing.JPanel {
 
     ControladorArea controlarea = new ControladorArea();
+    ControladorMedico controlMedico = new ControladorMedico();
+    DaoMedico daoMedico = new DaoMedico();
     DaoArea daoArea= new DaoArea();
     FachadaBD fachada;
     
@@ -41,6 +46,13 @@ public class FormReportes extends javax.swing.JPanel {
         Areas = new DefaultComboBoxModel();
         controlarea.Select_nombrearea(Areas);
         this.Areas.setModel(Areas);
+        
+        DefaultComboBoxModel Medicos; 
+        Medicos = new DefaultComboBoxModel();
+        controlMedico.Select_idmedios(Medicos);
+        this.Medicos.setModel(Medicos);
+
+        
         
         ImageIcon imagen1=new ImageIcon(getClass().getResource("/Images/clinic-history.png"));
         Icon img1 = new ImageIcon(imagen1.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
@@ -60,6 +72,12 @@ public class FormReportes extends javax.swing.JPanel {
 
         ReporteEmpleadosArea = new javax.swing.JButton();
         Areas = new javax.swing.JComboBox<>();
+        Medicos = new javax.swing.JComboBox<>();
+        Meses = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        AgendaPorMes = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         ReporteEmpleadosArea.setText("Listar empleados por area");
         ReporteEmpleadosArea.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +87,33 @@ public class FormReportes extends javax.swing.JPanel {
         });
 
         Areas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Areas" }));
+        Areas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AreasActionPerformed(evt);
+            }
+        });
+
+        Medicos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Medicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MedicosActionPerformed(evt);
+            }
+        });
+
+        Meses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        jLabel1.setText("Medico:");
+
+        jLabel2.setText("Mes:");
+
+        AgendaPorMes.setText("Agenda médica del mes");
+        AgendaPorMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgendaPorMesActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Areas:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,19 +121,44 @@ public class FormReportes extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AgendaPorMes)
+                            .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReporteEmpleadosArea)
                     .addComponent(Areas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgendaPorMes))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,10 +186,42 @@ public class FormReportes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ReporteEmpleadosAreaActionPerformed
 
+    private void AreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AreasActionPerformed
+
+    private void AgendaPorMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendaPorMesActionPerformed
+        JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\AgendaMedicaMes.jasper";
+        try {
+
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("mes",Meses.getSelectedItem().toString());
+            map.put("id_medico",Medicos.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, map, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Agenda de medico por mes");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_AgendaPorMesActionPerformed
+
+    private void MedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MedicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MedicosActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AgendaPorMes;
     private javax.swing.JComboBox<String> Areas;
+    private javax.swing.JComboBox<String> Medicos;
+    private javax.swing.JComboBox<String> Meses;
     private javax.swing.JButton ReporteEmpleadosArea;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
