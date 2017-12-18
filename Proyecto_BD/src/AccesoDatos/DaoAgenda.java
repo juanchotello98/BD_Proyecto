@@ -213,5 +213,26 @@ public class DaoAgenda {
          return false;
     }
     
-    
+    public int Update_agendaestado2(String estado,String id,String mes,String dia,String hora){
+         
+        String sql_select;
+        int numFilas=0;
+        sql_select="UPDATE agenda SET "
+                + "estado = '"+estado+"' "
+                + "WHERE id_medico= '"+id+"' "
+                + "AND dia ='"+dia+"' "
+                + "AND mes ='"+mes+"' "
+                + "AND horario ='"+hora+"' ";
+         try{
+          
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            numFilas = sentencia.executeUpdate(sql_select);
+            return numFilas;
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return -1;
+         
+    }
 }

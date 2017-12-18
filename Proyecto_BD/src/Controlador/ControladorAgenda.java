@@ -128,4 +128,7 @@ public class ControladorAgenda {
         }
     }
     
+    public void Update_agendaestado2(String estado,String id,String mes,String dia,String hora){
+       daoAgenda.Update_agendaestado2(estado,id,mes,dia,hora);
+    }
 }
