@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import Controlador.ControladorAgenda;
 import Controlador.ControladorArea;
 import Controlador.ControladorEmpleado;
 import Controlador.ControladorEnfermera;
@@ -11,6 +12,8 @@ import Controlador.ControladorMedico;
 import Controlador.ControladorPersona;
 import Controlador.Validation;
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 /**
@@ -22,7 +25,9 @@ public class RegistrarMedico extends javax.swing.JPanel {
     ControladorEmpleado controlempleado = new ControladorEmpleado();
     ControladorPersona controlpersona = new ControladorPersona();
     ControladorMedico controlmedico = new ControladorMedico();
+    ControladorAgenda controlagenda = new ControladorAgenda();
     Validation validar = new Validation();
+    Calendar calendario = new GregorianCalendar();
     private String jefes;
     /**
      * Creates new form PerfilEnfermera
@@ -319,6 +324,7 @@ public class RegistrarMedico extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null,identificacion);
                 controlmedico.Insert_medico(Identificacion.getText(), especialidad, numerolicencia, universidad);
                 controlmedico.Insert_cuenta(identificacion, contraseña);
+                controlagenda.Insert_agenda(identificacion, calendario.get(Calendar.YEAR));
                 
             }
         }

@@ -161,8 +161,7 @@ public class DaoArea {
          }
          catch(Exception e){ System.out.println(e);}
     }
-    
-    public void Select_areatabla(DefaultTableModel model){
+   public void Select_areatabla(DefaultTableModel model){
       String sql_select;
         sql_select="SELECT * FROM area ";
          try{
@@ -173,9 +172,9 @@ public class DaoArea {
             
             while(tabla.next()){
                 //obtener los datos y almacenar las filas
-		Object[] fila = new Object[3];
+		Object[] fila = new Object[5];
 		//llenar cada columna con lo datos almacenados
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 5; i++)
                     fila[i] = tabla.getObject(i + 1);
 		//cargar los datos en filas a la tabla modelo
 		    model.addRow(fila);
