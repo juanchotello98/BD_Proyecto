@@ -78,6 +78,7 @@ public class FormReportes extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         AgendaPorMes = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        CitasAtendidasMes = new javax.swing.JButton();
 
         ReporteEmpleadosArea.setText("Listar empleados por area");
         ReporteEmpleadosArea.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +102,11 @@ public class FormReportes extends javax.swing.JPanel {
         });
 
         Meses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        Meses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MesesActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Medico:");
 
@@ -114,6 +120,13 @@ public class FormReportes extends javax.swing.JPanel {
         });
 
         jLabel3.setText("Areas:");
+
+        CitasAtendidasMes.setText("Citas atendidas en el mes");
+        CitasAtendidasMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CitasAtendidasMesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -137,7 +150,8 @@ public class FormReportes extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AgendaPorMes)
-                            .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ReporteEmpleadosArea, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CitasAtendidasMes))))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,7 +172,9 @@ public class FormReportes extends javax.swing.JPanel {
                     .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AgendaPorMes))
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(CitasAtendidasMes)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,11 +228,34 @@ public class FormReportes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_MedicosActionPerformed
 
+    private void CitasAtendidasMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitasAtendidasMesActionPerformed
+        JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CitasAtendidasMes.jasper";
+        try {
+
+            HashMap<String, Object> mapa = new HashMap<String, Object>();
+            mapa.put("mes",Meses.getSelectedItem().toString());
+            mapa.put("id_medico",Medicos.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, mapa, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Citas atendidas por mes");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CitasAtendidasMesActionPerformed
+
+    private void MesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MesesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MesesActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgendaPorMes;
     private javax.swing.JComboBox<String> Areas;
+    private javax.swing.JButton CitasAtendidasMes;
     private javax.swing.JComboBox<String> Medicos;
     private javax.swing.JComboBox<String> Meses;
     private javax.swing.JButton ReporteEmpleadosArea;
