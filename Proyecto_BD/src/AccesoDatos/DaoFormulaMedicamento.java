@@ -26,7 +26,7 @@ public class DaoFormulaMedicamento {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO formula_medicamento"
+        sql_guardar="INSERT INTO formula_medicamento "
                 + "VALUES ('"
                 + formulamedicamento.getId_formula()+"', '"
                 + formulamedicamento.getCodigo_medicamento()+"', '"
