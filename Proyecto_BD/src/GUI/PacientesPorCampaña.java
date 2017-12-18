@@ -197,7 +197,7 @@ public class PacientesPorCampaña extends javax.swing.JPanel {
              public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
         };
         TablaEmpleadoArea.setModel(model);
-         model.addColumn("Identificacion");
+        model.addColumn("Identificacion");
         model.addColumn("Nombre");
         model.addColumn("Cargo");
         TablaEmpleadoArea.getTableHeader().setReorderingAllowed(false);

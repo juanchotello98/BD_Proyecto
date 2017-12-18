@@ -298,9 +298,11 @@ public class InterfazConsultorio extends javax.swing.JPanel {
 
     private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
         Calendar calendario = new GregorianCalendar();
+        ControladorAgenda agenda = new ControladorAgenda();
         int año = calendario.get(Calendar.YEAR);
         String fechac=año+"-"+Mes.getValue().toString()+"-"+Dia.getValue().toString();
         controlCita.Update_citatermina(idpaciente, idmedico, Horario.getSelectedItem().toString(), fechac, estadoccita.getSelectedItem().toString());
+        agenda.Update_agendaestado2("Libre", idmedico,Mes.getValue().toString(), Dia.getValue().toString(), Horario.getSelectedItem().toString());
     }//GEN-LAST:event_TerminarActionPerformed
 
 
