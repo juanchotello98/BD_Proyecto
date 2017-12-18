@@ -15,9 +15,15 @@ public class Persona {
     private String direccion;
     private String telefono;
     
+    public Persona(){
+        
+    }
+    
+        
     public Persona(String identificacion){
         this.identificacion=identificacion;
     }
+
 
     public void setIDentificacion (String identificacion){
         this.identificacion=identificacion;

@@ -27,7 +27,7 @@ public class DaoRegistro {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO registro"
+        sql_guardar="INSERT INTO registro "
                 + "VALUES ('"
                 + registro.getIdMedico()+"', '"
                 + registro.getIdHistoria()+"', '"

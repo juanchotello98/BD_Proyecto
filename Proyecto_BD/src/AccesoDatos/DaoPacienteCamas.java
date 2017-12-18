@@ -9,6 +9,7 @@ import Logica.PacienteCamas;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 public class DaoPacienteCamas {
     
@@ -23,12 +24,12 @@ public class DaoPacienteCamas {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO paciente_camas"
+        sql_guardar="INSERT INTO paciente_camas "
                 + "VALUES ('"
                 + pacienteCamas.getId_paciente()+"', '"
                 + pacienteCamas.getNumero_cama()+"', '"
-                + pacienteCamas.getFecha_ingreso()+"', "
-                + pacienteCamas.getFecha_salida()+"', "
+                + pacienteCamas.getFecha_ingreso()+"', '"
+                + pacienteCamas.getFecha_salida()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
@@ -40,7 +41,8 @@ public class DaoPacienteCamas {
             
         }
         catch(SQLException e){
-            System.out.println(e); 
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null,"YA existe registro");
             }
         catch(Exception e){ 
             System.out.println(e);

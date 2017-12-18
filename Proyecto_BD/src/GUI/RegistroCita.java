@@ -37,8 +37,8 @@ public class RegistroCita extends javax.swing.JPanel {
         Medico = new DefaultComboBoxModel();
         controlMedico.Select_idmedios(Medico);
         controlPaciente.Select_idpaciente(Paciente);
-        this.idMedico.setModel(Medico);
         this.idPaciente.setModel(Paciente);
+        this.idMedico.setModel(Medico);
         
     }
 

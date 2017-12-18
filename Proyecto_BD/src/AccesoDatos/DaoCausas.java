@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -145,5 +146,44 @@ public class DaoCausas {
          }
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
+    }
+    
+     public void Select_causa(DefaultComboBoxModel modelo){
+        String sql_select;
+        sql_select="SELECT nombre FROM causas";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                modelo.addElement(tabla.getString(1));
+            }
+            tabla.close();
+            sentencia.close();
+          
+         }
+         catch(Exception e){ System.out.println(e);}
+    }
+     
+      public String Select_idcausa(String nombre){
+        String sql_select,id="";
+        sql_select="SELECT codigo FROM causas "
+                + " WHERE nombre ='"+nombre+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+        
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                id=tabla.getString(1);
+            }
+            return id;
+          
+         }
+         catch(Exception e){ System.out.println(e);}
+         return "";
     }
 }
