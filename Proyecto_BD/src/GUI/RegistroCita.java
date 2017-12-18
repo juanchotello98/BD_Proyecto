@@ -9,6 +9,7 @@ import Controlador.ControladorAgenda;
 import Controlador.ControladorCita;
 import Controlador.ControladorMedico;
 import Controlador.ControladorPaciente;
+import Controlador.ControladorPacienteCampana;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
@@ -27,6 +28,8 @@ public class RegistroCita extends javax.swing.JPanel {
     ControladorPaciente controlPaciente = new ControladorPaciente();
     ControladorMedico controlMedico = new ControladorMedico();
     ControladorCita controlCita = new ControladorCita();
+    ControladorPacienteCampana controladorPacienteCampana = new ControladorPacienteCampana();
+    
     Date fechacale;
     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
     
@@ -37,8 +40,8 @@ public class RegistroCita extends javax.swing.JPanel {
         Medico = new DefaultComboBoxModel();
         controlMedico.Select_idmedios(Medico);
         controlPaciente.Select_idpaciente(Paciente);
-        this.idMedico.setModel(Medico);
         this.idPaciente.setModel(Paciente);
+        this.idMedico.setModel(Medico);
         
     }
 
@@ -195,7 +198,8 @@ public class RegistroCita extends javax.swing.JPanel {
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
-        String Hora, Fecha="", ValorConsulta;
+        String Hora, Fecha="";
+        int ValorConsulta;
         String idpaciente = idPaciente.getSelectedItem().toString();
         String idmedico = idMedico.getSelectedItem().toString();
         String Estado= estado.getSelectedItem().toString();
@@ -227,10 +231,14 @@ public class RegistroCita extends javax.swing.JPanel {
                 if(controlagenda.comprobarfecha(idmedico,mes,dia,Hora)){
                     JOptionPane.showMessageDialog(null,"Este  horario y fecha ya estan ocupados");
                 }else{
-                    ValorConsulta = valorConsulta.getText();
-                    System.out.println(ValorConsulta);
+                    if(controladorPacienteCampana.comprobar_asistencia(idpaciente)){
+                        ValorConsulta = Integer.parseInt(valorConsulta.getText())-((Integer.parseInt(valorConsulta.getText())*20)/100);
+                    }else{
+                        ValorConsulta = Integer.parseInt(valorConsulta.getText());
+                    }
+                    
 
-                    controlCita.Insert_cita(idpaciente, idmedico, Hora, Fecha, Estado, ValorConsulta);
+                    controlCita.Insert_cita(idpaciente, idmedico, Hora, Fecha, Estado, Integer.toString(ValorConsulta));
                     controlagenda.Update_agendaestado("Ocupado",idmedico,mes,dia,Hora);
                 }
             }

@@ -8,6 +8,7 @@ package GUI;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -50,6 +51,7 @@ public class FormCampana extends javax.swing.JPanel {
         EditarCampana = new javax.swing.JButton();
         ListarCampana = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        Asistencia_Campaña = new javax.swing.JButton();
 
         RegistroCampana.setText("Registrar Campaña");
         RegistroCampana.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +81,13 @@ public class FormCampana extends javax.swing.JPanel {
             }
         });
 
+        Asistencia_Campaña.setText("Asistencia_Campaña");
+        Asistencia_Campaña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Asistencia_CampañaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,13 +95,18 @@ public class FormCampana extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RegistroCampana)
-                    .addComponent(ListarCampana))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EditarCampana)
-                    .addComponent(jButton1))
-                .addGap(86, 86, 86))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Asistencia_Campaña)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RegistroCampana)
+                            .addComponent(ListarCampana))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EditarCampana)
+                            .addComponent(jButton1))
+                        .addGap(86, 86, 86))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +119,9 @@ public class FormCampana extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ListarCampana)
                     .addComponent(jButton1))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(Asistencia_Campaña)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,8 +159,18 @@ public class FormCampana extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void Asistencia_CampañaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Asistencia_CampañaActionPerformed
+        JFrame ventana = new JFrame();
+        RegistroPM pm = new RegistroPM();
+        pm.setSize(240,190);
+        ventana.setSize(250,190);
+        ventana.setContentPane(pm);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_Asistencia_CampañaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Asistencia_Campaña;
     private javax.swing.JButton EditarCampana;
     private javax.swing.JButton ListarCampana;
     private javax.swing.JButton RegistroCampana;

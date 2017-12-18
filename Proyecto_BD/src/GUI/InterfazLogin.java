@@ -176,13 +176,13 @@ public class InterfazLogin extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "Bienvenido a LOSY.");
             //select_interface(control.check_position(password, code));
         } else {
-            JOptionPane.showMessageDialog(null, "Bienvenido a que te importac.com.");
-            if(account.equals("9998")){
-                InterfazAdministrador admin = new InterfazAdministrador();
-                admin.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido a que te importa.com.");
+            if(account.equals("11441122")){
+                InterfazAdministrador gui = new InterfazAdministrador();
+                gui.setVisible(true);
                 dispose();
             }else{
-                InterfazMedico medico = new InterfazMedico();
+                InterfazMedico medico = new InterfazMedico(account);
                 medico.setVisible(true);
                 dispose();
             }

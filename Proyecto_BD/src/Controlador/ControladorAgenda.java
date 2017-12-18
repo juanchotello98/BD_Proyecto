@@ -6,22 +6,29 @@
 package Controlador;
 
 import AccesoDatos.DaoAgenda;
+import AccesoDatos.DaoCita;
 import Logica.Agenda;
+import Logica.Paciente;
+import Logica.Persona;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Juan David
  */
 public class ControladorAgenda {
-    
+    Calendar calendario = new GregorianCalendar();
     DaoAgenda daoAgenda;
-    
+    DaoCita daoCita;
     
     
     public ControladorAgenda(){
         
         daoAgenda = new DaoAgenda();
+        daoCita = new DaoCita();
     }
    
     
@@ -111,4 +118,17 @@ public class ControladorAgenda {
         daoAgenda.Select_mesesagenda(model,id,mes);
     }
     
+    public void Buscar(Persona persona, String id,String mes,String dia,String hora){
+        int año = calendario.get(Calendar.YEAR);
+        String fecha;
+        if(daoAgenda.Buscar(id, mes, dia, hora)){
+            JOptionPane.showMessageDialog(null,"Leego");
+            fecha=año+"-"+mes+"-"+dia;
+            daoCita.Buscar(persona,id, fecha, hora);
+        }
+    }
+    
+    public void Update_agendaestado2(String estado,String id,String mes,String dia,String hora){
+       daoAgenda.Update_agendaestado2(estado,id,mes,dia,hora);
+    }
 }

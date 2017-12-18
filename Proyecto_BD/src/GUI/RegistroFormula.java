@@ -6,6 +6,8 @@
 package GUI;
 
 import Controlador.ControladorFormula;
+import Controlador.ControladorFormulaMedicamento;
+import Controlador.ControladorMedicamento;
 import Controlador.ControladorMedico;
 import Controlador.ControladorPaciente;
 import Controlador.ControladorPersona;
@@ -23,21 +25,25 @@ public class RegistroFormula extends javax.swing.JPanel {
         ControladorPaciente controlpaciente = new ControladorPaciente();
         ControladorMedico controlmedico = new ControladorMedico();
         ControladorFormula controlformula = new ControladorFormula();
+        ControladorMedicamento controlmedicamento = new ControladorMedicamento();
+        ControladorFormulaMedicamento control = new ControladorFormulaMedicamento();
         SimpleDateFormat formato = new SimpleDateFormat("d/MM/yyyy");
         Date fechacale;
+        String idpaciente,idmedico;
         /**
      * Creates new form PerfilEnfermera
      */
-    public RegistroFormula() {
-        
+    public RegistroFormula(String idpaciente,String idmedico) {
+        this.idpaciente=idpaciente;
+        this.idmedico=idmedico;
         initComponents();
-        DefaultComboBoxModel Paciente,Jefes;
-        Paciente = new DefaultComboBoxModel();
-        Jefes = new DefaultComboBoxModel();
-        controlmedico.Select_idmedios(Jefes);
-        controlpaciente.Select_idpaciente(Paciente);
-        this.Medicos.setModel(Jefes);
-        this.Pacientes.setModel(Paciente);
+        Medico.setText(idmedico);
+        Paciente.setText(idpaciente);
+        DefaultComboBoxModel Medica;
+        Medica = new DefaultComboBoxModel();
+        controlmedicamento.Select_medica(Medica);
+        this.tengo.setModel(Medica);
+        Nombre.setText(controlmedicamento.selec_nombre(tengo.getSelectedItem().toString()));
     }
 
     /**
@@ -58,9 +64,13 @@ public class RegistroFormula extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         Atras = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        Medicos = new javax.swing.JComboBox<>();
-        Pacientes = new javax.swing.JComboBox<>();
         Fecha = new com.toedter.calendar.JDateChooser();
+        Paciente = new javax.swing.JTextField();
+        Medico = new javax.swing.JTextField();
+        tengo = new javax.swing.JComboBox<>();
+        Medicamento = new javax.swing.JLabel();
+        Cantidad = new javax.swing.JSpinner();
+        Nombre = new javax.swing.JTextField();
 
         jLabel1.setText("Identificacion Formula :");
 
@@ -87,30 +97,55 @@ public class RegistroFormula extends javax.swing.JPanel {
 
         jLabel6.setText("Fecha:");
 
+        Paciente.setEditable(false);
+
+        Medico.setEditable(false);
+
+        tengo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tengo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tengoItemStateChanged(evt);
+            }
+        });
+
+        Medicamento.setText("Medicamento");
+
+        Nombre.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(Atras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Guardar))
-                    .addComponent(jLabel11)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6))
-                        .addGap(146, 146, 146)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Medicamento)
+                                .addGap(58, 58, 58)
+                                .addComponent(Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)))
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Pacientes, 0, 123, Short.MAX_VALUE)
-                            .addComponent(Medicos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(IdFormula)
-                            .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                            .addComponent(Paciente)
+                            .addComponent(Medico)
+                            .addComponent(tengo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap())
@@ -124,25 +159,30 @@ public class RegistroFormula extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IdFormula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Medico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(100, 100, 100)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Guardar)
-                            .addComponent(Atras))
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2))
+                    .addComponent(jLabel6)
                     .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tengo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Medicamento)
+                    .addComponent(Cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Guardar)
+                    .addComponent(Atras))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -158,13 +198,14 @@ public class RegistroFormula extends javax.swing.JPanel {
               }else{
                     fechacale = Fecha.getDate();
                     formula=IdFormula.getText();
-                    idPaciente=Pacientes.getSelectedItem().toString();
-                    idMedico=Medicos.getSelectedItem().toString();
+                    idPaciente=idpaciente;
+                    idMedico=idmedico;
                     String  fecha=formato.format(fechacale);
 
                     controlformula.Insert_formula(formula, idMedico, idPaciente,fecha);
+                    control.Insert_formulamedicamento(formula, tengo.getSelectedItem().toString(), Cantidad.getValue().toString());
                     
-                    FormFormula formformula = new FormFormula();
+                    FormFormula formformula = new FormFormula(idpaciente,idmedico);
                     formformula.setSize(600, 450);
                     formformula.setLocation(0, 0);
                     this.removeAll();
@@ -181,7 +222,7 @@ public class RegistroFormula extends javax.swing.JPanel {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-       FormFormula formformula = new FormFormula();
+       FormFormula formformula = new FormFormula(idpaciente,idmedico);
        formformula.setSize(600, 450);
        formformula.setLocation(0,0);
        this.removeAll();
@@ -190,19 +231,28 @@ public class RegistroFormula extends javax.swing.JPanel {
        this.repaint();
     }//GEN-LAST:event_AtrasActionPerformed
 
+    private void tengoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tengoItemStateChanged
+        String medicap = tengo.getSelectedItem().toString();
+       Nombre.setText(controlmedicamento.selec_nombre(medicap));
+    }//GEN-LAST:event_tengoItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JSpinner Cantidad;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField IdFormula;
-    private javax.swing.JComboBox<String> Medicos;
-    private javax.swing.JComboBox<String> Pacientes;
+    private javax.swing.JLabel Medicamento;
+    private javax.swing.JTextField Medico;
+    private javax.swing.JTextField Nombre;
+    private javax.swing.JTextField Paciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JComboBox<String> tengo;
     // End of variables declaration//GEN-END:variables
 }
