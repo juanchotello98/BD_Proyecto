@@ -90,6 +90,12 @@ public class FormReportes extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         Pacientes = new javax.swing.JComboBox<>();
         HistoriaClinica = new javax.swing.JButton();
+        CostoCitasMes = new javax.swing.JButton();
+        CostoCitasAno = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        Anos = new javax.swing.JComboBox<>();
+        CostoMedicamentosMes = new javax.swing.JButton();
+        CostoMedicamentosAno = new javax.swing.JButton();
 
         ReporteEmpleadosArea.setText("Listar empleados por area");
         ReporteEmpleadosArea.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +161,38 @@ public class FormReportes extends javax.swing.JPanel {
             }
         });
 
+        CostoCitasMes.setText("Costo Promedio citas mes");
+        CostoCitasMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostoCitasMesActionPerformed(evt);
+            }
+        });
+
+        CostoCitasAno.setText("Costo promedio citas año");
+        CostoCitasAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostoCitasAnoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Año:");
+
+        Anos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2018", "2019", "2020", "2021", "2022" }));
+
+        CostoMedicamentosMes.setText("Costo promedio medicamentos mes");
+        CostoMedicamentosMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostoMedicamentosMesActionPerformed(evt);
+            }
+        });
+
+        CostoMedicamentosAno.setText("Costo promedio medicamentos año");
+        CostoMedicamentosAno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostoMedicamentosAnoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,20 +217,32 @@ public class FormReportes extends javax.swing.JPanel {
                             .addComponent(Meses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(179, 179, 179)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(AgendaPorMes))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AgendaPorMes)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(28, 28, 28)
+                                .addComponent(Anos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addComponent(CitasAtendidasMes))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(HistoriaClinica)))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                                .addGap(92, 92, 92)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(HistoriaClinica))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CostoCitasAno)
+                            .addComponent(CostoMedicamentosAno))
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CostoMedicamentosMes)
+                            .addComponent(CostoCitasMes))))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,12 +262,22 @@ public class FormReportes extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AgendaPorMes)
                     .addComponent(CitasAtendidasMes))
-                .addGap(30, 30, 30)
+                .addGap(79, 79, 79)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(Anos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(HistoriaClinica))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CostoCitasAno)
+                    .addComponent(CostoCitasMes))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CostoMedicamentosAno)
+                    .addComponent(CostoMedicamentosMes))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -308,12 +368,85 @@ public class FormReportes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_PacientesActionPerformed
 
+    private void CostoCitasMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoCitasMesActionPerformed
+        JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CostoCitasMes.jasper";
+        try {
+            HashMap<String, Object> maps = new HashMap<String, Object>();
+            maps.put("mes",Meses.getSelectedItem().toString());
+            maps.put("id_paciente",Pacientes.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, maps, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Costo en citas por mes");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CostoCitasMesActionPerformed
+
+    private void CostoCitasAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoCitasAnoActionPerformed
+       JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CostoCitasAno.jasper";
+        try {
+            HashMap<String, Object> mapis = new HashMap<String, Object>();
+            mapis.put("ano",Anos.getSelectedItem().toString());
+            mapis.put("id_paciente",Pacientes.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, mapis, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Costo en citas por año");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CostoCitasAnoActionPerformed
+
+    private void CostoMedicamentosMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoMedicamentosMesActionPerformed
+        JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CostoMedicamentosMes.jasper";
+        try {
+            HashMap<String, Object> mapiss = new HashMap<String, Object>();
+            mapiss.put("mes",Meses.getSelectedItem().toString());
+            mapiss.put("id_paciente",Pacientes.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, mapiss, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Costo en medicamentos por mes");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CostoMedicamentosMesActionPerformed
+
+    private void CostoMedicamentosAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoMedicamentosAnoActionPerformed
+        JasperReport jr = null;
+        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CostoMedicamentosPorAno.jasper";
+        try {
+            HashMap<String, Object> mapiss = new HashMap<String, Object>();
+            mapiss.put("ano",Anos.getSelectedItem().toString());
+            mapiss.put("id_paciente",Pacientes.getSelectedItem().toString());
+            jr= (JasperReport) JRLoader.loadObjectFromFile(archivo);
+            JasperPrint jp = JasperFillManager.fillReport(jr, mapiss, fachada.getConnetion());
+            JasperViewer jv = new JasperViewer(jp,false);
+            jv.setVisible(true);
+            jv.setTitle("Costo en medicamentos por año");
+        } catch (JRException ex) {
+            Logger.getLogger(FormReportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CostoMedicamentosAnoActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgendaPorMes;
+    private javax.swing.JComboBox<String> Anos;
     private javax.swing.JComboBox<String> Areas;
     private javax.swing.JButton CitasAtendidasMes;
+    private javax.swing.JButton CostoCitasAno;
+    private javax.swing.JButton CostoCitasMes;
+    private javax.swing.JButton CostoMedicamentosAno;
+    private javax.swing.JButton CostoMedicamentosMes;
     private javax.swing.JButton HistoriaClinica;
     private javax.swing.JComboBox<String> Medicos;
     private javax.swing.JComboBox<String> Meses;
@@ -323,5 +456,6 @@ public class FormReportes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
