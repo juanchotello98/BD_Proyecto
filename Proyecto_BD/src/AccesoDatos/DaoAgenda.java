@@ -27,21 +27,19 @@ public class DaoAgenda {
         String sql_guardar;
         int numFilas=0;
 
-        sql_guardar="INSERT INTO agenda (dia, mes, fecha, horario, estado, id_medico)"
+        sql_guardar="INSERT INTO agenda (dia, mes, horario, estado, id_medico) "
                 + "VALUES ('"
                 + agenda.getDia()+"', '"
-                + agenda.getMes()+"', "
-                + agenda.getFecha()+"', "
-                + agenda.getHorario()+"', "
-                + agenda.getEstado()+"', "
+                + agenda.getMes()+"', '"
+                + agenda.getHorario()+"', '"
+                + agenda.getEstado()+"', '"
                 + agenda.getId_medico()+"' "
                 + ")";
         try{
             Connection con= fachada.getConnetion();
             Statement sentencia = con.createStatement();
             
-            numFilas = sentencia.executeUpdate(sql_guardar);            
-            System.out.println("up " + numFilas);
+            numFilas = sentencia.executeUpdate(sql_guardar);
             return numFilas;
             
         }
