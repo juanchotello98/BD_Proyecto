@@ -7,6 +7,8 @@ package AccesoDatos;
 
 import Logica.Camas;
 import Logica.Cita;
+import Logica.Paciente;
+import Logica.Persona;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -173,4 +175,27 @@ public class DaoCita {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
         }
+     
+    public void Buscar(Persona persona,String id,String fecha,String Hora){
+        String sql_select,paciente="";
+        int numFilas=0;
+         sql_select="SELECT persona.nombre,persona.identificacion FROM cita "
+                 + "INNER JOIN persona on persona.identificacion=cita.id_paciente "
+                +  "WHERE id_medico= '"+id+"' "
+                 + "AND fecha = '"+fecha+"' "
+                 + "AND hora ='"+Hora+"' ";
+        try{
+            Connection con= fachada.getConnetion();
+            Statement sentencia = con.createStatement(); 
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            System.out.println("up " + numFilas);
+            
+            while(tabla.next()){
+                persona.setNombre(tabla.getString(1));
+                persona.setIDentificacion(tabla.getString(2));
+                
+            }
+        }catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+    }
 }

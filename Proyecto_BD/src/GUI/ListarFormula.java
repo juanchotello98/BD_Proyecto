@@ -119,13 +119,7 @@ public class ListarFormula extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-       FormFormula formformula = new FormFormula();
-       formformula.setSize(600, 450);
-       formformula.setLocation(0,0);
-       this.removeAll();
-       this.add(formformula, null);
-       this.revalidate();
-       this.repaint();
+       
     }//GEN-LAST:event_AtrasActionPerformed
 
 

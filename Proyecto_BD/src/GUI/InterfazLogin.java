@@ -182,7 +182,7 @@ public class InterfazLogin extends javax.swing.JFrame {
                 admin.setVisible(true);
                 dispose();
             }else{
-                InterfazMedico medico = new InterfazMedico();
+                InterfazMedico medico = new InterfazMedico(account);
                 medico.setVisible(true);
                 dispose();
             }

@@ -7,6 +7,7 @@ package AccesoDatos;
 
 import Logica.Agenda;
 import Logica.Area;
+import Logica.Paciente;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -182,4 +183,35 @@ public class DaoAgenda {
          catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     }
+    
+    
+    public boolean Buscar(String id,String mes,String dia,String hora){
+      String sql_select,estado="";
+        sql_select="SELECT estado FROM agenda "
+                + "WHERE id_medico= '"+id+"' "
+                + "AND dia ='"+dia+"' "
+                + "AND mes ='"+mes+"' "
+                + "AND horario ='"+hora+"' ";
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            
+            JOptionPane.showMessageDialog(null, sql_select);
+            while(tabla.next()){
+                estado=tabla.getString(1);
+            }
+            JOptionPane.showMessageDialog(null, estado);
+            tabla.close();
+            sentencia.close();
+            return estado.equals("Ocupado");
+            
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return false;
+    }
+    
+    
 }

@@ -7,6 +7,7 @@ package Controlador;
 
 import Logica.Causas;
 import AccesoDatos.DaoCausas;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -69,5 +70,10 @@ public class ControladorCausas {
     public void Select_tablacausa(DefaultTableModel modelo)
     {
         daoCausas.Select_tablacausa(modelo);
-    }    
+    } 
+    
+    public void Select_causas(DefaultComboBoxModel modelo){
+        daoCausas.Select_causa(modelo);
+    }
+
 }
