@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoMedicamento;
 import Logica.Medicamento;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -70,6 +71,14 @@ public class ControladorMedicamento {
     
     public void Select_medicamentoTabla(DefaultTableModel model){
         daoMedicamento.Select_medicamentoTabla(model);
+    }
+    
+    public void Select_medica(DefaultComboBoxModel model){
+        daoMedicamento.Select_medica(model);
+    }
+    
+    public String selec_nombre(String id){
+        return daoMedicamento.Select_nombre(id);
     }
     
 }

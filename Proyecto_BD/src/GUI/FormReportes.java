@@ -321,7 +321,7 @@ public class FormReportes extends javax.swing.JPanel {
 
     private void CitasAtendidasMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitasAtendidasMesActionPerformed
         JasperReport jr = null;
-        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\CitasAtendidasMes.jasper";
+        String archivo="C:\\Users\\Kevin\\Documents\\GitHub\\BD_Proyecto\\Proyecto_BD\\src\\Informes\\CitasAtendidasMes.jasper";
         try {
 
             HashMap<String, Object> mapa = new HashMap<String, Object>();

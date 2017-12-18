@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoPacienteCampana;
 import Logica.PacienteCampana;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -51,6 +52,14 @@ public class ControladorPacienteCampana {
         
         return resultado;
         
+    }
+    
+    public void select_codigo(DefaultComboBoxModel model){
+        daoPacienteCampana.select_codigo(model);
+    }
+    
+    public boolean comprobar_asistencia(String id){
+        return daoPacienteCampana.select_asistencia(id);
     }
     
 }
