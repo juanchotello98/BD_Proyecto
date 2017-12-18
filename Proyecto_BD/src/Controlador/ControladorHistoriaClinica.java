@@ -22,11 +22,10 @@ public class ControladorHistoriaClinica {
         daoHistoriaClinica = new DaoHistoriaClinica();
     }
     
-    public int Insert_historiaClinica(String numeroHistoria, String fechaApertura, String idPaciente){
+    public int Insert_historiaClinica(String fechaApertura, String idPaciente){
         
         HistoriaClinica historiaClinica = new HistoriaClinica(); 
         
-        historiaClinica.setNumeroHistoria(numeroHistoria);
         historiaClinica.setFechaApertura(fechaApertura);
         historiaClinica.setIdPaciente(idPaciente);
         

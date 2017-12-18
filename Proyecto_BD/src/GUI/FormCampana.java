@@ -31,6 +31,10 @@ public class FormCampana extends javax.swing.JPanel {
         ImageIcon imagen5=new ImageIcon(getClass().getResource("/Images/tag.png"));
         Icon img5 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
         ListarCampana.setIcon(img5);
+        
+        ImageIcon imagen3=new ImageIcon(getClass().getResource("/Images/tag.png"));
+        Icon img3 = new ImageIcon(imagen5.getImage().getScaledInstance(50,50, Image.SCALE_DEFAULT));
+        jButton1.setIcon(img3);
     }
 
     /**
@@ -45,6 +49,7 @@ public class FormCampana extends javax.swing.JPanel {
         RegistroCampana = new javax.swing.JButton();
         EditarCampana = new javax.swing.JButton();
         ListarCampana = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         RegistroCampana.setText("Registrar Campaña");
         RegistroCampana.addActionListener(new java.awt.event.ActionListener() {
@@ -67,20 +72,27 @@ public class FormCampana extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Pacientes por campaña");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(RegistroCampana)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(EditarCampana)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RegistroCampana)
+                    .addComponent(ListarCampana))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EditarCampana)
+                    .addComponent(jButton1))
                 .addGap(86, 86, 86))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(ListarCampana)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,9 +101,11 @@ public class FormCampana extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistroCampana)
                     .addComponent(EditarCampana))
-                .addGap(42, 42, 42)
-                .addComponent(ListarCampana)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ListarCampana)
+                    .addComponent(jButton1))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,10 +139,15 @@ public class FormCampana extends javax.swing.JPanel {
        this.repaint();
     }//GEN-LAST:event_ListarCampanaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditarCampana;
     private javax.swing.JButton ListarCampana;
     private javax.swing.JButton RegistroCampana;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

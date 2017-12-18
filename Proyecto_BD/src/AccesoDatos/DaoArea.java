@@ -161,8 +161,7 @@ public class DaoArea {
          }
          catch(Exception e){ System.out.println(e);}
     }
-    
-    public void Select_areatabla(DefaultTableModel model){
+   public void Select_areatabla(DefaultTableModel model){
       String sql_select;
         sql_select="SELECT * FROM area ";
          try{

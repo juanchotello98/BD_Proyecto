@@ -177,7 +177,7 @@ public class InterfazLogin extends javax.swing.JFrame {
             //select_interface(control.check_position(password, code));
         } else {
             JOptionPane.showMessageDialog(null, "Bienvenido a que te importac.com.");
-            if(account.equals("9898")){
+            if(account.equals("9998")){
                 InterfazAdministrador admin = new InterfazAdministrador();
                 admin.setVisible(true);
                 dispose();
