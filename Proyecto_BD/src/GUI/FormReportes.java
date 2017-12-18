@@ -224,7 +224,7 @@ public class FormReportes extends javax.swing.JPanel {
 
     private void HistoriaClinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistoriaClinicaActionPerformed
                JasperReport jr = null;
-        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\HistoriaClinica.jasper";
+        String archivo="C:\\Users\\Kevin\\Documents\\GitHub\\BD_Proyecto\\Proyecto_BD\\src\\Informes\\HistoriaClinica.jasper";
         try {
             Map parametro = new HashMap();
             parametro.put("id_paciente", Pacientes.getSelectedItem().toString());
