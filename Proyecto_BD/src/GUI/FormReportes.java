@@ -187,7 +187,7 @@ public class FormReportes extends javax.swing.JPanel {
 
     private void ReporteEmpleadosAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteEmpleadosAreaActionPerformed
        JasperReport jr = null;
-        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\EmpleadosPorArea.jasper";
+        String archivo="C:\\Users\\Kevin\\Documents\\GitHub\\BD_Proyecto\\Proyecto_BD\\src\\Informes\\EmpleadosPorArea.jasper";
         try {
             Map parametro = new HashMap();
 
@@ -208,7 +208,7 @@ public class FormReportes extends javax.swing.JPanel {
 
     private void AgendaPorMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgendaPorMesActionPerformed
         JasperReport jr = null;
-        String archivo="C:\\Users\\Leidy\\OneDrive\\Documents\\BD_Proyecto1\\Proyecto_BD\\src\\Informes\\AgendaMedicaMes.jasper";
+        String archivo="C:\\Users\\Kevin\\Documents\\GitHub\\BD_Proyecto\\Proyecto_BD\\src\\Informes\\AgendaMedicaMes.jasper";
         try {
 
             HashMap<String, Object> map = new HashMap<String, Object>();

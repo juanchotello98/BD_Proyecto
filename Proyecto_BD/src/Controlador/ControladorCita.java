@@ -80,4 +80,24 @@ public class ControladorCita {
         daoCita.Select_tablacita(modelo); 
         
     }
+     
+      public int Update_citatermina(String Idpaciente,String Idmedico,String hora,String fecha,String estado){
+        
+        Cita cita = new Cita();
+        
+        cita.setIdPaciente(Idpaciente);
+        cita.setIdMedico(Idmedico);
+        cita.setHora(hora);
+        cita.setFecha(fecha);
+        cita.setEstado(estado);
+        
+        System.out.println("Se actualizara un registro de cita");
+        
+        int resultado = daoCita.Update_citatermina(cita);
+        
+        System.out.println("Se actualizo un registro de cita");
+        
+        return resultado;
+        
+    }
 }

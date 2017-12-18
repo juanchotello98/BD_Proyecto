@@ -25,19 +25,17 @@ public class RegistroFormula extends javax.swing.JPanel {
         ControladorFormula controlformula = new ControladorFormula();
         SimpleDateFormat formato = new SimpleDateFormat("d/MM/yyyy");
         Date fechacale;
+        String idpaciente,idmedico;
         /**
      * Creates new form PerfilEnfermera
      */
-    public RegistroFormula() {
-        
+    public RegistroFormula(String idpaciente,String idmedico) {
+        this.idpaciente=idpaciente;
+        this.idmedico=idmedico;
         initComponents();
-        DefaultComboBoxModel Paciente,Jefes;
-        Paciente = new DefaultComboBoxModel();
-        Jefes = new DefaultComboBoxModel();
-        controlmedico.Select_idmedios(Jefes);
-        controlpaciente.Select_idpaciente(Paciente);
-        this.Medicos.setModel(Jefes);
-        this.Pacientes.setModel(Paciente);
+        Medico.setText(idmedico);
+        Paciente.setText(idpaciente);
+        
     }
 
     /**
@@ -58,9 +56,10 @@ public class RegistroFormula extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         Atras = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        Medicos = new javax.swing.JComboBox<>();
-        Pacientes = new javax.swing.JComboBox<>();
         Fecha = new com.toedter.calendar.JDateChooser();
+        formula_medicamento = new javax.swing.JButton();
+        Paciente = new javax.swing.JTextField();
+        Medico = new javax.swing.JTextField();
 
         jLabel1.setText("Identificacion Formula :");
 
@@ -87,6 +86,12 @@ public class RegistroFormula extends javax.swing.JPanel {
 
         jLabel6.setText("Fecha:");
 
+        formula_medicamento.setText("Formula Medicamento");
+
+        Paciente.setEditable(false);
+
+        Medico.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,25 +99,32 @@ public class RegistroFormula extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Atras)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Guardar))
-                    .addComponent(jLabel11)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(formula_medicamento)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6))
-                        .addGap(146, 146, 146)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Pacientes, 0, 123, Short.MAX_VALUE)
-                            .addComponent(Medicos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(IdFormula)
-                            .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Atras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Guardar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel6))
+                                .addGap(146, 146, 146)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IdFormula)
+                                    .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                    .addComponent(Paciente)
+                                    .addComponent(Medico))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -124,19 +136,21 @@ public class RegistroFormula extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IdFormula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Medicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Medico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addGap(100, 100, 100)
+                        .addGap(47, 47, 47)
+                        .addComponent(formula_medicamento)
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Guardar)
                             .addComponent(Atras))
@@ -158,13 +172,13 @@ public class RegistroFormula extends javax.swing.JPanel {
               }else{
                     fechacale = Fecha.getDate();
                     formula=IdFormula.getText();
-                    idPaciente=Pacientes.getSelectedItem().toString();
-                    idMedico=Medicos.getSelectedItem().toString();
+                    idPaciente=idpaciente;
+                    idMedico=idmedico;
                     String  fecha=formato.format(fechacale);
 
                     controlformula.Insert_formula(formula, idMedico, idPaciente,fecha);
                     
-                    FormFormula formformula = new FormFormula();
+                    FormFormula formformula = new FormFormula(idpaciente,idmedico);
                     formformula.setSize(600, 450);
                     formformula.setLocation(0, 0);
                     this.removeAll();
@@ -181,7 +195,7 @@ public class RegistroFormula extends javax.swing.JPanel {
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
-       FormFormula formformula = new FormFormula();
+       FormFormula formformula = new FormFormula(idpaciente,idmedico);
        formformula.setSize(600, 450);
        formformula.setLocation(0,0);
        this.removeAll();
@@ -196,8 +210,9 @@ public class RegistroFormula extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JButton Guardar;
     private javax.swing.JTextField IdFormula;
-    private javax.swing.JComboBox<String> Medicos;
-    private javax.swing.JComboBox<String> Pacientes;
+    private javax.swing.JTextField Medico;
+    private javax.swing.JTextField Paciente;
+    private javax.swing.JButton formula_medicamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
