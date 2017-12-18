@@ -198,4 +198,28 @@ public class DaoCita {
         }catch(SQLException e){ System.out.println(e); }
          catch(Exception e){ System.out.println(e); }
     }
+    
+     public int Update_citatermina(Cita cita){
+        String sql_select;
+        int numFilas=0;
+        sql_select="UPDATE cita SET "
+                + "estado = '"+cita.getEstado()+"' "
+                + "WHERE id_paciente= '"+cita.getIdPaciente()+"' "
+                + "AND id_medico ='"+cita.getIdMedico()+"' "
+                + "AND hora = '"+cita.getHora()+"' "
+                + "AND fecha = '"+cita.getFecha()+"' ";
+        
+         try{
+          
+            Connection conn= fachada.getConnetion();
+            Statement sentencia = conn.createStatement();
+            numFilas = sentencia.executeUpdate(sql_select);
+            
+            return numFilas;
+         }
+         catch(SQLException e){ System.out.println(e); }
+         catch(Exception e){ System.out.println(e); }
+         return -1;
+         
+    }
 }

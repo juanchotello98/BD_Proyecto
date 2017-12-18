@@ -7,6 +7,7 @@ package Controlador;
 
 import AccesoDatos.DaoCama;
 import Logica.Camas;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -69,6 +70,10 @@ public class ControladorCamas {
     
     public void Select_tablacamas(DefaultTableModel model){
         daoCama.Select_tablacamas(model);
+    }
+    
+    public void Select_camas(DefaultComboBoxModel model){
+        daoCama.Select_camas(model);
     }
     
 }

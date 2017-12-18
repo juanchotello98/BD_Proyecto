@@ -177,9 +177,9 @@ public class InterfazLogin extends javax.swing.JFrame {
             //select_interface(control.check_position(password, code));
         } else {
             JOptionPane.showMessageDialog(null, "Bienvenido a que te importa.com.");
-            if(account.equals("1144123456")){
-                InterfazAdministrador admin = new InterfazAdministrador();
-                admin.setVisible(true);
+            if(account.equals("9898")){
+                InterfazAdministrador gui = new InterfazAdministrador();
+                gui.setVisible(true);
                 dispose();
             }else{
                 InterfazMedico medico = new InterfazMedico(account);

@@ -7,6 +7,7 @@ package GUI;
 
 import Controlador.ControladorAgenda;
 import Controlador.ControladorCausas;
+import Controlador.ControladorCita;
 import Controlador.ControladorRegistro;
 import Logica.Paciente;
 import Logica.Persona;
@@ -24,6 +25,7 @@ public class InterfazConsultorio extends javax.swing.JPanel {
     ControladorAgenda controlagenda = new ControladorAgenda();
     ControladorCausas controlcausas = new ControladorCausas();
     ControladorRegistro controlregistro = new ControladorRegistro();
+    ControladorCita controlCita  = new ControladorCita();
     Persona persona = new Persona();
     /**
      * Creates new form InterfazConsultorio
@@ -69,6 +71,8 @@ public class InterfazConsultorio extends javax.swing.JPanel {
         Agregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Descripcion = new javax.swing.JTextArea();
+        Terminar = new javax.swing.JButton();
+        estadoccita = new javax.swing.JComboBox<>();
 
         Horario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00:00", "8:30:00", "9:00:00", "9:30:00", "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00", "19:30:00", "20:00:00", "20:30:00", "21:00:00", "21:30:00" }));
 
@@ -136,6 +140,15 @@ public class InterfazConsultorio extends javax.swing.JPanel {
         Descripcion.setRows(5);
         jScrollPane1.setViewportView(Descripcion);
 
+        Terminar.setText("Terminar Consulta");
+        Terminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TerminarActionPerformed(evt);
+            }
+        });
+
+        estadoccita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asistida", "No Asistida" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,7 +191,12 @@ public class InterfazConsultorio extends javax.swing.JPanel {
                                 .addComponent(Causas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(4, 4, 4)
                                 .addComponent(Agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(Terminar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(estadoccita, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -211,7 +229,11 @@ public class InterfazConsultorio extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Recetar_Medicamentos))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Terminar)
+                    .addComponent(estadoccita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -238,11 +260,20 @@ public class InterfazConsultorio extends javax.swing.JPanel {
     }//GEN-LAST:event_Recetar_MedicamentosMouseClicked
 
     private void Asignar_CamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Asignar_CamaMouseClicked
-
+        
     }//GEN-LAST:event_Asignar_CamaMouseClicked
 
     private void Asignar_CamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Asignar_CamaActionPerformed
-        // TODO add your handling code here:
+        Calendar calendario = new GregorianCalendar();
+        int año = calendario.get(Calendar.YEAR);
+        String fechacama = año+"-"+Mes.getValue().toString()+"-"+Dia.getValue().toString();
+        Paciente_Cama formAgenda = new Paciente_Cama(idpaciente,fechacama);
+        formAgenda.setSize(330, 180);
+        formAgenda.setLocation(0,0);
+        JFrame ventana = new JFrame();
+        ventana.setSize(330, 250);
+        ventana.setContentPane(formAgenda);
+        ventana.setVisible(true);
     }//GEN-LAST:event_Asignar_CamaActionPerformed
 
     private void Recetar_MedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Recetar_MedicamentosActionPerformed
@@ -265,6 +296,13 @@ public class InterfazConsultorio extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_AgregarActionPerformed
 
+    private void TerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TerminarActionPerformed
+        Calendar calendario = new GregorianCalendar();
+        int año = calendario.get(Calendar.YEAR);
+        String fechac=año+"-"+Mes.getValue().toString()+"-"+Dia.getValue().toString();
+        controlCita.Update_citatermina(idpaciente, idmedico, Horario.getSelectedItem().toString(), fechac, estadoccita.getSelectedItem().toString());
+    }//GEN-LAST:event_TerminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar;
@@ -279,6 +317,8 @@ public class InterfazConsultorio extends javax.swing.JPanel {
     private javax.swing.JSpinner Mes;
     private javax.swing.JTextField Nombre;
     private javax.swing.JRadioButton Recetar_Medicamentos;
+    private javax.swing.JButton Terminar;
+    private javax.swing.JComboBox<String> estadoccita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
