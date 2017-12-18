@@ -7,6 +7,7 @@ package AccesoDatos;
 
 import Logica.HistoriaClinica;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -67,5 +68,25 @@ public class DaoHistoriaClinica {
          catch(Exception e){ System.out.println(e); }
          return -1;
          
+    }
+     
+     public String Select_idhistoria(String identificacion){
+        String sql_select,id="";
+        sql_select="SELECT numero_historia FROM historiaclinica "
+                + " WHERE id_paciente ='"+identificacion+"' ";// Where nombre_equipo LIKE '" + indi + "%'";
+       
+         try{
+            Connection conn= fachada.getConnetion();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while(tabla.next()){
+                id=tabla.getString(1);
+            }
+            return id;
+          
+         }
+         catch(Exception e){ System.out.println(e);}
+         return "";
     }
 }
